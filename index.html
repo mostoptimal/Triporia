@@ -1,0 +1,3677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triporia - Essential Travel Apps & Websites 2026</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+    <meta name="description"
+        content="Essential apps and websites for travelers. Pre-trip planning and on-the-ground apps for 60+ countries. Tips, useful info, and live clocks.">
+    <meta name="keywords"
+        content="travel apps, travel websites, country guide, trip planning, travel tools, essential apps by country">
+    <meta name="author" content="Triporia">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Triporia - Essential Travel Apps & Websites 2026">
+    <meta property="og:description"
+        content="Essential apps and websites for travelers. Pre-trip planning and on-the-ground apps for 60+ countries.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://triporia.app">
+    <meta property="og:image" content="https://triporia.app/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Triporia - Essential Travel Apps 2026">
+    <meta name="twitter:description" content="Essential apps and websites for travelers in 60+ countries.">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/1780cc454e.js" crossorigin="anonymous"></script>
+    <style>
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-dark);
+            color: white;
+            padding: 8px 16px;
+            z-index: 1000;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e8eef4;
+            --bg-hover: #f1f7fd;
+            --text-primary: #1e2b37;
+            --text-secondary: #4a5c6b;
+            --text-muted: #6f8fa0;
+            --accent: #2a6f8f;
+            --accent-dark: #0b3954;
+            --accent-light: rgba(42, 111, 143, 0.1);
+            --border-color: #dde9f2;
+            --shadow: rgba(0, 0, 0, 0.15);
+            --card-bg: #f9fcff;
+            --card-border: #dde9f2;
+            --tip-bg: #f1f7fd;
+            --disclaimer-bg: #fff5ef;
+            --warning: #d9734c;
+            --success: #146b54;
+            --warning-text: #a24f2e;
+            --hero-icon: linear-gradient(135deg, #2a6f8f, #0b3954);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a2332;
+            --bg-secondary: #243044;
+            --bg-tertiary: #2d3d52;
+            --bg-hover: #34455a;
+            --text-primary: #e8eef4;
+            --text-secondary: #a8b8c8;
+            --text-muted: #7a8a9a;
+            --accent: #4a9fcf;
+            --accent-dark: #3d8ab8;
+            --accent-light: rgba(74, 159, 207, 0.15);
+            --border-color: #3d4d62;
+            --shadow: rgba(0, 0, 0, 0.4);
+            --card-bg: #2d3d52;
+            --card-border: #3d4d62;
+            --tip-bg: #2d3d52;
+            --disclaimer-bg: #3d3445;
+            --warning: #e09070;
+            --success: #5cb87a;
+            --warning-text: #e0a080;
+            --hero-icon: linear-gradient(135deg, #4a9fcf, #3d8ab8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, rgba(11, 57, 84, 0.88), rgba(30, 79, 102, 0.82)),
+                url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80') center/cover no-repeat fixed;
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-attachment: fixed;
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, rgba(20, 35, 55, 0.95), rgba(40, 60, 80, 0.9)),
+                url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80') center/cover no-repeat fixed;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow:
+                0 8px 32px var(--shadow),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+            animation: fadeIn 0.5s ease-out;
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .container {
+            background: rgba(36, 48, 68, 0.95);
+        }
+
+        .main-content {
+            min-width: 0;
+        }
+
+        .todo-sidebar {
+            background: var(--bg-tertiary);
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+            position: sticky;
+            top: 1rem;
+            transition: all 0.3s ease;
+        }
+        }
+
+        .todo-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px dashed var(--border-color);
+        }
+
+        .todo-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .todo-progress {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            background: var(--accent-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        .todo-category {
+            margin-bottom: 0.75rem;
+        }
+
+        .todo-category-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .todo-category-title i {
+            color: var(--accent);
+            font-size: 0.75rem;
+        }
+
+        .todo-items {
+            list-style: none;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .todo-item:hover {
+            color: var(--accent-dark);
+        }
+
+        .todo-item input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .todo-item.checked {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .todo-item.checked .todo-item-text {
+            text-decoration: line-through;
+        }
+
+        .todo-add {
+            display: flex;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 2px dashed var(--border-color);
+        }
+
+        .todo-add input {
+            flex: 1;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: inherit;
+            outline: none;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .todo-add input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px var(--accent-light);
+        }
+
+        .todo-add button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .todo-add button:hover {
+            background: var(--accent-dark);
+        }
+
+        .todo-category-select {
+            width: 100%;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: inherit;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .todo-sidebar {
+                position: static;
+                order: -1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px dashed rgba(42, 111, 143, 0.2);
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--hero-icon);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--accent-dark);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top:focus {
+            outline: 3px solid #f5e56b;
+            outline-offset: 2px;
+        }
+
+        .country-pill {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.35rem 0.65rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px rgba(0, 20, 30, 0.08);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .country-pill:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(20, 60, 100, 0.15);
+        }
+
+        .country-pill:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .country-pill.active {
+            background: var(--accent-dark);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--accent-dark);
+            line-height: 1.2;
+        }
+
+        .hero-text .tagline {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--accent-light);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        .hero-badge i {
+            color: var(--accent);
+        }
+
+        .hero-badge span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .hero-text .tagline {
+            font-size: 0.85rem;
+            color: #4a6b7c;
+            margin-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        [data-theme="dark"] .hero-text .tagline {
+            color: #8fa4b5;
+        }
+
+        .theme-toggle {
+            background: var(--accent-light);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+            color: var(--accent-dark);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent);
+        }
+
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: inline; }
+
+        [data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+        .hero-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, rgba(42, 111, 143, 0.12), rgba(11, 57, 84, 0.08));
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #0b3954;
+            border: 1px solid rgba(42, 111, 143, 0.2);
+        }
+
+        .hero-badge i {
+            color: #2a6f8f;
+        }
+
+        .hero-badge span {
+            color: #2a6f8f;
+            font-weight: 700;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--accent-light);
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+
+        .stat-item:hover {
+            background: var(--bg-hover);
+            transform: translateY(-2px);
+        }
+
+        .stat-item i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: var(--accent-dark);
+            font-size: 0.85rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Search & Filter */
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 150px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.4rem 0.6rem 0.4rem 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .region-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .region-btn:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+        }
+
+        .region-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .region-btn:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .search-box input:focus {
+            border-color: #2a6f8f;
+            box-shadow: 0 0 0 3px rgba(42, 111, 143, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2a6f8f;
+            font-size: 0.8rem;
+        }
+
+        .region-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .region-btn {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(42, 111, 143, 0.25);
+            border-radius: 20px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #1e4f66;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .region-btn:hover {
+            background: rgba(42, 111, 143, 0.15);
+            border-color: rgba(42, 111, 143, 0.5);
+        }
+
+        .region-btn.active {
+            background: #2a6f8f;
+            border-color: #2a6f8f;
+            color: white;
+        }
+
+        .region-btn:focus {
+            outline: 2px solid #2a6f8f;
+            outline-offset: 2px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: #1e4f66;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #0b3954;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top:focus {
+            outline: 3px solid #f5e56b;
+            outline-offset: 2px;
+        }
+
+        /* pills row */
+        .region-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            padding: 0.4rem 0 0.75rem 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .country-pill {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(42, 111, 143, 0.25);
+            border-radius: 50px;
+            padding: 0.35rem 0.65rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: #1e3b4a;
+            box-shadow: 0 2px 8px rgba(0, 20, 30, 0.08);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .country-pill:hover {
+            background: rgba(42, 111, 143, 0.12);
+            border-color: rgba(42, 111, 143, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(20, 60, 100, 0.15);
+        }
+
+        .country-pill:focus {
+            outline: 2px solid #2a6f8f;
+            outline-offset: 2px;
+        }
+
+        .country-pill.active {
+            background: #1e4f66;
+            border-color: #0d3140;
+            color: white;
+            box-shadow: 0 3px 8px rgba(30, 79, 102, 0.25);
+        }
+
+        .info-panel {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 12px var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .country-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            border-bottom: 2px dashed #cbdae7;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .country-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .region-tag {
+            background: var(--accent-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .live-clock {
+            background: var(--accent-dark);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .live-clock i {
+            font-size: 0.85rem;
+            color: #f5e56b;
+        }
+
+        .tip-box {
+            background: var(--tip-bg);
+            border-left: 4px solid var(--accent);
+        }
+
+        .disclaimer-box {
+            background: var(--disclaimer-bg);
+            border-left: 4px solid var(--warning);
+        }
+
+        .tip-box h3,
+        .disclaimer-box h3,
+        .useful-box h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--accent-dark);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .disclaimer-box h3 {
+            color: var(--warning-text);
+        }
+
+        .tip-box li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .disclaimer-box li i {
+            color: var(--warning);
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .useful-box {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .useful-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .useful-item i {
+            font-size: 0.95rem;
+            color: var(--accent);
+            width: 1.2rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--accent), var(--accent-dark)) 1;
+        }
+
+        .region-tag {
+            background: #e0edf5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1f5570;
+        }
+
+        .live-clock {
+            background: #1f4c66;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .live-clock i {
+            font-size: 0.85rem;
+            color: #f5e56b;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-box,
+        .disclaimer-box {
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .tip-box {
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent);
+        }
+
+        .disclaimer-box {
+            background: var(--bg-tertiary);
+            border-left: 4px solid #d9734c;
+        }
+
+        .tip-box h3,
+        .disclaimer-box h3,
+        .useful-box h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #1b4b63;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .disclaimer-box h3 {
+            color: #a24f2e;
+        }
+
+        .tip-box ul,
+        .disclaimer-box ul {
+            list-style: none;
+        }
+
+        .tip-box li,
+        .disclaimer-box li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            font-size: 0.85rem;
+        }
+
+        .tip-box li i {
+            color: #2a6f8f;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .disclaimer-box li i {
+            color: #c65d38;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .useful-box {
+            background: #eaf3f3;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .useful-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .useful-item i {
+            font-size: 0.95rem;
+            color: #1f6c7a;
+            width: 1.2rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem 0;
+            color: #0b3954;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, #2a6f8f, #0b3954) 1;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .app-card:hover {
+            background: var(--bg-secondary);
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .app-card:focus {
+            outline: 2px solid #2a6f8f;
+            outline-offset: 2px;
+        }
+
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            object-fit: contain;
+            background: white;
+            padding: 2px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-card-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .badge-web {
+            background: var(--accent-light);
+            color: var(--accent-dark);
+        }
+
+        .badge-app {
+            background: #c7e3d9;
+            color: var(--success);
+        }
+
+        [data-theme="dark"] .badge-app {
+            background: #2d4a3d;
+            color: #7ccda3;
+        }
+
+        .app-card-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-card-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .app-card-tip i {
+            color: var(--accent);
+            margin-top: 2px;
+        }
+
+        .tooltip-icon {
+            margin-left: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            cursor: help;
+            transition: color 0.2s;
+        }
+
+        .tooltip-icon:hover {
+            color: var(--accent-dark);
+        }
+
+        .footer {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px dashed var(--border-color);
+            padding-top: 1.25rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .footer-divider {
+            color: var(--accent);
+        }
+
+        .footer-center a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-center a:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        .back-to-top-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            background: var(--accent-light);
+            transition: all 0.2s;
+        }
+
+        .back-to-top-link:hover {
+            background: var(--bg-hover);
+            color: var(--accent-dark);
+        }
+
+        .footer .github {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--text-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .footer .github:hover {
+            background: #0f1f2c;
+            transform: scale(1.02);
+        }
+
+        .no-data {
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .badge-web,
+        .badge-app {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            text-transform: uppercase;
+        }
+
+        .badge-web {
+            background: #d3e2ed;
+            color: #204c63;
+        }
+
+        .badge-app {
+            background: #c7e3d9;
+            color: #146b54;
+        }
+
+        .app-card-desc {
+            color: #4a5c6b;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-card-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: #6f8fa0;
+            font-style: italic;
+        }
+
+        .app-card-tip i {
+            color: #2a6f8f;
+            margin-top: 2px;
+        }
+
+        .tooltip-icon {
+            margin-left: 8px;
+            color: #6f8fa0;
+            font-size: 0.9rem;
+            cursor: help;
+            transition: color 0.2s;
+        }
+
+        .tooltip-icon:hover {
+            color: #1e4f66;
+        }
+
+        .footer {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px dashed rgba(11, 57, 84, 0.15);
+            padding-top: 1.25rem;
+            color: #4a6b7c;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-divider {
+            color: #2a6f8f;
+        }
+
+        .footer-center {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-center a {
+            color: #2a6f8f;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-center a:hover {
+            color: #0b3954;
+            text-decoration: underline;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .back-to-top-link {
+            color: #2a6f8f;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            background: rgba(42, 111, 143, 0.1);
+            transition: all 0.2s;
+        }
+
+        .back-to-top-link:hover {
+            background: rgba(42, 111, 143, 0.2);
+            color: #0b3954;
+        }
+
+        .footer .github {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1e2b37;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .footer .github i {
+            font-size: 1.2rem;
+        }
+
+        .footer .github:hover {
+            background: #0f1f2c;
+            transform: scale(1.02);
+        }
+
+        .no-data {
+            font-style: italic;
+            color: #6f8fa0;
+        }
+
+        @media (max-width: 900px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .hero {
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .hero-top {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .hero-brand {
+                width: 100%;
+            }
+
+            .hero-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+                border-radius: 12px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 0.75rem;
+            }
+
+            .hero-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.75rem;
+            }
+
+            .hero-stats {
+                gap: 0.5rem;
+            }
+
+            .stat-item {
+                padding: 0.3rem 0.5rem;
+                gap: 0.35rem;
+            }
+
+            .stat-item i {
+                font-size: 0.75rem;
+            }
+
+            .stat-value {
+                font-size: 0.75rem;
+            }
+
+            .stat-label {
+                font-size: 0.6rem;
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .hero .tagline {
+                font-size: 0.75rem;
+            }
+
+            .hero .tagline i {
+                display: none;
+            }
+
+            .controls-row {
+                gap: 0.4rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .search-box input {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.5rem 0.35rem 1.8rem;
+            }
+
+            .region-filter {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .region-btn {
+                font-size: 0.6rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .region-row {
+                gap: 0.35rem;
+                padding: 0.35rem 0 0.75rem 0;
+            }
+
+            .country-pill {
+                padding: 0.3rem 0.55rem;
+                font-size: 0.65rem;
+                gap: 0.25rem;
+            }
+
+            .info-panel {
+                padding: 0.85rem;
+                border-radius: 12px;
+            }
+
+            .country-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+                padding-bottom: 0.6rem;
+            }
+
+            .country-header h2 {
+                font-size: 1.2rem;
+            }
+
+            .country-header>div {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .region-tag,
+            .live-clock {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.6rem;
+            }
+
+            .grid-2col {
+                gap: 0.75rem;
+            }
+
+            .tip-box,
+            .disclaimer-box {
+                padding: 0.75rem;
+            }
+
+            .tip-box h3,
+            .disclaimer-box h3 {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .tip-box li,
+            .disclaimer-box li {
+                font-size: 0.75rem;
+                margin-bottom: 0.4rem;
+                gap: 0.4rem;
+            }
+
+            .tip-box li i,
+            .disclaimer-box li i {
+                font-size: 0.75rem;
+            }
+
+            .useful-box {
+                padding: 0.6rem 0.75rem;
+                gap: 0.5rem;
+            }
+
+            .useful-item {
+                font-size: 0.7rem;
+            }
+
+            .useful-item i {
+                font-size: 0.8rem;
+                width: 1rem;
+            }
+
+            .section-title {
+                font-size: 0.9rem;
+                margin: 1rem 0 0.6rem 0;
+            }
+
+            .app-card {
+                padding: 0.7rem;
+            }
+
+            .app-card-name {
+                font-size: 0.8rem;
+            }
+
+            .app-card-desc {
+                font-size: 0.7rem;
+            }
+
+            .app-card-tip {
+                font-size: 0.7rem;
+            }
+
+            .badge-web,
+            .badge-app {
+                font-size: 0.55rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                padding-top: 1rem;
+                font-size: 0.7rem;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .footer-divider {
+                display: none;
+            }
+
+            .footer-center {
+                gap: 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            .footer-right {
+                width: 100%;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .footer .github {
+                width: auto;
+                justify-content: center;
+                padding: 0.4rem 0.75rem;
+                font-size: 0.7rem;
+            }
+
+            .footer .github i {
+                font-size: 1rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="container" id="main-content">
+        <div class="main-content">
+            <header class="hero">
+                <div class="hero-top">
+                    <div class="hero-brand">
+                        <div class="hero-icon">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <div class="hero-text">
+                            <h1>Triporia</h1>
+                            <p class="tagline">Essential apps & websites for the 2026 traveler</p>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                            <span class="icon-moon">🌙</span>
+                            <span class="icon-sun">☀️</span>
+                        </button>
+                        <span class="hero-badge">
+                            <i class="fas fa-globe"></i>
+                            <span id="countryCountHeader">60+</span> Countries
+                        </span>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span class="stat-value">200+</span>
+                        <span class="stat-label">Websites</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span class="stat-value">300+</span>
+                        <span class="stat-label">Apps</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span class="stat-value">Live</span>
+                        <span class="stat-label">Clocks</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-wifi"></i>
+                        <span class="stat-value">Offline</span>
+                        <span class="stat-label">Ready</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="controls-row">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="countrySearch" placeholder="Search countries..."
+                        aria-label="Search countries">
+                </div>
+                <div class="region-filter" role="group" aria-label="Filter by region">
+                    <button class="region-btn active" data-region="all">All</button>
+                    <button class="region-btn" data-region="International">🌐 International</button>
+                    <button class="region-btn" data-region="Europe">Europe</button>
+                    <button class="region-btn" data-region="Asia">Asia</button>
+                    <button class="region-btn" data-region="Americas">Americas</button>
+                    <button class="region-btn" data-region="Africa">Africa</button>
+                    <button class="region-btn" data-region="Middle East">Middle East</button>
+                    <button class="region-btn" data-region="Oceania">Oceania</button>
+                </div>
+            </div>
+
+            <div id="countryPills" class="region-row" role="listbox" aria-label="Select a country"></div>
+
+            <div id="infoPanel" class="info-panel">
+                <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                    <i class="fas fa-spinner fa-pulse fa-2x"></i>
+                    <p>loading destinations...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="todo-sidebar">
+            <div class="todo-header">
+                <h3><i class="fas fa-check-square"></i> Travel Checklist</h3>
+                <span class="todo-progress" id="todoProgress">0/0</span>
+            </div>
+
+            <div id="todoListContainer"></div>
+
+            <div class="todo-add">
+                <div style="width: 100%;">
+                    <select class="todo-category-select" id="todoCategorySelect">
+                        <option value="documents">📄 Documents</option>
+                        <option value="money">💰 Money</option>
+                        <option value="electronics">📱 Electronics</option>
+                        <option value="clothing">👕 Clothing</option>
+                        <option value="health">💊 Health</option>
+                        <option value="misc">📦 Misc</option>
+                    </select>
+                    <div style="display: flex; gap: 0.4rem;">
+                        <input type="text" id="todoNewItem" placeholder="Add item...">
+                        <button id="todoAddBtn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer" id="footer">
+            <div class="footer-left">
+                <span><i class="far fa-copyright"></i> 2026 · Triporia</span>
+                <span class="footer-divider">·</span>
+                <span id="statsText"><i class="fas fa-globe"></i> <span id="countryCount">60+</span> countries · <span
+                        id="appCount">500+</span> apps</span>
+            </div>
+            <div class="footer-center">
+                <a href="#international"
+                    onclick="document.querySelector('[data-key=\'international\']').click(); return false;">🌐
+                    International</a>
+                <a href="#europe" onclick="document.querySelector('[data-key=\'france\']').click(); return false;">🇪🇺
+                    Europe</a>
+                <a href="#asia" onclick="document.querySelector('[data-key=\'japan\']').click(); return false;">🌏
+                    Asia</a>
+                <a href="#americas" onclick="document.querySelector('[data-key=\'usa\']').click(); return false;">🌎
+                    Americas</a>
+            </div>
+            <div class="footer-right">
+                <a href="#" class="back-to-top-link"
+                    onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+                <a href="https://github.com/anomalyco/triporia" class="github" id="githubLink" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> <span>star / fork</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Triporia",
+    "description": "Essential apps and websites for travelers. Pre-trip planning and on-the-ground apps for 45+ countries.",
+    "url": "https://globaltriage.app",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Triporia"
+    }
+}
+</script>
+
+    <script>
+        (function () {
+            // ---------- THEME TOGGLE ----------
+            function setTheme(theme) {
+                try {
+                    localStorage.setItem('triporiaTheme', theme);
+                } catch (e) { }
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+
+            function initTheme() {
+                const saved = localStorage.getItem('triporiaTheme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setTheme(saved || (prefersDark ? 'dark' : 'light'));
+            }
+
+            initTheme();
+
+            document.getElementById('themeToggle').addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            });
+
+            // ---------- TRAVEL TODO LIST ----------
+            const defaultTodos = {
+                documents: [
+                    { text: "Passport", checked: false },
+                    { text: "Visa", checked: false },
+                    { text: "Travel insurance", checked: false },
+                    { text: "Flight tickets", checked: false },
+                    { text: "Hotel reservations", checked: false },
+                    { text: "ID card", checked: false },
+                    { text: "Driving license", checked: false }
+                ],
+                money: [
+                    { text: "Credit cards", checked: false },
+                    { text: "Cash (local currency)", checked: false },
+                    { text: "Travel card (Wise/Revolut)", checked: false },
+                    { text: "Emergency cash backup", checked: false }
+                ],
+                electronics: [
+                    { text: "Phone charger", checked: false },
+                    { text: "Power adapter", checked: false },
+                    { text: "Portable battery", checked: false },
+                    { text: "Headphones", checked: false },
+                    { text: "Camera", checked: false },
+                    { text: "E-reader/Tablet", checked: false }
+                ],
+                clothing: [
+                    { text: "Underwear", checked: false },
+                    { text: "Comfortable shoes", checked: false },
+                    { text: "Weather-appropriate clothes", checked: false },
+                    { text: "Swimwear", checked: false },
+                    { text: "Sleepwear", checked: false }
+                ],
+                health: [
+                    { text: "Prescription meds", checked: false },
+                    { text: "First aid kit", checked: false },
+                    { text: "Sunscreen", checked: false },
+                    { text: "Insect repellent", checked: false },
+                    { text: "Hand sanitizer", checked: false }
+                ],
+                misc: [
+                    { text: "Sunglasses", checked: false },
+                    { text: "Umbrella/rain gear", checked: false },
+                    { text: "Day bag/backpack", checked: false },
+                    { text: "Toiletries", checked: false },
+                    { text: "Travel pillow", checked: false }
+                ]
+            };
+
+            const categoryIcons = {
+                documents: 'fa-passport',
+                money: 'fa-money-bill-wave',
+                electronics: 'fa-mobile-alt',
+                clothing: 'fa-tshirt',
+                health: 'fa-pills',
+                misc: 'fa-box'
+            };
+
+            function loadTodos() {
+                try {
+                    const saved = localStorage.getItem('triporiaTodos');
+                    return saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(defaultTodos));
+                } catch (e) {
+                    return JSON.parse(JSON.stringify(defaultTodos));
+                }
+            }
+
+            function saveTodos(todos) {
+                try {
+                    localStorage.setItem('triporiaTodos', JSON.stringify(todos));
+                } catch (e) { }
+            }
+
+            let todos = loadTodos();
+
+            function renderTodos() {
+                const container = document.getElementById('todoListContainer');
+                let html = '';
+                let total = 0;
+                let checked = 0;
+
+                for (const [category, items] of Object.entries(todos)) {
+                    total += items.length;
+                    const checkedCount = items.filter(i => i.checked).length;
+                    checked += checkedCount;
+
+                    html += `
+                        <div class="todo-category">
+                            <div class="todo-category-title">
+                                <i class="fas ${categoryIcons[category]}"></i>
+                                ${category.charAt(0).toUpperCase() + category.slice(1)} (${checkedCount}/${items.length})
+                            </div>
+                            <ul class="todo-items">
+                                ${items.map((item, idx) => `
+                                    <li class="todo-item ${item.checked ? 'checked' : ''}" data-category="${category}" data-index="${idx}">
+                                        <input type="checkbox" ${item.checked ? 'checked' : ''}>
+                                        <span class="todo-item-text">${item.text}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+
+                container.innerHTML = html;
+                document.getElementById('todoProgress').textContent = `${checked}/${total}`;
+
+                container.querySelectorAll('.todo-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        if (e.target.type !== 'checkbox') {
+                            const checkbox = item.querySelector('input');
+                            checkbox.checked = !checkbox.checked;
+                        }
+                        const cat = item.dataset.category;
+                        const idx = parseInt(item.dataset.index);
+                        todos[cat][idx].checked = item.querySelector('input').checked;
+                        saveTodos(todos);
+                        renderTodos();
+                    });
+
+                    item.querySelector('input').addEventListener('change', () => {
+                        const cat = item.dataset.category;
+                        const idx = parseInt(item.dataset.index);
+                        todos[cat][idx].checked = item.querySelector('input').checked;
+                        saveTodos(todos);
+                        renderTodos();
+                    });
+                });
+            }
+
+            document.getElementById('todoAddBtn').addEventListener('click', () => {
+                const input = document.getElementById('todoNewItem');
+                const category = document.getElementById('todoCategorySelect').value;
+                const text = input.value.trim();
+                if (text) {
+                    todos[category].push({ text: text, checked: false });
+                    saveTodos(todos);
+                    renderTodos();
+                    input.value = '';
+                }
+            });
+
+            document.getElementById('todoNewItem').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    document.getElementById('todoAddBtn').click();
+                }
+            });
+
+            renderTodos();
+
+            // ---------- ENHANCED COUNTRY DATA (flags, timezones, extended lists, tooltips) ----------
+            const countriesData = {
+                international: {
+                    name: "International Apps", flag: "🌐", region: "International", timezone: "UTC",
+                    tips: ["These apps work in most countries worldwide.", "Download before your trip for offline access.", "Check local alternatives for better coverage."],
+                    disclaimers: ["Some apps may have limited functionality in certain countries.", "Always have backup options."],
+                    useful: { capital: "Global", currency: "Various", plug: "Various", emergency: "112" },
+                    preTrip: [],
+                    onGround: []
+                },
+                france: {
+                    name: "France", flag: "🇫🇷", region: "Europe", timezone: "Europe/Paris",
+                    tips: ["Learn a few French pleasantries – 'bonjour' goes a long way.", "Validate all train tickets before boarding (orange composteurs).", "Many museums close on Tuesdays; book slots online.", "Dinner is usually after 7:30pm.", "Prefix +33 when calling from abroad.", "TGV trains are punctual – arrive 30min early."],
+                    disclaimers: ["Paris metro: watch for pickpockets, especially on line 1.", "Dining service can be slow – it's the norm, not rudeness.", "Strikes can disrupt transport – check social media.", "Many shops closed Sunday-Monday."],
+                    useful: { capital: "Paris", currency: "Euro (€)", plug: "C / E", emergency: "112" },
+                    preTrip: [
+                        { name: "SNCF-Connect.com", desc: "Official trains (advance fares)", tip: "Book early for Ouigo discounts." },
+                        { name: "TheFork.com", desc: "Restaurant bookings & deals", tip: "Many Parisians use it for lunch specials." },
+                        { name: "Paris Museum Pass", desc: "Skip lines at 60+ museums", tip: "Buy online, collect at airport." },
+                        { name: "RATP.fr", desc: "Paris metro maps & traffic", tip: "Check for strikes before travelling." },
+                        { name: "Louvre.fr", desc: "Museum tickets", tip: "Book time slot weeks ahead." },
+                        { name: "France-Visas.com", desc: "Visa applications", tip: "For long-stay visas." },
+                        { name: "AeroportsParis.com", desc: "Airport info", tip: "CDG, Orly, Beauvais." },
+                        { name: "Booking.com", desc: "Hotels", tip: "Best for Paris." },
+                        { name: "Hostelworld.com", desc: "Budget stays", tip: "Youth hostels across France." },
+                        { name: "GetYourGuide", desc: "Tours & activities", tip: "Skip-the-line experiences." }
+                    ],
+                    onGround: [
+                        { name: "Citymapper", desc: "Paris transit & RER", tip: "Real-time platform changes." },
+                        { name: "SNCF", desc: "Mobile tickets & live platforms", tip: "Download tickets before losing signal." },
+                        { name: "RATP", desc: "Official metro app", tip: "Great for offline maps." },
+                        { name: "Uber", desc: "Ride-hailing", tip: "Often cheaper than taxis." },
+                        { name: "Deliveroo", desc: "Food delivery", tip: "Many restaurants available late." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works for all cities." },
+                        { name: "VTC", desc: "Private driver", tip: "Pre-booked premium rides." },
+                        { name: "Bike Share", desc: "Vélib' Paris", tip: "Rent bikes at stations." },
+                        { name: "Taxi G7", desc: "Taxis Paris", tip: "Traditional taxi app." },
+                        { name: "Meteo", desc: "Weather", tip: "French weather app." }
+                    ]
+                },
+                spain: {
+                    name: "Spain", flag: "🇪🇸", region: "Europe", timezone: "Europe/Madrid",
+                    tips: ["Late lunch from 2–4pm, dinner after 9pm.", "Keep an eye on your bag in crowded plazas.", "Validate Renfe tickets before boarding.", "Siesta means some shops close mid-afternoon.", "Spain uses 230V/50Hz.", "Regional trains often cheaper than AVE."],
+                    disclaimers: ["Renfe app can be buggy – use website for booking, app for QR.", "Tap water not always free; order 'agua del grifo'.", "Pickpockets in Barcelona and Madrid.", "Many shops closed August."],
+                    useful: { capital: "Madrid", currency: "Euro (€)", plug: "F", emergency: "112" },
+                    preTrip: [
+                        { name: "Renfe.com", desc: "Official trains (book on web)", tip: "AVE high-speed sells out quickly." },
+                        { name: "Alsa.es", desc: "Intercity buses", tip: "Cheaper than trains for some routes." },
+                        { name: "Spain.info", desc: "Official tourism", tip: "Check regional fiestas." },
+                        { name: "Aena.es", desc: "Airport info", tip: "All Spanish airports." },
+                        { name: "Booking.com", desc: "Hotels", tip: "Best for all cities." },
+                        { name: "Hostelworld.com", desc: "Budget accommodation", tip: "Great for backpackers." },
+                        { name: "Teatreneu.com", desc: "Flamenco tickets", tip: "Book authentic shows." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "Skip-the-line at attractions." }
+                    ],
+                    onGround: [
+                        { name: "Renfe", desc: "QR tickets & delays", tip: "Push notifications for platform changes." },
+                        { name: "Cabify", desc: "Safer than Uber (often)", tip: "Can book in advance." },
+                        { name: "Bolt", desc: "Cheaper rides", tip: "Good for short trips." },
+                        { name: "Glovo", desc: "Food & grocery delivery", tip: "Also delivers pharmacy items." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works in all cities." },
+                        { name: "TMB", desc: "Barcelona metro", tip: "Official transit app." },
+                        { name: "EMT Madrid", desc: "Bus network", tip: "Real-time buses." },
+                        { name: "Moovit", desc: "Transit times", tip: "All Spanish cities." }
+                    ]
+                },
+                italy: {
+                    name: "Italy", flag: "🇮🇹", region: "Europe", timezone: "Europe/Rome",
+                    tips: ["Museums require reservations (often weeks ahead).", "Coperto (cover charge) is normal in restaurants.", "Trains: regional tickets need validation; high-speed have set seats.", "Gelato is eaten quickly, not slowly.", "Dress code for Vatican and churches.", "Trattorias often better than restaurants."],
+                    disclaimers: ["Major sights like Colosseum have long queues – skip-the-line is worth it.", "Pickpockets in crowded stations.", "Don't order cappuccino after 11am (locals avoid it).", "Many shops closed Sunday."],
+                    useful: { capital: "Rome", currency: "Euro (€)", plug: "F / L", emergency: "112" },
+                    preTrip: [
+                        { name: "Trenitalia.com", desc: "Official rail", tip: "Book regional tickets early for small discounts." },
+                        { name: "ItaloTreno.it", desc: "High-speed alternative", tip: "Often cheaper than Trenitalia." },
+                        { name: "Museiitaliani.it", desc: "Official museum tickets", tip: "No markup, official timeslots." },
+                        { name: "Vatican.va", desc: "Vatican museums", tip: "Book at least a month ahead." },
+                        { name: "GetYourGuide", desc: "Tours & tickets", tip: "Skip-the-line at major sights." },
+                        { name: "TiMuseum.it", desc: "Rome museum pass", tip: "Save on multiple museums." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All Italian cities." },
+                        { name: "ItalyHikes.it", desc: "Hiking tours", tip: "Cinque Terre, Amalfi." },
+                        { name: "Trenitalia.com", desc: "Ferries", tip: "To Sicily, islands." }
+                    ],
+                    onGround: [
+                        { name: "Trenitalia / Italo", desc: "Mobile tickets", tip: "Keep PDF screenshot." },
+                        { name: "FreeNow", desc: "Taxis", tip: "Shows fixed prices to airports." },
+                        { name: "GetYourGuide", desc: "Last‑min tours", tip: "Skip lines even same-day sometimes." },
+                        { name: "Moovit", desc: "Local transit", tip: "Good for bus times in smaller cities." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works in all cities." },
+                        { name: "Uber", desc: "Ride-hailing", tip: "Available in Rome, Milan." },
+                        { name: "Bolt", desc: "Rides", tip: "Cheaper alternative." },
+                        { name: "Glovo", desc: "Food delivery", tip: "Available in major cities." },
+                        { name: "ATAC Roma", desc: "Rome transit", tip: "Metro & bus tickets." },
+                        { name: "ATM Milano", desc: "Milan transit", tip: "Metro, tram, bus." }
+                    ]
+                },
+                uk: {
+                    name: "United Kingdom", flag: "🇬🇧", region: "Europe", timezone: "Europe/London",
+                    tips: ["Stand on the right on escalators (London).", "Tap in/out with contactless on buses/tube.", "Book trains in advance for lowest fare.", "Pubs close at 11pm (but have 'last orders' 10:45).", "UK uses Type G plugs (big).", "NHS is free for emergencies."],
+                    disclaimers: ["Avoid peak hours if possible (8–9:30am, 5–7pm).", "Some rural areas have no mobile signal.", "Always carry a brolly (umbrella).", "Expensive – budget carefully."],
+                    useful: { capital: "London", currency: "Pound (£)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "Trainline.com", desc: "Compare rail fares", tip: "No booking fees, shows digital tickets." },
+                        { name: "NationalRail.co.uk", desc: "Timetables", tip: "Official disruption info." },
+                        { name: "VisitBritain.com", desc: "Tourism", tip: "Download regional guides." }
+                    ],
+                    onGround: [
+                        { name: "Citymapper", desc: "London & big cities", tip: "Shows which tube car is least crowded." },
+                        { name: "Trainline", desc: "Mobile e-tickets", tip: "Works offline after download." },
+                        { name: "Uber", desc: "Rides / delivery", tip: "Also offers boat (Thames Clippers) booking." },
+                        { name: "Deliveroo", desc: "Food", tip: "Many restaurant options." }
+                    ]
+                },
+                germany: {
+                    name: "Germany", flag: "🇩🇪", region: "Europe", timezone: "Europe/Berlin",
+                    tips: ["Always carry cash – many places don't accept cards.", "Say 'Guten Tag' when entering shops.", "Validate regional train tickets before boarding.", "Recycling deposit (Pfand) on bottles – return to get money.", "Most museums closed Mondays.", "Autobahn has no speed limit on many sections."],
+                    disclaimers: ["Deutsche Bahn punctuality can be hit-or-miss.", "Berlin clubs have strict door policies.", "Sunday: most shops closed.", "Card payment not always accepted in small towns."],
+                    useful: { capital: "Berlin", currency: "Euro (€)", plug: "F", emergency: "112" },
+                    preTrip: [
+                        { name: "Bahn.de", desc: "Official rail (best for booking)", tip: "Use 'Flexpreis' for flexibility, 'Sparpreis' for savings." },
+                        { name: "FlixBus", desc: "Long-distance buses", tip: "Book early for €5 seats." },
+                        { name: "Berlin.de/en", desc: "Official city guide", tip: "Museum pass info." },
+                        { name: "DeutscheBahn.com", desc: "International trains", tip: "To Austria, Switzerland, Netherlands." },
+                        { name: "Lufthansa.com", desc: "Domestic & European flights", tip: "Best for flights within Germany." },
+                        { name: "Booking.com", desc: "Hotels", tip: "Good for last-minute deals." },
+                        { name: "Hostelworld.com", desc: "Budget accommodation", tip: "Great for hostels." },
+                        { name: "Museumspass.de", desc: "Museum pass", tip: "Free entry to 200+ museums in Berlin." },
+                        { name: "GetYourGuide", desc: "Tours & activities", tip: "Skip-the-line tickets." }
+                    ],
+                    onGround: [
+                        { name: "DB Navigator", desc: "Live platform & tickets", tip: "Push notifications for delays." },
+                        { name: "FlixBus", desc: "Mobile tickets", tip: "Seat selection works best in app." },
+                        { name: "Lieferando", desc: "Food delivery", tip: "German equivalent of Deliveroo." },
+                        { name: "BVG", desc: "Berlin transport", tip: "Buy tickets, see routes." },
+                        { name: "MVV", desc: "Munich transport", tip: "Best for Munich." },
+                        { name: "VRR", desc: "Rhine-Ruhr transport", tip: "For Ruhr area." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works for all cities." },
+                        { name: "Uber", desc: "Ride-hailing", tip: "Available in major cities." },
+                        { name: "Bolt", desc: "Cheaper rides", tip: "Often cheaper than Uber." },
+                        { name: "CleverTanken", desc: "Compare gas prices", tip: "Find cheapest fuel." },
+                        { name: "ParkNow", desc: "Parking", tip: "Digital parking in cities." },
+                        { name: "ADAC", desc: "Roadside assistance", tip: "Join for breakdowns." }
+                    ]
+                },
+                japan: {
+                    name: "Japan", flag: "🇯🇵", region: "Asia", timezone: "Asia/Tokyo",
+                    tips: ["Don't tip – it's considered rude.", "Carry a small coin purse for exact change.", "Download offline Google Maps & translate.", "Bow slightly when greeting."],
+                    disclaimers: ["JR Pass must be bought BEFORE arrival.", "Many ATMs don't accept foreign cards – use 7‑Bank (7‑Eleven).", "Street eating is generally frowned upon (stand still if you must)."],
+                    useful: { capital: "Tokyo", currency: "Yen (¥)", plug: "A / B", emergency: "110 / 119" },
+                    preTrip: [
+                        { name: "Japanrailpass.net", desc: "Official JR Pass info", tip: "Compare with regional passes." },
+                        { name: "JapanTravel.com", desc: "Itineraries", tip: "Great for first-timers." },
+                        { name: "Hyperdia.com", desc: "Train schedules", tip: "Legacy tool, very precise." }
+                    ],
+                    onGround: [
+                        { name: "Navitime", desc: "Best transit (English)", tip: "Includes walking routes inside stations." },
+                        { name: "Tabelog", desc: "Top‑rated restaurants", tip: "3.5+ score is safe; 4.0+ is exceptional." },
+                        { name: "Uber", desc: "Taxis only", tip: "Expensive – use trains." },
+                        { name: "Japan Official Travel App", desc: "Tourism info", tip: "Curated by Japan National Tourism." }
+                    ]
+                },
+                china: {
+                    name: "China", flag: "🇨🇳", region: "Asia", timezone: "Asia/Shanghai",
+                    tips: ["Install Alipay & WeChat before departure – essential.", "Google is blocked; use Apple Maps or Baidu (in Chinese).", "Always have VPN ready (e.g. Windscribe).", "Carry toilet paper – public restrooms often lack it."],
+                    disclaimers: ["Foreign cards rarely work – link Alipay to your card.", "Train tickets: use Trip.com (English).", "Internet censorship: WhatsApp, Instagram won't work without VPN."],
+                    useful: { capital: "Beijing", currency: "Yuan (¥)", plug: "A / C / I", emergency: "110 / 119" },
+                    preTrip: [
+                        { name: "Trip.com", desc: "Trains, flights (English booking)", tip: "Best for foreigners; shows passport booking." },
+                        { name: "TheBeijinger.com", desc: "Events", tip: "Expat guide, restaurant reviews." },
+                        { name: "Chinahighlights.com", desc: "Itinerary ideas", tip: "Good for first-time planners." }
+                    ],
+                    onGround: [
+                        { name: "Alipay", desc: "Payments & DiDi mini‑app", tip: "Link foreign card before trip." },
+                        { name: "WeChat", desc: "Communication", tip: "Also used for payments (WeChat Pay)." },
+                        { name: "Baidu Maps", desc: "Use Apple Maps in English", tip: "Baidu has English mode? Better to use Apple Maps." },
+                        { name: "DiDi", desc: "Ride-hailing (in Alipay)", tip: "Enter destination in Chinese." }
+                    ]
+                },
+                thailand: {
+                    name: "Thailand", flag: "🇹🇭", region: "Asia", timezone: "Asia/Bangkok",
+                    tips: ["Grab is your go‑to for rides & food.", "Temples require covered shoulders/knees.", "Negotiate gently in markets, but not with taxi meters.", "Respect the monarchy – never insult King."],
+                    disclaimers: ["Scams with tuk‑tuk – agree price beforehand.", "Drinking water from tap is unsafe.", "Don't touch anyone's head (considered sacred)."],
+                    useful: { capital: "Bangkok", currency: "Baht (฿)", plug: "A / B / C", emergency: "1155 (tourist)" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Book buses, trains, ferries", tip: "English interface, small fee." },
+                        { name: "ThaiVisa.com", desc: "Forums", tip: "Check latest entry rules." },
+                        { name: "TourismThailand.org", desc: "Official", tip: "Event calendar." }
+                    ],
+                    onGround: [
+                        { name: "Grab", desc: "Rides, food, delivery", tip: "Can pay with cash or card." },
+                        { name: "Line", desc: "Messaging", tip: "Everyone uses Line, even businesses." },
+                        { name: "Google Maps", desc: "Reliable", tip: "Shows traffic and Grab fares." },
+                        { name: "WhatsApp", desc: "Also common", tip: "Useful for hotels." }
+                    ]
+                },
+                usa: {
+                    name: "United States", flag: "🇺🇸", region: "Americas", timezone: "America/New_York",
+                    tips: ["Sales tax not included in prices (adds ~6‑10%).", "National parks: reserve campsites early.", "Tipping 15‑20% expected at restaurants.", "Always carry ID for alcohol."],
+                    disclaimers: ["Healthcare is expensive – travel insurance recommended.", "Public transit outside NYC is limited.", "Gun laws vary by state; be aware."],
+                    useful: { capital: "Washington D.C.", currency: "US Dollar ($)", plug: "A / B", emergency: "911" },
+                    preTrip: [
+                        { name: "Recreation.gov", desc: "Park passes & camping", tip: "Book campsites up to 6 months ahead." },
+                        { name: "Amtrak.com", desc: "Scenic trains", tip: "Northeast corridor is frequent." },
+                        { name: "NPS.gov", desc: "National Park Service", tip: "Official alerts and conditions." }
+                    ],
+                    onGround: [
+                        { name: "Uber / Lyft", desc: "Ride-hailing", tip: "Compare both for price." },
+                        { name: "Yelp", desc: "Find food", tip: "Filter by 'open now'." },
+                        { name: "AllTrails", desc: "Hiking", tip: "Download offline maps." },
+                        { name: "Transit", desc: "Bus/train times", tip: "Works in many cities." }
+                    ]
+                },
+                uae: {
+                    name: "UAE (Dubai)", flag: "🇦🇪", region: "Middle East", timezone: "Asia/Dubai",
+                    tips: ["Respect local dress codes in malls.", "Alcohol only in licensed venues (not public).", "Friday is holy day – weekend starts Friday.", "Ramadan: no eating/drinking in public during daylight."],
+                    disclaimers: ["Avoid public displays of affection.", "Dubai Metro has a 'gold class' cabin.", "Drug laws extremely strict."],
+                    useful: { capital: "Abu Dhabi", currency: "Dirham (AED)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "Visitdubai.com", desc: "Official info", tip: "Download the Dubai app." },
+                        { name: "RTA.ae", desc: "nol card & transport", tip: "Order nol card online." },
+                        { name: "Emirates.com", desc: "Flights", tip: "Often have stopover packages." }
+                    ],
+                    onGround: [
+                        { name: "Careem", desc: "Super‑app (rides, food)", tip: "Often cheaper than Uber." },
+                        { name: "RTA Dubai", desc: "Metro & taxi", tip: "Shows metro times and taxi booking." },
+                        { name: "Uber", desc: "Alternative", tip: "Can book with international card." },
+                        { name: "Zomato", desc: "Restaurant reviews", tip: "Used widely in Dubai." }
+                    ]
+                },
+                turkey: {
+                    name: "Turkey", flag: "🇹🇷", region: "Asia", timezone: "Europe/Istanbul",
+                    tips: ["Istanbul Airport is huge – leave extra transfer time.", "Haggle at Grand Bazaar, start at 1/3 of price.", "Museum Pass Istanbul saves money.", "Drink çay (tea) often."],
+                    disclaimers: ["Uber works only as a taxi (yellow cabs).", "Some places prefer cash (lira).", "Touts near tourist spots can be pushy."],
+                    useful: { capital: "Ankara", currency: "Turkish Lira (₺)", plug: "F", emergency: "112" },
+                    preTrip: [
+                        { name: "Turkishairlines.com", desc: "Domestic flights", tip: "Cheap if booked early." },
+                        { name: "Muze.gov.tr", desc: "Museum passes", tip: "Museum Pass Istanbul covers top sites." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "Read reviews for guides." }
+                    ],
+                    onGround: [
+                        { name: "BiTaksi", desc: "Local taxi app", tip: "Shows estimated fare, pay cash." },
+                        { name: "GetYourGuide", desc: "Last‑min tours", tip: "Many same-day bookings." },
+                        { name: "Uber", desc: "Taxi only", tip: "Use BiTaksi for more options." },
+                        { name: "Yemeksepeti", desc: "Food delivery", tip: "Popular local app." }
+                    ]
+                },
+                ukraine: {
+                    name: "Ukraine", flag: "🇺🇦", region: "Europe", timezone: "Europe/Kyiv",
+                    tips: ["UA Money transfer is popular for currency exchange.", "Uklon is the main ride app.", "Metro in Kyiv is cheap and fast.", "War situation – check travel advisories before going.", "Try salo (cured pork fat) and borscht.", "Churches and monasteries are stunning.", "Kyiv Metro is one of the oldest in the world.", "Raketa ferry connects Dnipro banks."],
+                    disclaimers: ["Martial law may restrict travel to some areas.", "Check latest safety advisories.", "Some areas have curfews.", "Currency: hryvnia (UAH), cash still preferred."],
+                    useful: { capital: "Kyiv", currency: "Hryvnia (₴)", plug: "C / F", emergency: "112 / 103" },
+                    preTrip: [
+                        { name: "Ukrzaliznytsia", desc: "Train tickets", tip: "Book ahead for long distances." },
+                        { name: "Booking.com", desc: "Hotels", tip: "Available in major cities." },
+                        { name: "Ukraine Travel", desc: "Official tourism", tip: "Check current requirements." },
+                        { name: "SkyUp Airlines", desc: "Domestic flights", tip: "Ukrainian low-cost carrier." },
+                        { name: "WizzAir", desc: "Budget flights", tip: "European flights from Kyiv." },
+                        { name: "Ukrainian Railways", desc: "Train info", tip: "Schedules & booking." }
+                    ],
+                    onGround: [
+                        { name: "Uklon", desc: "Ride-hailing", tip: "Most popular taxi app." },
+                        { name: "Uklon Go", desc: "Car rental", tip: "Short-term car rental." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works in major cities." },
+                        { name: "UA Money", desc: "Currency exchange", tip: "Best rates, branches everywhere." },
+                        { name: "MonoBank", desc: "Banking app", tip: "Best for tourists, English support." },
+                        { name: "Nova Poshta", desc: "Delivery & shipping", tip: "Also has pickup points." },
+                        { name: "Raketa", desc: "Ferry app", tip: "Dnipro River ferries in Kyiv." },
+                        { name: "Kyiv Metro", desc: "Metro map & times", tip: "Official metro app." },
+                        { name: "Bolt", desc: "Ride-hailing", tip: "Alternative to Uklon." },
+                        { name: "Glovo", desc: "Food delivery", tip: "Available in Kyiv, Lviv." },
+                        { name: "Rozetka", desc: "Shopping", tip: "Biggest online store." }
+                    ]
+                },
+                hongkong: {
+                    name: "Hong Kong", flag: "🇭🇰", region: "Asia", timezone: "Asia/Hong_Kong",
+                    tips: ["Octopus card is essential for transit & shops.", "MTR is efficient and clean.", "Many places accept Visa/Mastercard now.", "Trams (ding ding) are cheap and charming."],
+                    disclaimers: ["Umbrella during summer for sudden rain.", "Traffic drives on left.", "Protests may disrupt transport – check news."],
+                    useful: { capital: "Hong Kong", currency: "HKD ($)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "Discoverhongkong.com", desc: "Tourism", tip: "Download e-guides." },
+                        { name: "Klook.com", desc: "Attractions", tip: "Cheaper for Disneyland/Ocean Park." },
+                        { name: "MTR.com.hk", desc: "Journey planner", tip: "Check exit maps." }
+                    ],
+                    onGround: [
+                        { name: "Octopus", desc: "Transit & payments", tip: "Can add to Apple Wallet." },
+                        { name: "MTR Mobile", desc: "Metro planner", tip: "Real-time train status." },
+                        { name: "Uber", desc: "Rides", tip: "Works, but taxis are cheap." },
+                        { name: "HK Taxi", desc: "Alternative", tip: "Cash only." }
+                    ]
+                },
+                malaysia: {
+                    name: "Malaysia", flag: "🇲🇾", region: "Asia", timezone: "Asia/Kuala_Lumpur",
+                    tips: ["Grab is dominant (rides & food).", "Street food is amazing and safe.", "ATMs may charge high fees – use official bank ATMs.", "Remove shoes before entering homes and some shops."],
+                    disclaimers: ["Avoid non‑halal places if you're not sure.", "Intercity trains: KTMB.", "Tropical weather: always carry raincoat."],
+                    useful: { capital: "Kuala Lumpur", currency: "Ringgit (RM)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Bus/train booking", tip: "Reliable for Butterworth–KL." },
+                        { name: "KTMB.com.my", desc: "Official train tickets", tip: "ETS trains are comfortable." },
+                        { name: "Tourism.gov.my", desc: "Official", tip: "Check for local holidays." }
+                    ],
+                    onGround: [
+                        { name: "Grab", desc: "Super‑app", tip: "Can also book taxis and food." },
+                        { name: "Foodpanda", desc: "Delivery", tip: "Often cheaper than GrabFood." },
+                        { name: "Google Maps", desc: "Reliable", tip: "Shows bus numbers and routes." },
+                        { name: "Moovit", desc: "KL transit", tip: "Good for LRT and MRT." }
+                    ]
+                },
+                portugal: {
+                    name: "Portugal", flag: "🇵🇹", region: "Europe", timezone: "Europe/Lisbon",
+                    tips: ["Use Viva Viagem card for Lisbon transit.", "Azulejos (tiles) are everywhere – take photos!", "Port wine tours in Porto are a must.", "Pão de Queijo is addictive."],
+                    disclaimers: ["Many shops close on Sundays.", "Uber is often cheaper than taxis.", "Credit card not accepted everywhere."],
+                    useful: { capital: "Lisbon", currency: "Euro (€)", plug: "F", emergency: "112" },
+                    preTrip: [
+                        { name: "cp.pt", desc: "Trains", tip: "Book Comboios de Portugal." },
+                        { name: "Rede Expressos", desc: "Buses", tip: "Cheapest intercity travel." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Transit & directions", tip: "Accurate for trams." },
+                        { name: "Uber / Bolt", desc: "Ride-hailing", tip: "Bolt often cheaper." },
+                        { name: "TheFork", desc: "Restaurant bookings", tip: "Great for Lisbon." }
+                    ]
+                },
+                netherlands: {
+                    name: "Netherlands", flag: "🇳🇱", region: "Europe", timezone: "Europe/Amsterdam",
+                    tips: ["Rent a bike – it's how locals travel.", "NS app for train schedules.", "Cheese markets in Gouda and Alkmaar.", "Coffeeshops are legal (no tobacco).", "Holland Pass for museums.", "Amsterdam Card includes museum entry."],
+                    disclaimers: ["Cycling rules are strict – follow them.", "Amsterdam is expensive.", "Most Dutch speak excellent English.", "Weed is only in coffeeshops."],
+                    useful: { capital: "Amsterdam", currency: "Euro (€)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "NS.nl", desc: "Train tickets", tip: "Book ahead for Thalys." },
+                        { name: "Iamsterdam.com", desc: "City guide", tip: "Museumkaart info." },
+                        { name: "HollandPass.com", desc: "Museum pass", tip: "Discount at attractions." },
+                        { name: "NSInternational.nl", desc: "International trains", tip: "To Belgium, Germany." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." },
+                        { name: "FlixBus", desc: "Buses", tip: "Cheap intercity." },
+                        { name: "KLM.com", desc: "Flights", tip: "National carrier." }
+                    ],
+                    onGround: [
+                        { name: "NS", desc: "Train app", tip: "Live departures." },
+                        { name: "Google Maps", desc: "Cycling routes", tip: "Good bike path navigation." },
+                        { name: "Uber / Bolt", desc: "Rides", tip: "Works well in cities." },
+                        { name: "Fietsplan", desc: "Bike rental", tip: "Rent bikes anywhere." },
+                        { name: "GVB", desc: "Amsterdam transit", tip: "Metro, tram, bus." },
+                        { name: "9292", desc: "All transport", tip: "Plan any journey." }
+                    ]
+                },
+                greece: {
+                    name: "Greece", flag: "🇬🇷", region: "Europe", timezone: "Europe/Athens",
+                    tips: ["Ferry tickets can be cheap – book early in summer.", "Siesta time: 3–5pm many shops close.", "Greek coffee is strong – try it!", "Island hopping is amazing.", "Greek Island Pass for discounts.", "Archaeological sites close early in summer."],
+                    disclaimers: ["Ferries can be cancelled due to weather.", "Cash preferred on islands.", "Pickpockets in crowded tourist areas.", "High season is July-August."],
+                    useful: { capital: "Athens", currency: "Euro (€)", plug: "C", emergency: "112" },
+                    preTrip: [
+                        { name: "Ferries.gr", desc: "Ferry booking", tip: "Compare operators." },
+                        { name: "GreekFerries.gr", desc: "All routes", tip: "Best for island hopping." },
+                        { name: "Ferryhopper.com", desc: "Compare fares", tip: "Find cheapest tickets." },
+                        { name: "Booking.com", desc: "Hotels", tip: "Islands & cities." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "Skip-the-line at Acropolis." },
+                        { name: "AthensPass.gr", desc: "City pass", tip: "Museums & transport." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Offline maps", tip: "Download for islands." },
+                        { name: "Uber", desc: "Athens rides", tip: "Only in Athens." },
+                        { name: "Beat", desc: "Taxi app", tip: "Works in Athens." },
+                        { name: "OASA", desc: "Athens transit", tip: "Buses & metro." },
+                        { name: "KTEL", desc: "Buses", tip: "Intercity buses." }
+                    ]
+                },
+                portugal: {
+                    name: "Portugal", flag: "🇵🇹", region: "Europe", timezone: "Europe/Lisbon",
+                    tips: ["Use Viva Viagem card for Lisbon transit.", "Azulejos (tiles) are everywhere – take photos!", "Port wine tours in Porto are a must.", "Pão de Queijo is addictive.", "Porto Card for discounts.", "Surf beaches are world-class."],
+                    disclaimers: ["Many shops close on Sundays.", "Uber is often cheaper than taxis.", "Credit card not accepted everywhere.", "Sunset is late (9pm+ in summer)."],
+                    useful: { capital: "Lisbon", currency: "Euro (€)", plug: "F", emergency: "112" },
+                    preTrip: [
+                        { name: "cp.pt", desc: "Trains", tip: "Book Comboios de Portugal." },
+                        { name: "Rede Expressos", desc: "Buses", tip: "Cheapest intercity travel." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." },
+                        { name: "PortoCard.com", desc: "Porto pass", tip: "Museums & transport." },
+                        { name: "LisbonCard.com", desc: "Lisbon pass", tip: "Free transport & museums." },
+                        { name: "FlixBus", desc: "Buses", tip: "Cheap alternative." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Transit & directions", tip: "Accurate for trams." },
+                        { name: "Uber / Bolt", desc: "Ride-hailing", tip: "Bolt often cheaper." },
+                        { name: "TheFork", desc: "Restaurant bookings", tip: "Great for Lisbon." },
+                        { name: "Moovit", desc: "Transit", tip: "Bus times." },
+                        { name: "Viva Viagem", desc: "Transport card", tip: "Metro, tram, bus Lisbon." }
+                    ]
+                },
+                morocco: {
+                    name: "Morocco", flag: "🇲🇦", region: "Africa", timezone: "Africa/Casablanca",
+                    tips: ["Bargain in medinas – start low.", "Ramadan: many places closed daytime.", "Mint tea is everywhere – say yes.", "Djemaa el-Fna in Marrakech is iconic."],
+                    disclaimers: ["Taxi meters often ignored – negotiate first.", "Scams common in Marrakech – stay alert.", "Dress modestly outside resort areas."],
+                    useful: { capital: "Rabat", currency: "Dirham (MAD)", plug: "C", emergency: "19" },
+                    preTrip: [
+                        { name: "ONCF", desc: "Trains", tip: "Al Boraq for TGV." },
+                        { name: "CTM", desc: "Buses", tip: "Reliable intercity." }
+                    ],
+                    onGround: [
+                        { name: "InDrive", desc: "Taxis", tip: "Negotiate via app." },
+                        { name: "Google Maps", desc: "Works offline", tip: "Download maps." }
+                    ]
+                },
+                egypt: {
+                    name: "Egypt", flag: "🇪🇬", region: "Africa", timezone: "Africa/Cairo",
+                    tips: ["Book Nile cruises in advance.", "Pyramids: go early to avoid heat.", "Egyptian pound is volatile – bring cash.", "Bargain everywhere."],
+                    disclaimers: ["Visa on arrival is easy.", "Tipping (baksheesh) is expected everywhere.", "Scams are common – book through hotels."],
+                    useful: { capital: "Cairo", currency: "Pound (EGP)", plug: "C", emergency: "122" },
+                    preTrip: [
+                        { name: "EgyptAir", desc: "Domestic flights", tip: "Book early." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Cairo rides", tip: "Safer than taxis." },
+                        { name: "Google Maps", desc: "Landmarks", tip: "Works in cities." }
+                    ]
+                },
+                southkorea: {
+                    name: "South Korea", flag: "🇰🇷", region: "Asia", timezone: "Asia/Seoul",
+                    tips: ["T-Money card for transit is essential.", "KakaoT for rides – works great.", "Korea Rail Pass can save money.", "Korean BBQ is a must-try."],
+                    disclaimers: ["Most places don't accept cash.", "English not widespread outside Seoul.", "Subway is fast and cheap."],
+                    useful: { capital: "Seoul", currency: "Won (₩)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "Korail.com", desc: "Trains (KTX)", tip: "Book 2 weeks ahead." },
+                        { name: "VisitKorea.or.kr", desc: "Tourism", tip: "Free DMZ tours." }
+                    ],
+                    onGround: [
+                        { name: "KakaoT", desc: "Rides", tip: "Uber alternative." },
+                        { name: "Naver Maps", desc: "Mapping", tip: "Better than Google." },
+                        { name: "KakaoMap", desc: "Navigation", tip: "English available." }
+                    ]
+                },
+                singapore: {
+                    name: "Singapore", flag: "🇸🇬", region: "Asia", timezone: "Asia/Singapore",
+                    tips: ["EZ-Link card for transit.", "Hawker centers are amazing and cheap.", "Strict laws – no chewing gum, jaywalking.", "Marina Bay Sands is iconic."],
+                    disclaimers: ["Expensive city – budget carefully.", "Rain is sudden – always carry umbrella.", "Very safe – low crime."],
+                    useful: { capital: "Singapore", currency: "SGD ($)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "VisitSingapore.com", desc: "Official guide", tip: "Events calendar." },
+                        { name: "Klook", desc: "Attractions", tip: "Save on tickets." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Transit", tip: "Accurate bus times." },
+                        { name: "Grab", desc: "Rides & food", tip: "Dominant super-app." },
+                        { name: "EZ-Link", desc: "Transit card", tip: "Add to Apple Wallet." }
+                    ]
+                },
+                vietnam: {
+                    name: "Vietnam", flag: "🇻🇳", region: "Asia", timezone: "Asia/Ho_Chi_Minh",
+                    tips: ["Grab is essential for rides.", "Motorbike rental possible but risky.", "Banh mi is the best street food.", "Sapa for mountains, HCMC for city."],
+                    disclaimers: ["Visa required for most – apply online.", "Scams at tourist spots – book ahead.", "Motorbike helmet law strictly enforced."],
+                    useful: { capital: "Hanoi", currency: "Đồng (VND)", plug: "A / C", emergency: "113" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Buses & flights", tip: "Open tour buses." },
+                        { name: "VietnamRailway", desc: "Train tickets", tip: "Reunification Express." }
+                    ],
+                    onGround: [
+                        { name: "Grab", desc: "Rides & food", tip: "Everywhere available." },
+                        { name: "Google Maps", desc: "Works well", tip: "Reliable in cities." },
+                        { name: "Zalo", desc: "Messaging", tip: "Everyone uses it." }
+                    ]
+                },
+                indonesia: {
+                    name: "Indonesia", flag: "🇮🇩", region: "Asia", timezone: "Asia/Jakarta",
+                    tips: ["Grab and Gojek for everything.", "Bali: rent scooter but drive carefully.", "Respect temple dress codes.", "Indomaret for cheap snacks."],
+                    disclaimers: ["Traffic in Jakarta is terrible.", "Visa on arrival available.", "Bali is expensive now – budget accordingly."],
+                    useful: { capital: "Jakarta", currency: "Rupiah (IDR)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Transport", tip: "Flights & ferries." },
+                        { name: "Klook", desc: "Bali activities", tip: "Skip-the-line." }
+                    ],
+                    onGround: [
+                        { name: "Gojek", desc: "Super-app", tip: "Rides, food, payments." },
+                        { name: "Grab", desc: "Alternative", tip: "Often available too." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Good for Bali." }
+                    ]
+                },
+                taiwan: {
+                    name: "Taiwan", flag: "🇹🇼", region: "Asia", timezone: "Asia/Taipei",
+                    tips: ["EasyCard for transit.", "Night markets are incredible.", "High-speed rail is fast.", "Sun Moon Lake is beautiful.", "Taiwan is very safe."],
+                    disclaimers: ["Mandarin spoken, little English.", " typhoon season June-October.", "Temperature is humid."],
+                    useful: { capital: "Taipei", currency: "TWD ($)", plug: "A / B", emergency: "119" },
+                    preTrip: [
+                        { name: "TaiwanRailway.gov.tw", desc: "TRA trains", tip: "Book ahead." },
+                        { name: "THSR.com", desc: "High-speed rail", tip: "Taipei to Kaohsiung." },
+                        { name: "TaipeiPass.com", desc: "City pass", tip: "Metro & attractions." },
+                        { name: "Klook", desc: "Attractions", tip: "Discount tickets." }
+                    ],
+                    onGround: [
+                        { name: "EasyCard", desc: "Transit card", tip: "Metro, bus, YouBike." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works well." },
+                        { name: "Uber", desc: "Rides", tip: "Available in cities." },
+                        { name: "LINE", desc: "Messaging", tip: "Everyone uses it." }
+                    ]
+                },
+                philippines: {
+                    name: "Philippines", flag: "🇵🇭", region: "Asia", timezone: "Asia/Manila",
+                    tips: ["Grab is essential for rides.", "Beach islands are amazing.", "Island hopping is a must.", "Philippines uses 220V.", "Respect Philippine culture."],
+                    disclaimers: ["Typhoon season June-Nov.", "Visa-free for many countries.", "Healthcare limited outside cities."],
+                    useful: { capital: "Manila", currency: "Peso (PHP)", plug: "A / B / C", emergency: "911" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Ferries & flights", tip: "Between islands." },
+                        { name: "Klook", desc: "Activities", tip: "Save on tours." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All destinations." }
+                    ],
+                    onGround: [
+                        { name: "Grab", desc: "Rides & food", tip: "Everywhere." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works in cities." },
+                        { name: "Angkas", desc: "Motorbike rides", tip: "Manila traffic." }
+                    ]
+                },
+                cambodia: {
+                    name: "Cambodia", flag: "🇰🇭", region: "Asia", timezone: "Asia/Phnom_Penh",
+                    tips: ["Angkor Wat is breathtaking.", "USD is widely used.", "Tuk-tuks are everywhere.", "Cambodia is affordable.", "Visa on arrival available."],
+                    disclaimers: ["Landmines in rural areas.", "Scams at Angkor – book guide.", "Tap water not safe."],
+                    useful: { capital: "Phnom Penh", currency: "USD / KHR", plug: "A / C", emergency: "012" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Buses & flights", tip: "To Siem Reap." },
+                        { name: "GetYourGuide", desc: "Angkor tours", tip: "Skip-the-line." },
+                        { name: "Klook", desc: "Tours", tip: "Various activities." }
+                    ],
+                    onGround: [
+                        { name: "Grab", desc: "Rides", tip: "Phnom Penh, Siem Reap." },
+                        { name: "PassApp", desc: "Rides", tip: "Local alternative." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works in cities." }
+                    ]
+                },
+                myanmar: {
+                    name: "Myanmar", flag: "🇲🇲", region: "Asia", timezone: "Asia/Yangon",
+                    tips: ["Bagan temples are magical.", "Golden Rock is a pilgrimage.", "Visa required – apply online.", "Local SIM is cheap.", "保守的な服装で寺院を訪問"],
+                    disclaimers: ["Internet restricted.", "Many places cash only.", "Political situation unstable – check advisories."],
+                    useful: { capital: "Naypyidaw", currency: "MMK (K)", plug: "A / C / D / G", emergency: "199" },
+                    preTrip: [
+                        { name: "Myanmar eVisa", desc: "Visa application", tip: "Apply online 3 days ahead." },
+                        { name: "12go.asia", desc: "Transport", tip: "Buses, flights." }
+                    ],
+                    onGround: [
+                        { name: "Grab", desc: "Rides", tip: "Yangon." },
+                        { name: "Google Maps", desc: "Limited", tip: "Download offline." }
+                    ]
+                },
+                srilanka: {
+                    name: "Sri Lanka", flag: "🇱🇰", region: "Asia", timezone: "Asia/Colombo",
+                    tips: ["Ella train ride is scenic.", "Sigiriya is stunning.", "Tea country is beautiful.", "Sri Lanka is affordable.", "Whale watching in Mirissa."],
+                    disclaimers: ["Monsoon seasons differ by region.", "Driver/guide recommended.", "Tap water not safe."],
+                    useful: { capital: "Sri Jayawardenepura", currency: "LKR (Rs)", plug: "D / G", emergency: "119" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Transport", tip: "Trains, buses." },
+                        { name: "Sri Lanka Tourism", desc: "Official guide", tip: "Plan itinerary." },
+                        { name: "Klook", desc: "Tours", tip: "Safari, day trips." }
+                    ],
+                    onGround: [
+                        { name: "PickMe", desc: "Rides", tip: "Uber alternative." },
+                        { name: "Google Maps", desc: "Navigation", tip: "Works." },
+                        { name: "Uber", desc: "Rides", tip: "Colombo." }
+                    ]
+                },
+                nepal: {
+                    name: "Nepal", flag: "🇳🇵", region: "Asia", timezone: "Asia/Kathmandu",
+                    tips: ["Trekking paradise – Everest Base Camp.", "Kathmandu is chaotic but fascinating.", "Permits required for treks.", "Himalayan views are incredible.", "Nepal is very affordable."],
+                    disclaimers: ["Altitude sickness real.", "Acclimatize properly.", "Flying in Nepal can be delayed."],
+                    useful: { capital: "Kathmandu", currency: "NPR (Rs)", plug: "C / D / M", emergency: "100" },
+                    preTrip: [
+                        { name: "Nepal eVisa", desc: "Visa on arrival", tip: "Apply online first." },
+                        { name: "NepalTrekking.com", desc: "Trekking agencies", tip: "Guide required for major treks." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "City tours." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Limited", tip: "Download offline." },
+                        { name: "Pathao", desc: "Rides", tip: "Ride-hailing." }
+                    ]
+                },
+                bangladesh: {
+                    name: "Bangladesh", flag: "🇧🇩", region: "Asia", timezone: "Asia/Dhaka",
+                    tips: ["Cox's Bazar beach is longest.", "Sundarbans for tigers.", "Rice and fish cuisine.", "Dhaka is chaotic.", "Bengali culture is rich."],
+                    disclaimers: ["Visa required.", "English not widely spoken.", "Infrastructure poor."],
+                    useful: { capital: "Dhaka", currency: "BDT (Tk)", plug: "A / C / D / G / K", emergency: "999" },
+                    preTrip: [
+                        { name: "Bangladesh Visa", desc: "Apply online", tip: "eVisa available." }
+                    ],
+                    onGround: [
+                        { name: "Pathao", desc: "Rides & food", tip: "Super-app." },
+                        { name: "Google Maps", desc: "Works", tip: "Limited accuracy." }
+                    ]
+                },
+                laos: {
+                    name: "Laos", flag: "🇱🇦", region: "Asia", timezone: "Asia/Vientiane",
+                    tips: ["Luang Prabang is charming.", "Mekong river is scenic.", "Buddhist temples everywhere.", "Laos is very relaxed.", "Visa on arrival."],
+                    disclaimers: ["Infrastructure limited.", "Slow pace – embrace it.", "Healthcare limited."],
+                    useful: { capital: "Vientiane", currency: "LAK (₭)", plug: "A / B / C / E / F", emergency: "190" },
+                    preTrip: [
+                        { name: "12go.asia", desc: "Buses & boats", tip: "To Thailand, Vietnam." },
+                        { name: "Laos eVisa", desc: "Visa", tip: "Apply online." }
+                    ],
+                    onGround: [
+                        { name: "Loca", desc: "Rides", tip: "Local ride-hailing." },
+                        { name: "Google Maps", desc: "Limited", tip: "Download offline." }
+                    ]
+                },
+                saudi: {
+                    name: "Saudi Arabia", flag: "🇸🇦", region: "Middle East", timezone: "Asia/Riyadh",
+                    tips: ["Mecca for Hajj/Umrah.", "Neom is futuristic city.", "Saudi is very conservative.", "No alcohol allowed.", "Desert landscapes are vast."],
+                    disclaimers: ["Strict dress codes.", "Women's rights limited.", "Expensive – few tourists."],
+                    useful: { capital: "Riyadh", currency: "SAR (SR)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "SaudiVisa", desc: "eVisa", tip: "Available for tourists." },
+                        { name: "SaudiAirports", desc: "Flights", tip: "Fly Riyadh, Jeddah." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Available in cities." },
+                        { name: "Careem", desc: "Rides", tip: "Popular app." }
+                    ]
+                },
+                qatar: {
+                    name: "Qatar", flag: "🇶🇦", region: "Middle East", timezone: "Asia/Qatar",
+                    tips: ["Doha is modern.", "Museum of Islamic Art is stunning.", "Desert safaris are popular.", "Pearl Qatar is upscale.", "Qatar is very safe."],
+                    disclaimers: ["Very expensive.", "Alcohol only in hotels.", "Conservative dress."],
+                    useful: { capital: "Doha", currency: "QAR (QR)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "QatarAirways", desc: "Flights", tip: "World-class airline." },
+                        { name: "VisitQatar", desc: "Tourism", tip: "Official guide." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Doha." },
+                        { name: "Karwa", desc: "Taxi", tip: "Official taxi app." }
+                    ]
+                },
+                oman: {
+                    name: "Oman", flag: "🇴🇲", region: "Middle East", timezone: "Asia/Muscat",
+                    tips: ["Wadi Shab is beautiful.", "Desert camping is amazing.", "Muscat is clean.", "Oman is safe and welcoming.", "Mountains are stunning."],
+                    disclaimers: ["Driving is on the right.", "Some areas require 4x4.", "Conservative but relaxed."],
+                    useful: { capital: "Muscat", currency: "OMR (Rial)", plug: "G", emergency: "9999" },
+                    preTrip: [
+                        { name: "Oman eVisa", desc: "Visa", tip: "Apply online." },
+                        { name: "OmanAir", desc: "Flights", tip: "National carrier." }
+                    ],
+                    onGround: [
+                        { name: "Otaxi", desc: "Rides", tip: "Muscat taxi app." },
+                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
+                    ]
+                },
+                bahrain: {
+                    name: "Bahrain", flag: "🇧🇭", region: "Middle East", timezone: "Asia/Bahrain",
+                    tips: ["Bahrain is modern.", "F1 Bahrain Grand Prix.", "World Trade Center is iconic.", "Pearl Bahrain is artificial island.", "Bahrain is liberal for Gulf."],
+                    disclaimers: ["Very hot summer.", "Expensive compared to neighbors.", "Conservative dress."],
+                    useful: { capital: "Manama", currency: "BHD (BD)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "Bahrain Visa", desc: "eVisa", tip: "Free for GCC residents." },
+                        { name: "BahrainTourism", desc: "Official guide", tip: "Events." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Available." },
+                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
+                    ]
+                },
+                kuwait: {
+                    name: "Kuwait", flag: "🇰🇼", region: "Middle East", timezone: "Asia/Kuwait",
+                    tips: ["Kuwait City is modern.", "Kuwait Towers are iconic.", "Desert is vast.", "Shopping is excellent.", "Kuwait is safe."],
+                    disclaimers: ["Very hot & humid.", "Expensive.", "Conservative."],
+                    useful: { capital: "Kuwait City", currency: "KWD (KD)", plug: "G", emergency: "112" },
+                    preTrip: [
+                        { name: "Kuwait eVisa", desc: "Visa", tip: "Apply online." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Available." },
+                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
+                    ]
+                },
+                jordan: {
+                    name: "Jordan", flag: "🇯🇴", region: "Middle East", timezone: "Asia/Amman",
+                    tips: ["Petra is a must-see.", "Dead Sea is therapeutic.", "Wadi Rum is magical.", "Jordan Pass covers entry.", "Amman is modern."],
+                    disclaimers: ["Conservative – dress modestly.", "Water scarce.", "Desert can be cold at night."],
+                    useful: { capital: "Amman", currency: "JOD (JD)", plug: "C / D / F / G / J", emergency: "911" },
+                    preTrip: [
+                        { name: "JordanPass.jo", desc: "Visa & attractions", tip: "Covers Petra entry." },
+                        { name: "PetraTickets", desc: "Book ahead", tip: "Essential." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "Petra guides." }
+                    ],
+                    onGround: [
+                        { name: "Careem", desc: "Rides", tip: "Popular." },
+                        { name: "Google Maps", desc: "Works", tip: "Reliable." },
+                        { name: "Rides", desc: "Local apps", tip: "Ampersoft." }
+                    ]
+                },
+                lebanon: {
+                    name: "Lebanon", flag: "🇱🇧", region: "Middle East", timezone: "Asia/Beirut",
+                    tips: ["Beirut is the Paris of Middle East.", "Byblos is ancient.", " skiing in winter.", "Food is incredible.", "Nightlife is vibrant."],
+                    disclaimers: ["Political instability.", "Check travel advisories.", "Economic crisis."],
+                    useful: { capital: "Beirut", currency: "LBP (£)", plug: "A / B / C / D", emergency: "112" },
+                    preTrip: [
+                        { name: "Lebanon Tourism", desc: "Official guide", tip: "Check conditions." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Available." },
+                        { name: "Google Maps", desc: "Works", tip: "Limited." }
+                    ]
+                },
+                mexico: {
+                    name: "Mexico", flag: "🇲🇽", region: "Americas", timezone: "America/Mexico_City",
+                    tips: ["Use DiDi or Uber – safer than taxis.", "Tequila in Jalisco – visit distilleries.", "Museos are free on Sundays.", "Street tacos are incredible."],
+                    disclaimers: ["Tap water not safe – drink bottled.", "Avoid tap water in food too.", "Violence in some areas – research destinations."],
+                    useful: { capital: "Mexico City", currency: "Peso (MXN)", plug: "A / B", emergency: "911" },
+                    preTrip: [
+                        { name: "Booking.com", desc: "Hotels", tip: "Good deals." }
+                    ],
+                    onGround: [
+                        { name: "DiDi", desc: "Rides", tip: "Cheaper than Uber." },
+                        { name: "Google Maps", desc: "Works well", tip: "Shows metro routes." },
+                        { name: "Uber", desc: "Alternative", tip: "Works in major cities." }
+                    ]
+                },
+                brazil: {
+                    name: "Brazil", flag: "🇧🇷", region: "Americas", timezone: "America/Sao_Paulo",
+                    tips: ["99 App is essential for rides.", "Porto de Galinhas for beaches.", "Learn basic Portuguese.", "Carnival is epic but book early."],
+                    disclaimers: ["Safety concerns – don't show valuables.", "Yellow fever vaccine recommended.", "Large distances – domestic flights common."],
+                    useful: { capital: "Brasília", currency: "Real (R$)", plug: "C / N", emergency: "190" },
+                    preTrip: [
+                        { name: "Decolar.com", desc: "Flights & hotels", tip: "Local Booking." }
+                    ],
+                    onGround: [
+                        { name: "99", desc: "Rides", tip: "Local Uber alternative." },
+                        { name: "Google Maps", desc: "Cities", tip: "Works in major areas." }
+                    ]
+                },
+                australia: {
+                    name: "Australia", flag: "🇦🇺", region: "Oceania", timezone: "Australia/Sydney",
+                    tips: ["Opal card for Sydney transit.", "Rent a car for road trips.", "UV is intense – sunscreen always.", "Great Barrier Reef is a must-see."],
+                    disclaimers: ["Expensive country – budget heavily.", "Everything is far apart.", "Drive on the left!"],
+                    useful: { capital: "Canberra", currency: "AUD ($)", plug: "I", emergency: "000" },
+                    preTrip: [
+                        { name: "Jetstar", desc: "Budget flights", tip: "Book early." },
+                        { name: "Booking.com", desc: "Hotels", tip: "Wide selection." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Navigation", tip: "Works everywhere." },
+                        { name: "Uber", desc: "Rides", tip: "In all cities." },
+                        { name: "Opal", desc: "Sydney transit", tip: "Add to phone." }
+                    ]
+                },
+                newzealand: {
+                    name: "New Zealand", flag: "🇳🇿", region: "Oceania", timezone: "Pacific/Auckland",
+                    tips: ["Rent a campervan – freedom to explore.", "Great Walks need booking huts.", "Lord of the Rings locations are amazing.", "InterCity buses are cheap."],
+                    disclaimers: ["Expensive – eat at supermarkets.", "Drive on the left.", "Weather changes fast – layers!"],
+                    useful: { capital: "Wellington", currency: "NZD ($)", plug: "I", emergency: "111" },
+                    preTrip: [
+                        { name: "InterCity", desc: "Buses", tip: "Flexible passes." },
+                        { name: "GreatWalks", desc: "Hiking bookings", tip: "Book months ahead." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Offline maps", tip: "Download for road trips." },
+                        { name: "Uber", desc: "Rides", tip: "In major cities." }
+                    ]
+                },
+                switzerland: {
+                    name: "Switzerland", flag: "🇨🇭", region: "Europe", timezone: "Europe/Zurich",
+                    tips: ["Swiss Travel Pass for trains.", "Expensive – cook your own meals.", "Swiss Alps are breathtaking.", "Cleanest country – follow rules.", "Swiss Museum Pass for free entry.", "Best to book mountain excursions early."],
+                    disclaimers: ["Very expensive – budget heavily.", "Everything closes early on Sundays.", "CHF stronger than EUR.", "Tunnel toll vignette required."],
+                    useful: { capital: "Bern", currency: "Franc (CHF)", plug: "C / J", emergency: "112" },
+                    preTrip: [
+                        { name: "SBB.ch", desc: "Train tickets", tip: "Buy Swiss Travel Pass." },
+                        { name: "SwissPass.ch", desc: "Swiss Half Fare Card", tip: "50% off all transport." },
+                        { name: "SwissMuseumPass.ch", desc: "Museum pass", tip: "Free entry to 500+ museums." },
+                        { name: "SwitzerlandMobility.ch", desc: "Hiking & cycling", tip: "Trail maps." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All regions." },
+                        { name: "SwissSki.com", desc: "Ski passes", tip: "All ski resorts." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "City tours." }
+                    ],
+                    onGround: [
+                        { name: "SBB Mobile", desc: "Trains", tip: "Live schedules." },
+                        { name: "Google Maps", desc: "PostBus routes", tip: "Works well." },
+                        { name: "SwissExit", desc: "Toll vignette", tip: "Buy online." },
+                        { name: "Parking", desc: "Parking apps", tip: "Various city apps." },
+                        { name: "Fairtiq", desc: "Transport", tip: "One ticket for all." }
+                    ]
+                },
+                sweden: {
+                    name: "Sweden", flag: "🇸🇪", region: "Europe", timezone: "Europe/Stockholm",
+                    tips: ["SL app for Stockholm transit.", "Summer: midnight sun in north.", "Fika is a must – coffee & pastries.", "Viking history everywhere.", "Sweden Card for museums.", "Aurora Borealis in winter."],
+                    disclaimers: ["Expensive country.", "Card preferred – cash rarely used.", "Winter darkness is real.", "Alcohol expensive in Systembolaget."],
+                    useful: { capital: "Stockholm", currency: "Krona (SEK)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "SJ.se", desc: "Trains", tip: "Book early for discounts." },
+                        { name: "VisitStockholm.com", desc: "City guide", tip: "Museum passes." },
+                        { name: "Sweden.se", desc: "Official tourism", tip: "National info." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." },
+                        { name: "SAS", desc: "Flights", tip: "Scandinavian airline." },
+                        { name: "SverigeKort.se", desc: "Train pass", tip: "Discounted travel." }
+                    ],
+                    onGround: [
+                        { name: "SL", desc: "Stockholm transit", tip: "All in one app." },
+                        { name: "Google Maps", desc: "Reliable", tip: "Bus & metro." },
+                        { name: "Uber / Bolt", desc: "Rides", tip: "Major cities." },
+                        { name: "SL", desc: "All transport", tip: "Metro, bus, tram." }
+                    ]
+                },
+                norway: {
+                    name: "Norway", flag: "🇳🇴", region: "Europe", timezone: "Europe/Oslo",
+                    tips: ["Rent a car for fjords.", "Norway in a Nutshell packages.", "Expensive – camp or cook.", "Midnight sun in summer.", "Aurora in winter.", "Toll roads common."],
+                    disclaimers: ["Very expensive.", "Fuel costs high.", "Toll roads everywhere.", "Winter roads dangerous."],
+                    useful: { capital: "Oslo", currency: "Krone (NOK)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "FjordTours", desc: "Packages", tip: "Best for fjords." },
+                        { name: "NorwayNutshell.com", desc: "Package tours", tip: "Oslo, Bergen, fjord trips." },
+                        { name: "VisitNorway.com", desc: "Tourism", tip: "Official guide." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All regions." },
+                        { name: "SAS", desc: "Flights", tip: "Domestic flights." },
+                        { name: "Vy.no", desc: "Trains", tip: "Norwegian rail." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Roads", tip: "Offline useful." },
+                        { name: "Ruter", desc: "Oslo transit", tip: "All transport." },
+                        { name: "Uber / Bolt", desc: "Rides", tip: "Major cities." },
+                        { name: "AutoPass", desc: "Toll roads", tip: "Register for discounts." }
+                    ]
+                },
+                canada: {
+                    name: "Canada", flag: "🇨🇦", region: "Americas", timezone: "America/Toronto",
+                    tips: ["eTA required for tourists (online).", "Presto card for Toronto transit.", "Tim Hortons is everywhere.", "National parks are stunning."],
+                    disclaimers: ["Large distances – fly between cities.", "Expensive in cities.", "Healthcare is expensive – insurance needed."],
+                    useful: { capital: "Ottawa", currency: "CAD ($)", plug: "A / B", emergency: "911" },
+                    preTrip: [
+                        { name: "VIA Rail", desc: "Train travel", tip: "Scenic routes." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Transit", tip: "Works well." },
+                        { name: "Uber / Lyft", desc: "Rides", tip: "In major cities." }
+                    ]
+                },
+                southafrica: {
+                    name: "South Africa", flag: "🇿🇦", region: "Africa", timezone: "Africa/Johannesburg",
+                    tips: ["Uber is safest for rides.", "Garden Route is scenic drive.", "Table Mountain cable car.", "Safari in Kruger – book lodges early."],
+                    disclaimers: ["Safety concerns – avoid night driving.", "Load shedding (power cuts) common.", "Crime exists – stay aware."],
+                    useful: { capital: "Pretoria", currency: "Rand (ZAR)", plug: "M / N", emergency: "10111" },
+                    preTrip: [
+                        { name: "Safarinow", desc: "Safari bookings", tip: "Compare lodges." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Safer than taxis." },
+                        { name: "Google Maps", desc: "Works in cities", tip: "Download offline." }
+                    ]
+                },
+                kenya: {
+                    name: "Kenya", flag: "🇰🇪", region: "Africa", timezone: "Africa/Nairobi",
+                    tips: ["Safari in Masai Mara during migration.", "M-Pesa for payments – everyone uses it.", "Nairobi has traffic – allow time.", "Lake Nakuru for flamingos."],
+                    disclaimers: ["Malaria risk in some areas.", "Nairobi traffic is brutal.", "Security concerns – be cautious."],
+                    useful: { capital: "Nairobi", currency: "Shilling (KES)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "Kenya Airways", desc: "Domestic flights", tip: "To Mombasa." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Nairobi rides", tip: "Reliable and safe." },
+                        { name: "Google Maps", desc: "Works", tip: "Nairobi traffic." }
+                    ]
+                },
+                argentina: {
+                    name: "Argentina", flag: "🇦🇷", region: "Americas", timezone: "America/Buenos_Aires",
+                    tips: ["Blue market for better exchange rate.", "Iguazu Falls is spectacular.", "Asado (BBQ) is a must.", "Tango in Buenos Aires."],
+                    disclaimers: ["Inflation is high – bring cash.", "Visa not needed for many countries.", "Economic instability – check rates."],
+                    useful: { capital: "Buenos Aires", currency: "Peso (ARS)", plug: "C / I", emergency: "911" },
+                    preTrip: [
+                        { name: "Despegar", desc: "Flights & hotels", tip: "Local booking." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Cities", tip: "Bus routes too." },
+                        { name: "Uber", desc: "Buenos Aires", tip: "Works in capital." }
+                    ]
+                },
+                peru: {
+                    name: "Peru", flag: "🇵🇪", region: "Americas", timezone: "America/Lima",
+                    tips: ["Machu Picchu tickets sell out fast.", "Lima food scene is world-class.", "Altacoholics beware – altitude sickness.", "Lake Titicaca is unique."],
+                    disclaimers: ["Altitude affects many travelers.", "Tourist scams in Cusco.", "Book Inca Trail months ahead."],
+                    useful: { capital: "Lima", currency: "Sol (PEN)", plug: "A / C", emergency: "113" },
+                    preTrip: [
+                        { name: "PeruRail", desc: "Train to Machu Picchu", tip: "Book early." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Works in cities", tip: "Offline useful." },
+                        { name: "Uber", desc: "Lima & Cusco", tip: "Safer than taxis." }
+                    ]
+                },
+                colombia: {
+                    name: "Colombia", flag: "🇨🇴", region: "Americas", timezone: "America/Bogota",
+                    tips: ["Coffee region is a must-visit.", "Medellín is incredibly safe now.", "Salsa in Cali is legendary.", "Colombian hospitality is warm."],
+                    disclaimers: ["Security has improved but stay aware.", "Altitude in Bogotá – take it slow.", "Cocaine warnings – don't get involved."],
+                    useful: { capital: "Bogota", currency: "Peso (COP)", plug: "A / B", emergency: "123" },
+                    preTrip: [
+                        { name: "ViajaporColombia", desc: "Tours", tip: "Coffee tours." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Major cities", tip: "Safer than taxis." },
+                        { name: "Google Maps", desc: "Works", tip: "Traffic heavy." }
+                    ]
+                },
+                nz: {
+                    name: "New Zealand", flag: "🇳🇿", region: "Oceania", timezone: "Pacific/Auckland",
+                    tips: ["Rent a campervan – freedom to explore.", "Great Walks need booking huts.", "Lord of the Rings locations are amazing.", "InterCity buses are cheap."],
+                    disclaimers: ["Expensive – eat at supermarkets.", "Drive on the left.", "Weather changes fast – layers!"],
+                    useful: { capital: "Wellington", currency: "NZD ($)", plug: "I", emergency: "111" },
+                    preTrip: [
+                        { name: "InterCity", desc: "Buses", tip: "Flexible passes." },
+                        { name: "GreatWalks", desc: "Hiking bookings", tip: "Book months ahead." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Offline maps", tip: "Download for road trips." },
+                        { name: "Uber", desc: "Rides", tip: "In major cities." }
+                    ]
+                },
+                iceland: {
+                    name: "Iceland", flag: "🇮🇸", region: "Europe", timezone: "Atlantic/Reykjavik",
+                    tips: ["Ring Road is epic – 10+ days.", "Northern Lights in winter.", "Hot dogs are famous.", "Swimming pools are social hubs.", "Iceland Card for attractions.", "Book ferries early."],
+                    disclaimers: ["Extremely expensive.", "Weather changes fast.", "Roads can be dangerous in winter.", "F-roads require 4x4."],
+                    useful: { capital: "Reykjavik", currency: "Króna (ISK)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "IcelandAir", desc: "Flights", tip: "Stopover deals." },
+                        { name: "IcelandCard.com", desc: "Attractions pass", tip: "Save on museums." },
+                        { name: "Re.is", desc: "Ferry to Denmark", tip: "Land Rover ferry." },
+                        { name: "VisitIceland.is", desc: "Official tourism", tip: "Trip planning." },
+                        { name: "Bungalo.is", desc: "Hostels", tip: "Budget accommodation." },
+                        { name: "Safetravel.is", desc: "Travel insurance", tip: "Required for rescue." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Works", tip: "Offline useful." },
+                        { name: "Taxi", desc: "Rek", tip: "App for taxis." },
+                        { name: "Straeto", desc: "Bus routes", tip: "Public transport." },
+                        { name: "N1", desc: "Gas stations", tip: "Fuel & convenience." }
+                    ]
+                },
+                czechia: {
+                    name: "Czech Republic", flag: "🇨🇿", region: "Europe", timezone: "Europe/Prague",
+                    tips: ["Prague is magical at Christmas.", "Beer is cheaper than water.", "Charles Bridge is iconic.", "Cesky Krumlov is a fairy tale.", "Prague Card for museums.", "Karlovy Vary for spas."],
+                    disclaimers: ["Tourist scams in Prague – watch out.", "Prague is getting expensive.", "Czech Republic uses koruna, not euro.", "Pickpockets on Charles Bridge."],
+                    useful: { capital: "Prague", currency: "Koruna (CZK)", plug: "C", emergency: "158" },
+                    preTrip: [
+                        { name: "CD.cz", desc: "Trains", tip: "Good network." },
+                        { name: "Prague.eu", desc: "City pass", tip: "Museums & transport." },
+                        { name: "CeskeKoleje.cz", desc: "Student rail passes", tip: "Discounted tickets." },
+                        { name: "FlixBus", desc: "Buses", tip: "Cheap intercity." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Works well", tip: "Tram routes." },
+                        { name: "Uber", desc: "Prague", tip: "Works in capital." },
+                        { name: "Bolt", desc: "Rides", tip: "Cheaper than Uber." },
+                        { name: "PID", desc: "Prague transit", tip: "Metro, tram, bus." }
+                    ]
+                },
+                poland: {
+                    name: "Poland", flag: "🇵🇱", region: "Europe", timezone: "Europe/Warsaw",
+                    tips: ["Auschwitz-Birkenau is moving.", "Pierogi are delicious dumplings.", "Wieliczka Salt Mine is unique.", "Old Town Warsaw is rebuilt but beautiful.", "Poland Card for discounts.", "Bialowieza Forest for wildlife."],
+                    disclaimers: ["Cheap compared to Western Europe.", "English spoken in tourist areas.", "Poland uses złoty, not euro.", "Winter is very cold."],
+                    useful: { capital: "Warsaw", currency: "Złoty (PLN)", plug: "C", emergency: "112" },
+                    preTrip: [
+                        { name: "PKP.pl", desc: "Trains", tip: "Book PKP Intercity." },
+                        { name: "PolskiBus", desc: "Buses", tip: "Now FlixBus." },
+                        { name: "WarsawCard.pl", desc: "City pass", tip: "Museums & transport." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "Auschwitz tours." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Works", tip: "Bus & tram." },
+                        { name: "Uber", desc: "Major cities", tip: "Very cheap." },
+                        { name: "Bolt", desc: "Rides", tip: "Cheapest option." },
+                        { name: "JakDojade", desc: "Warsaw transit", tip: "Best transit app." }
+                    ]
+                },
+                hungary: {
+                    name: "Hungary", flag: "🇭🇺", region: "Europe", timezone: "Europe/Budapest",
+                    tips: ["Budapest thermal baths are amazing.", "Ruin bars are unique.", "Hungarian food is hearty.", "Danube at night is romantic.", "Budapest Card for discounts.", "Wine region is excellent."],
+                    disclaimers: ["Hungary uses forint, not euro.", "Cash preferred in many places.", "Pickpockets on metro.", "Some shops closed Sunday."],
+                    useful: { capital: "Budapest", currency: "Forint (HUF)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "MAV", desc: "Trains", tip: "International routes." },
+                        { name: "BudapestCard.com", desc: "City pass", tip: "Free transport & baths." },
+                        { name: "Volanbusz", desc: "Buses", tip: "Intercity." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." },
+                        { name: "GetYourGuide", desc: "Tours", tip: " Danube cruises." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Metro & bus", tip: "Works well." },
+                        { name: "Bolt", desc: "Rides", tip: "Cheaper than Uber." },
+                        { name: "Uber", desc: "Rides", tip: "Available." },
+                        { name: "BKK", desc: "Budapest transit", tip: "Metro, tram, bus." }
+                    ]
+                },
+                austria: {
+                    name: "Austria", flag: "🇦🇹", region: "Europe", timezone: "Europe/Vienna",
+                    tips: ["Vienna is a music capital.", "Skiing in Alps is world-class.", "Coffee house culture is lovely.", "Salzburg is stunning.", "Vienna Card for discounts.", "Wachau Valley for wine."],
+                    disclaimers: ["Expensive country.", "Cash still widely used.", "Ski season is busy.", "Winter roads need chains."],
+                    useful: { capital: "Vienna", currency: "Euro (€)", plug: "C / F", emergency: "112" },
+                    preTrip: [
+                        { name: "OEBB.at", desc: "Trains", tip: "Book ahead." },
+                        { name: "ViennaCard.at", desc: "City pass", tip: "Free transport & museums." },
+                        { name: "SalzburgCard.at", desc: "Salzburg pass", tip: "All attractions." },
+                        { name: "Ski Austria", desc: "Ski passes", tip: "All resorts." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." },
+                        { name: "Austrian.com", desc: "Airlines", tip: "National carrier." }
+                    ],
+                    onGround: [
+                        { name: "WienerLinien", desc: "Vienna transit", tip: "All transport." },
+                        { name: "Google Maps", desc: "Works", tip: "Reliable." },
+                        { name: "Uber / Bolt", desc: "Rides", tip: "Major cities." },
+                        { name: "OBB", desc: "Train app", tip: "Live schedules." }
+                    ]
+                },
+                belgium: {
+                    name: "Belgium", flag: "🇧🇪", region: "Europe", timezone: "Europe/Brussels",
+                    tips: ["Waffles, chocolate, beer – indulgence!", "Brussels is EU capital.", "Bruges is medieval perfection.", "Atomium is quirky.", "Brussels Card for museums.", "Ghent and Antwerp are underrated."],
+                    disclaimers: ["Expensive city – Brussels.", "Multiple languages – French/Dutch.", "Train strikes happen.", "Pickpockets in Brussels."],
+                    useful: { capital: "Brussels", currency: "Euro (€)", plug: "C / E", emergency: "112" },
+                    preTrip: [
+                        { name: "SNCB.be", desc: "Trains", tip: "Book Thalys." },
+                        { name: "BrusselsCard.be", desc: "City pass", tip: "Free museums & transport." },
+                        { name: "VisitBrussels.be", desc: "Official tourism", tip: "Event info." },
+                        { name: "FlixBus", desc: "Buses", tip: "Cheap intercity." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Metro & tram", tip: "Works well." },
+                        { name: "Uber", desc: "Brussels", tip: "Works in capital." },
+                        { name: "Bolt", desc: "Rides", tip: "Cheaper than Uber." },
+                        { name: "STIB", desc: "Brussels transit", tip: "Metro, tram, bus." }
+                    ]
+                },
+                ireland: {
+                    name: "Ireland", flag: "🇮🇪", region: "Europe", timezone: "Europe/Dublin",
+                    tips: ["Cliffs of Moher are breathtaking.", "Guinness Storehouse is a must.", "Irish pubs are social hubs.", "Ring of Kerry is scenic drive.", "Dublin Pass for attractions.", "Wild Atlantic Way is epic."],
+                    disclaimers: ["Expensive – Dublin especially.", "Rain is constant – layers!", "Drive on the left.", "Narrow roads outside main routes."],
+                    useful: { capital: "Dublin", currency: "Euro (€)", plug: "G", emergency: "112" },
+                    preTrip: [
+                        { name: "IrishRail", desc: "Trains", tip: "Book ahead." },
+                        { name: "DublinPass.com", desc: "City pass", tip: "Free attractions." },
+                        { name: "BusEireann", desc: "Buses", tip: "Intercity coach." },
+                        { name: "AerLingus", desc: "Flights", tip: "National carrier." },
+                        { name: "PaddyWagonTours", desc: "Tours", tip: "Day trips." },
+                        { name: "Booking.com", desc: "Hotels", tip: "All cities." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Works", tip: "Bus routes." },
+                        { name: "Uber", desc: "Dublin", tip: "Works in capital." },
+                        { name: "LeapCard", desc: "Transport", tip: "Dublin buses." },
+                        { name: "TFI", desc: "All transport", tip: "Bus, train, tram." }
+                    ]
+                }
+            };
+
+            const countryKeys = [
+                "international",
+                "france", "spain", "italy", "uk", "germany",
+                "japan", "china", "thailand", "hongkong", "malaysia",
+                "turkey", "ukraine", "usa", "uae", "portugal", "netherlands",
+                "greece", "morocco", "egypt", "southkorea", "singapore",
+                "vietnam", "indonesia", "taiwan", "philippines", "cambodia",
+                "myanmar", "srilanka", "nepal", "bangladesh", "laos",
+                "saudi", "qatar", "oman", "bahrain", "kuwait",
+                "jordan", "lebanon", "mexico", "brazil", "australia",
+                "switzerland", "sweden", "norway", "canada", "southafrica",
+                "kenya", "argentina", "peru", "colombia", "iceland",
+                "czechia", "poland", "hungary", "austria", "belgium", "ireland"
+            ];
+
+            // App URL mapping - generate proper URLs for apps
+            const appUrls = {
+                // France
+                'SNCF-Connect.com': 'https://www.sncf-connect.com',
+                'TheFork.com': 'https://www.thefork.com',
+                'Paris Museum Pass': 'https://www.parismuseumpass.com',
+                'RATP.fr': 'https://www.ratp.fr',
+                'Louvre.fr': 'https://www.louvre.fr',
+                'France-Visas.com': 'https://france-visas.gouv.fr',
+                'AeroportsParis.com': 'https://parisaeroports.com',
+                // Spain
+                'Renfe.com': 'https://www.renfe.com',
+                'Spain.info': 'https://www.spain.info',
+                'Alsa.es': 'https://www.alsa.es',
+                'Aena.es': 'https://www.aena.es',
+                'TMB': 'https://www.tmb.cat',
+                'EMT Madrid': 'https://www.emtmadrid.es',
+                // Italy
+                'Trenitalia.com': 'https://www.trenitalia.com',
+                'ItaloTreno.it': 'https://www.italotreno.it',
+                'Vatican.va': 'https://biglietteriamusei.vatican.va/musei/',
+                'Museiitaliani.it': 'https://www.museiitaliani.it',
+                'ATAC Roma': 'https://www.atac.roma.it',
+                'ATM Milano': 'https://www.atm.it',
+                // UK
+                'NationalRail.co.uk': 'https://www.nationalrail.co.uk',
+                'VisitBritain.com': 'https://www.visitbritain.com',
+                'LondonPass.com': 'https://www.londonpass.com',
+                'Trainline.com': 'https://www.thetrainline.com',
+                // Germany
+                'Bahn.de': 'https://www.bahn.de',
+                'DeutscheBahn.com': 'https://www.bahn.com',
+                'FlixBus': 'https://www.flixbus.com',
+                'Berlin.de/en': 'https://www.berlin.de',
+                'Lufthansa.com': 'https://www.lufthansa.com',
+                'DB Navigator': 'https://www.bahn.com/en/service/mobile/db-navigator',
+                'BVG': 'https://www.bvg.de',
+                'MVV': 'https://www.mvv-muenchen.de',
+                'VRR': 'https://www.vrr.de',
+                // Japan
+                'Japanrailpass.net': 'https://www.japanrailpass.net',
+                'JapanTravel.com': 'https://en.japantravel.com',
+                'Hyperdia.com': 'https://www.hyperdia.com',
+                'Navitime': 'https://www.navitime.co.jp',
+                // China
+                'Trip.com': 'https://www.trip.com',
+                // Thailand
+                'ThaiVisa.com': 'https://www.thai-visa.com',
+                'TourismThailand.org': 'https://www.tourismthailand.org',
+                '12go.asia': 'https://www.12go.asia',
+                // USA
+                'Recreation.gov': 'https://www.recreation.gov',
+                'Amtrak.com': 'https://www.amtrak.com',
+                'NPS.gov': 'https://www.nps.gov',
+                // UAE
+                'Visitdubai.com': 'https://www.visitdubai.com',
+                'RTA.ae': 'https://www.rta.ae',
+                // Europe general
+                'Citymapper': 'https://citymapper.com',
+                'Moovit': 'https://moovit.com',
+                'GetYourGuide': 'https://www.getyourguide.com',
+                'Klook': 'https://www.klook.com',
+                // Transport
+                'Uber': 'https://www.uber.com',
+                'Lyft': 'https://www.lyft.com',
+                'Grab': 'https://www.grab.com',
+                'Bolt': 'https://bolt.eu',
+                'Cabify': 'https://cabify.com',
+                'FreeNow': 'https://www.free-now.com',
+                'InDrive': 'https://indrive.com',
+                'Careem': 'https://www.careem.com',
+                // Messaging & Maps
+                'Google Maps': 'https://www.google.com/maps',
+                'Google Translate': 'https://translate.google.com',
+                'WhatsApp': 'https://www.whatsapp.com',
+                'WeChat': 'https://www.wechat.com',
+                'Line': 'https://line.me',
+                'Zalo': 'https://zalo.me',
+                // Payment
+                'Alipay': 'https://global.alipay.com',
+                // Food
+                'Glovo': 'https://glovoapp.com',
+                'Deliveroo': 'https://www.deliveroo.com',
+                'Lieferando': 'https://www.lieferando.de',
+                'Foodpanda': 'https://www.foodpanda.com',
+                // Travel
+                'Skyscanner': 'https://www.skyscanner.com',
+                'Booking.com': 'https://www.booking.com',
+                'Airbnb': 'https://www.airbnb.com',
+                'Hostelworld': 'https://www.hostelworld.com',
+                'TripAdvisor': 'https://www.tripadvisor.com',
+                'Lonely Planet': 'https://www.lonelyplanet.com',
+                'AllTrails': 'https://www.alltrails.com',
+                'Rome2Rio': 'https://www.rome2rio.com',
+                // Finance
+                'Wise': 'https://www.wise.com',
+                'Revolut': 'https://www.revolut.com',
+                'XE Currency': 'https://www.xe.com',
+                // Country specific
+                'National Rail': 'https://www.nationalrail.co.uk',
+                'Trainline': 'https://www.thetrainline.com',
+                'SNCF': 'https://www.sncf-connect.com',
+                // Austria
+                'OEBB.at': 'https://www.oebb.at',
+                'Austrian.com': 'https://www.austrian.com',
+                // Belgium
+                'SNCB.be': 'https://www.sncb.be',
+                // Switzerland
+                'SBB.ch': 'https://www.sbb.ch',
+                // Sweden
+                'SJ.se': 'https://www.sj.se',
+                // Norway
+                'Vy.no': 'https://www.vy.no',
+                // Netherlands
+                'NS.nl': 'https://www.ns.nl',
+                'NS International': 'https://www.nsinternational.nl',
+                'GVB': 'https://www.gvb.nl',
+                '9292': 'https://www.9292.nl',
+                // Poland
+                'PKP.pl': 'https://www.pkp.pl',
+                'PolskiBus': 'https://www.polskibus.com',
+                'JakDojade': 'https://www.jakdojade.pl',
+                // Czech
+                'CD.cz': 'https://www.cd.cz',
+                // Hungary
+                'MAV': 'https://www.mav.hu',
+                'Volanbusz': 'https://www.volanbusz.hu',
+                'BKK': 'https://www.bkk.hu',
+                // Portugal
+                'cp.pt': 'https://www.cp.pt',
+                'Rede Expressos': 'https://www.rede-expressos.pt',
+                // Greece
+                'Ferries.gr': 'https://www.ferries.gr',
+                'GreekFerries.gr': 'https://www.greekferries.gr',
+                'OASA': 'https://www.oasa.gr',
+                // Ireland
+                'IrishRail': 'https://www.irishrail.ie',
+                'BusEireann': 'https://www.buseireann.ie',
+                'LeapCard': 'https://www.leapcard.ie',
+                // Australia
+                'Jetstar': 'https://www.jetstar.com',
+                'Opal': 'https://www.opal.com.au',
+                // New Zealand
+                'InterCity': 'https://www.intercity.co.nz',
+                // Canada
+                'VIA Rail': 'https://www.viarail.ca',
+                // South Africa
+                'Safarinow': 'https://www.safarinow.com',
+                // Asia
+                'Korea': 'https://www.visitkorea.or.kr',
+                'Korail': 'https://www.letskorail.com',
+                'Naver Maps': 'https://maps.naver.com',
+                'KakaoT': 'https://www.kakaot.com',
+                'VisitSingapore': 'https://www.visitsingapore.com',
+                'EZ-Link': 'https://www.ezlink.com.sg',
+                // Taiwan
+                'TaiwanRailway': 'https://www.railway.gov.tw',
+                'THSR': 'https://www.thsrc.com.tw',
+                'EasyCard': 'https://www.easycard.com.tw',
+                // Philippines
+                'Angkas': 'https://www.angkas.com',
+                // Cambodia
+                'PassApp': 'https://www.passapp.com.kh',
+                // Africa
+                'ONCF': 'https://www.oncf.ma',
+                'CTM': 'https://www.ctm.ma',
+                // Middle East
+                'Emirates': 'https://www.emirates.com',
+                'Qatar Airways': 'https://www.qatarairways.com',
+                'Oman Air': 'https://www.omanair.com',
+                // Ukraine
+                'Ukrzaliznytsia': 'https://www.uz.gov.ua',
+                'SkyUp Airlines': 'https://skyup.aero',
+                'WizzAir': 'https://wizzair.com',
+                'Uklon': 'https://uklon.com.ua',
+                'Uklon Go': 'https://uklongo.com',
+                'MonoBank': 'https://monobank.ua',
+                'Nova Poshta': 'https://novaposhta.ua',
+                'Raketa': 'https://raketa.ua',
+                'Kyiv Metro': 'https://metropoliten.kiev.ua',
+                'Glovo': 'https://glovoapp.com',
+                'Rozetka': 'https://rozetka.com.ua',
+                // Misc
+                'Duolingo': 'https://www.duolingo.com',
+                'World Time Buddy': 'https://www.worldtimebuddy.com',
+                'Yelp': 'https://www.yelp.com'
+            };
+
+            function getAppUrl(appName) {
+                // Try to find a match
+                for (const [key, url] of Object.entries(appUrls)) {
+                    if (appName.toLowerCase().includes(key.toLowerCase()) ||
+                        key.toLowerCase().includes(appName.toLowerCase().replace('.com', '').replace('.org', ''))) {
+                        return url;
+                    }
+                }
+                // Default: try Google search for the app
+                return `https://www.google.com/search?q=${encodeURIComponent(appName + ' app')}`;
+            }
+
+            function getAppLogo(appName) {
+                // Try to extract domain from appUrls
+                for (const [key, url] of Object.entries(appUrls)) {
+                    if (appName.toLowerCase().includes(key.toLowerCase()) ||
+                        key.toLowerCase().includes(appName.toLowerCase().replace('.com', '').replace('.org', ''))) {
+                        try {
+                            const domain = new URL(url).hostname.replace('www.', '');
+                            // Use Google's favicon API (more reliable)
+                            return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+                        } catch (e) { }
+                    }
+                }
+                // Try common domains based on app name
+                const commonDomains = {
+                    'google': 'google.com',
+                    'google maps': 'maps.google.com',
+                    'google translate': 'translate.google.com',
+                    'google flights': 'flights.google.com',
+                    'whatsapp': 'whatsapp.com',
+                    'uber': 'uber.com',
+                    'lyft': 'lyft.com',
+                    'airbnb': 'airbnb.com',
+                    'booking': 'booking.com',
+                    'hostelworld': 'hostelworld.com',
+                    'skyscanner': 'skyscanner.net',
+                    'tripadvisor': 'tripadvisor.com',
+                    'klook': 'klook.com',
+                    'getyourguide': 'getyourguide.com',
+                    'wise': 'wise.com',
+                    'revolut': 'revolut.com',
+                    'xe currency': 'xe.com',
+                    'lonely planet': 'lonelyplanet.com',
+                    'duolingo': 'duolingo.com',
+                    'alltrails': 'alltrails.com',
+                    'rome2rio': 'rome2rio.com',
+                    'world time buddy': 'worldtimebuddy.com',
+                    'citymapper': 'citymapper.com',
+                    'moovit': 'moovit.com',
+                    'grab': 'grab.com',
+                    'gojek': 'gojek.com',
+                    'careem': 'careem.com',
+                    'di didi': 'didi.com',
+                    'bolt': 'bolt.eu',
+                    'cabify': 'cabify.com',
+                    'free now': 'freenow.com',
+                    'bahn': 'bahn.de',
+                    'sncf': 'sncf.com',
+                    'trenitalia': 'trenitalia.com',
+                    'italo': 'italotreno.it',
+                    'renfe': 'renfe.com',
+                    'ns': 'ns.nl',
+                    'sbb': 'sbb.ch',
+                    'korail': 'korail.com',
+                    'alipay': 'alipay.com',
+                    'wechat': 'wechat.com',
+                    'line': 'line.me',
+                    'zalo': 'zalo.me',
+                    'vivo': 'vivo.com',
+                    'glovo': 'glovoapp.com',
+                    'deliveroo': 'deliveroo.com',
+                    'lieferando': 'lieferando.de',
+                    'foodpanda': 'foodpanda.com',
+                    // Ukraine
+                    'ukrzaliznytsia': 'uz.gov.ua',
+                    'skyup': 'skyup.aero',
+                    'wizzair': 'wizzair.com',
+                    'uklon': 'uklon.com.ua',
+                    'monobank': 'monobank.ua',
+                    'nova poshta': 'novaposhta.ua',
+                    'rozetka': 'rozetka.com.ua'
+                };
+                const lowerName = appName.toLowerCase();
+                for (const [name, domain] of Object.entries(commonDomains)) {
+                    if (lowerName.includes(name)) {
+                        // Use Google's favicon API
+                        return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+                    }
+                }
+                return null;
+            }
+
+            // clock update interval reference
+            let clockInterval = null;
+
+            // Filter state
+            let currentRegion = 'all';
+            let searchQuery = '';
+
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('countrySearch');
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                renderCountryPills();
+            });
+
+            // Region filter
+            document.querySelectorAll('.region-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentRegion = btn.dataset.region;
+                    renderCountryPills();
+                });
+            });
+
+            // render info panel with live clock
+            function renderCountry(key) {
+                const d = countriesData[key];
+                if (!d) return;
+
+                // Handle International apps specially
+                if (key === 'international') {
+                    renderInternationalApps(d);
+                    return;
+                }
+
+                // Save to localStorage
+                try {
+                    localStorage.setItem('lastCountry', key);
+                } catch (e) { }
+
+                // Update URL hash
+                try {
+                    history.replaceState(null, null, `#${key}`);
+                } catch (e) { }
+
+                // clear previous interval
+                if (clockInterval) clearInterval(clockInterval);
+
+                // Scroll to info panel
+                document.getElementById('infoPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // generate tips & disclaimers
+                const tipItems = d.tips.map(t => `<li><i class="fas fa-lightbulb"></i> ${t}</li>`).join('');
+                const disclaimerItems = d.disclaimers.map(t => `<li><i class="fas fa-exclamation-triangle"></i> ${t}</li>`).join('');
+
+                // preTrip cards with clickable links
+                const preCards = d.preTrip.map(item => {
+                    const tipText = item.tip || 'Useful for planning';
+                    const url = getAppUrl(item.name);
+                    const logo = getAppLogo(item.name);
+                    return `
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="app-card">
+                        <div class="app-card-header">
+                            ${logo ? `<img src="${logo}" alt="${item.name}" class="app-logo" crossorigin="anonymous" onerror="this.style.display='none'">` : ''}
+                            <span class="app-card-name">${item.name}</span>
+                            <span class="badge-web"><i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                        <div class="app-card-desc">${item.desc}</div>
+                        <div class="app-card-tip"><i class="fas fa-lightbulb"></i> ${tipText}</div>
+                    </a>
+                `;
+                }).join('');
+
+                const onCards = d.onGround.map(item => {
+                    const tipText = item.tip || 'Handy on the go';
+                    const url = getAppUrl(item.name);
+                    const logo = getAppLogo(item.name);
+                    return `
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="app-card">
+                        <div class="app-card-header">
+                            ${logo ? `<img src="${logo}" alt="${item.name}" class="app-logo" crossorigin="anonymous" onerror="this.style.display='none'">` : ''}
+                            <span class="app-card-name">${item.name}</span>
+                            <span class="badge-app"><i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                        <div class="app-card-desc">${item.desc}</div>
+                        <div class="app-card-tip"><i class="fas fa-lightbulb"></i> ${tipText}</div>
+                    </a>
+                `;
+                }).join('');
+
+                const useful = d.useful;
+                const usefulHtml = `
+                <div class="useful-box">
+                    <span class="useful-item"><i class="fas fa-city"></i> ${useful.capital}</span>
+                    <span class="useful-item"><i class="fas fa-coins"></i> ${useful.currency}</span>
+                    <span class="useful-item"><i class="fas fa-plug"></i> ${useful.plug}</span>
+                    <span class="useful-item"><i class="fas fa-phone-alt"></i> ${useful.emergency}</span>
+                </div>
+            `;
+
+                // clock container (will be updated every second)
+                const clockDiv = document.createElement('div');
+                clockDiv.id = 'liveClock';
+                clockDiv.className = 'live-clock';
+                clockDiv.innerHTML = `<i class="far fa-clock"></i> <span id="clockTime">--:--:--</span>`;
+
+                function updateClock() {
+                    const now = new Date();
+                    try {
+                        const timeStr = now.toLocaleTimeString('en-US', { timeZone: d.timezone, hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                        document.getElementById('clockTime').innerText = timeStr;
+                    } catch (e) {
+                        document.getElementById('clockTime').innerText = '??:??:??';
+                    }
+                }
+                // start interval after element exists
+                setTimeout(() => {
+                    updateClock();
+                    clockInterval = setInterval(updateClock, 1000);
+                }, 0);
+
+                const headerHtml = `
+                <div class="country-header">
+                    <h2><span>${d.flag}</span> ${d.name}</h2>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                        <span class="region-tag"><i class="fas fa-map-pin"></i> ${d.region}</span>
+                        ${clockDiv.outerHTML}
+                    </div>
+                </div>
+            `;
+
+                const finalHtml = `
+                ${headerHtml}
+                <div class="grid-2col">
+                    <div class="tip-box">
+                        <h3><i class="fas fa-compass"></i> tips</h3>
+                        <ul>${tipItems}</ul>
+                    </div>
+                    <div class="disclaimer-box">
+                        <h3><i class="fas fa-shield-alt"></i> keep in mind</h3>
+                        <ul>${disclaimerItems}</ul>
+                    </div>
+                </div>
+                ${usefulHtml}
+                <h3 class="section-title"><i class="fas fa-laptop"></i> Pre‑trip planning</h3>
+                <div class="app-grid">
+                    ${preCards || '<div class="no-data">use global aggregators</div>'}
+                </div>
+                <h3 class="section-title"><i class="fas fa-mobile-alt"></i> On the ground</h3>
+                <div class="app-grid">
+                    ${onCards || '<div class="no-data">local sim recommended</div>'}
+                </div>
+            `;
+                document.getElementById('infoPanel').innerHTML = finalHtml;
+                // re-bind clock element after innerHTML overwrite
+                const clockSpan = document.getElementById('clockTime');
+                if (clockSpan) updateClock();
+            }
+
+            // Render International Apps page
+            function renderInternationalApps(d) {
+                // Save to localStorage
+                try {
+                    localStorage.setItem('lastCountry', 'international');
+                } catch (e) { }
+
+                // Update URL hash
+                try {
+                    history.replaceState(null, null, `#international`);
+                } catch (e) { }
+
+                // Scroll to info panel
+                document.getElementById('infoPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                const headerHtml = `
+                <div class="country-header">
+                    <h2><span>${d.flag}</span> ${d.name}</h2>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                        <span class="region-tag"><i class="fas fa-globe"></i> ${d.region}</span>
+                    </div>
+                </div>
+            `;
+
+                const internationalAppsHtml = getInternationalAppsHtml();
+
+                const finalHtml = `
+                ${headerHtml}
+                <div class="grid-2col">
+                    <div class="tip-box">
+                        <h3><i class="fas fa-compass"></i> tips</h3>
+                        <ul>${d.tips.map(t => `<li><i class="fas fa-lightbulb"></i> ${t}</li>`).join('')}</ul>
+                    </div>
+                    <div class="disclaimer-box">
+                        <h3><i class="fas fa-shield-alt"></i> keep in mind</h3>
+                        <ul>${d.disclaimers.map(t => `<li><i class="fas fa-exclamation-triangle"></i> ${t}</li>`).join('')}</ul>
+                    </div>
+                </div>
+                ${internationalAppsHtml}
+            `;
+                document.getElementById('infoPanel').innerHTML = finalHtml;
+            }
+
+            // Get International Apps HTML
+            function getInternationalAppsHtml() {
+                const internationalApps = [
+                    { name: 'Google Maps', url: 'https://www.google.com/maps', desc: 'Offline maps, directions, traffic', tip: 'Download offline maps before going offline', type: 'web' },
+                    { name: 'WhatsApp', url: 'https://www.whatsapp.com', desc: 'Messaging, calls, voice notes', tip: 'Works internationally with WiFi', type: 'app' },
+                    { name: 'Skyscanner', url: 'https://www.skyscanner.com', desc: 'Compare flight prices', tip: 'Best for finding cheapest flights', type: 'web' },
+                    { name: 'Booking.com', url: 'https://www.booking.com', desc: 'Hotels & accommodation', tip: 'Free cancellation on most bookings', type: 'web' },
+                    { name: 'Airbnb', url: 'https://www.airbnb.com', desc: 'Unique stays & experiences', tip: 'Check cancellation policy', type: 'web' },
+                    { name: 'Uber', url: 'https://www.uber.com', desc: 'Ride-hailing in 70+ countries', tip: 'Works in most major cities', type: 'app' },
+                    { name: 'GetYourGuide', url: 'https://www.getyourguide.com', desc: 'Tours & attractions', tip: 'Skip-the-line tickets', type: 'web' },
+                    { name: 'Klook', url: 'https://www.klook.com', desc: 'Activities & transport tickets', tip: 'Great for Asia & beyond', type: 'web' },
+                    { name: 'Google Translate', url: 'https://www.translate.google.com', desc: 'Translate text, voice, camera', tip: 'Download languages offline', type: 'app' },
+                    { name: 'XE Currency', url: 'https://www.xe.com', desc: 'Currency converter', tip: 'Free rates, works offline', type: 'app' },
+                    { name: 'World Time Buddy', url: 'https://www.worldtimebuddy.com', desc: 'Time zone converter', tip: 'Plan calls across time zones', type: 'web' },
+                    { name: 'Wise', url: 'https://www.wise.com', desc: 'Multi-currency account & transfers', tip: 'Better exchange rates than banks', type: 'web' },
+                    { name: 'Revolut', url: 'https://www.revolut.com', desc: 'Multi-currency card', tip: 'Spend abroad with no fees', type: 'app' },
+                    { name: 'TripAdvisor', url: 'https://www.tripadvisor.com', desc: 'Reviews & recommendations', tip: 'Check reviews before booking', type: 'web' },
+                    { name: 'Lonely Planet', url: 'https://www.lonelyplanet.com', desc: 'Travel guides & eBooks', tip: 'In-depth destination info', type: 'web' },
+                    { name: 'Duolingo', url: 'https://www.duolingo.com', desc: 'Learn basic phrases', tip: 'Quick language basics before trip', type: 'app' },
+                    { name: 'AllTrails', url: 'https://www.alltrails.com', desc: 'Hiking & trail maps', tip: 'Download trails offline', type: 'web' },
+                    { name: 'Google Flights', url: 'https://www.google.com/travel/flights', desc: 'Flight search & deals', tip: 'Track prices for best timing', type: 'web' },
+                    { name: 'Hostelworld', url: 'https://www.hostelworld.com', desc: 'Hostels & budget stays', tip: 'Best for backpackers', type: 'web' },
+                    { name: 'Rome2Rio', url: 'https://www.rome2rio.com', desc: 'Multi-modal transport search', tip: 'Compare flights, trains, buses', type: 'web' }
+                ];
+
+                const cardsHtml = internationalApps.map(app => {
+                    const logo = getAppLogo(app.name);
+                    const badgeClass = app.type === 'app' ? 'badge-app' : 'badge-web';
+                    return `
+                    <a href="${app.url}" target="_blank" rel="noopener noreferrer" class="app-card">
+                        <div class="app-card-header">
+                            ${logo ? `<img src="${logo}" alt="${app.name}" class="app-logo" crossorigin="anonymous" onerror="this.style.display='none'">` : ''}
+                            <span class="app-card-name">${app.name}</span>
+                            <span class="${badgeClass}"><i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                        <div class="app-card-desc">${app.desc}</div>
+                        <div class="app-card-tip"><i class="fas fa-lightbulb"></i> ${app.tip}</div>
+                    </a>
+                `;
+                }).join('');
+
+                return `
+                <h3 class="section-title"><i class="fas fa-globe"></i> International apps (works worldwide)</h3>
+                <div class="app-grid">
+                    ${cardsHtml}
+                </div>
+            `;
+            }
+
+            // build country pills with flags and filter
+            function renderCountryPills(filteredKeys = null) {
+                const container = document.getElementById('countryPills');
+                container.innerHTML = '';
+                const keysToRender = filteredKeys || countryKeys;
+
+                keysToRender.forEach(k => {
+                    const c = countriesData[k];
+                    if (!c) return;
+
+                    // Check region filter
+                    if (currentRegion !== 'all' && c.region !== currentRegion) return;
+
+                    const pill = document.createElement('span');
+                    pill.className = 'country-pill';
+                    pill.setAttribute('data-key', k);
+                    pill.setAttribute('role', 'option');
+                    pill.setAttribute('tabindex', '0');
+                    pill.innerHTML = `${c.flag} ${c.name}`;
+                    pill.addEventListener('click', () => {
+                        document.querySelectorAll('.country-pill').forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                        renderCountry(k);
+                    });
+                    // Keyboard accessibility
+                    pill.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            pill.click();
+                        }
+                    });
+                    container.appendChild(pill);
+                });
+
+                // If no matches
+                if (container.children.length === 0) {
+                    container.innerHTML = '<span class="no-data">No countries found</span>';
+                }
+            }
+
+            // Filter countries by search
+            function filterCountries() {
+                if (!searchQuery) {
+                    renderCountryPills();
+                    return;
+                }
+                const filtered = countryKeys.filter(k => {
+                    const c = countriesData[k];
+                    return c && c.name.toLowerCase().includes(searchQuery);
+                });
+                renderCountryPills(filtered);
+            }
+
+            // Update search to use filter
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                filterCountries();
+            });
+
+            // Initialize
+            function init() {
+                // Check for hash in URL or localStorage
+                let initialCountry = null;
+
+                // First check URL hash
+                const hash = window.location.hash.slice(1);
+                if (hash && countriesData[hash]) {
+                    initialCountry = hash;
+                }
+
+                // Then check localStorage
+                if (!initialCountry) {
+                    try {
+                        const saved = localStorage.getItem('lastCountry');
+                        if (saved && countriesData[saved]) {
+                            initialCountry = saved;
+                        }
+                    } catch (e) { }
+                }
+
+                // Default to first country
+                if (!initialCountry) {
+                    initialCountry = countryKeys[0];
+                }
+
+                // Render pills
+                renderCountryPills();
+
+                // Set active pill and render country
+                setTimeout(() => {
+                    const pill = document.querySelector(`[data-key="${initialCountry}"]`);
+                    if (pill) {
+                        pill.classList.add('active');
+                    }
+                    renderCountry(initialCountry);
+                }, 0);
+            }
+
+            // Handle browser back/forward
+            window.addEventListener('popstate', () => {
+                const hash = window.location.hash.slice(1);
+                if (hash && countriesData[hash]) {
+                    document.querySelectorAll('.country-pill').forEach(p => p.classList.remove('active'));
+                    const pill = document.querySelector(`[data-key="${hash}"]`);
+                    if (pill) pill.classList.add('active');
+                    renderCountry(hash);
+                }
+            });
+
+            init();
+        })();
+    </script>
+</body>
+
+</html>
