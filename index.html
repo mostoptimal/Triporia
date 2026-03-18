@@ -14,7 +14,6 @@
     <meta name="author" content="Triporia">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Triporia - Essential Travel Apps & Websites 2026">
     <meta property="og:description"
         content="Essential apps and websites for travelers. Pre-trip planning and on-the-ground apps for 60+ countries.">
@@ -22,197 +21,751 @@
     <meta property="og:url" content="https://triporia.app">
     <meta property="og:image" content="https://triporia.app/og-image.png">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Triporia - Essential Travel Apps 2026">
     <meta name="twitter:description" content="Essential apps and websites for travelers in 60+ countries.">
 
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/1780cc454e.js" crossorigin="anonymous"></script>
     <style>
-        /* Skip link for accessibility */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-app: #0d0d0f;
+            --bg-elevated: #18181b;
+            --bg-subtle: #1f1f23;
+            --bg-hover: #27272a;
+            --bg-active: #323238;
+            --border-subtle: #27272a;
+            --border-default: #3f3f46;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #22d3ee;
+            --accent-muted: #0891b2;
+            --accent-subtle: rgba(34, 211, 238, 0.1);
+            --accent-glow: rgba(34, 211, 238, 0.4);
+            --success: #34d399;
+            --warning: #fbbf24;
+            --danger: #f87171;
+            --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --radius-xl: 20px;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px var(--accent-subtle);
+        }
+
+        [data-theme="light"] {
+            --bg-app: #fafafa;
+            --bg-elevated: #ffffff;
+            --bg-subtle: #f4f4f5;
+            --bg-hover: #e4e4e7;
+            --bg-active: #d4d4d8;
+            --border-subtle: #e4e4e7;
+            --border-default: #d4d4d8;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
+            --accent: #0891b2;
+            --accent-muted: #0e7490;
+            --accent-subtle: rgba(8, 145, 178, 0.1);
+            --accent-glow: rgba(8, 145, 178, 0.2);
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 20px var(--accent-subtle);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-app);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .app-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            min-height: 100vh;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .main-panel {
+            padding: 32px 40px;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+
+        .sidebar {
+            background: var(--bg-elevated);
+            border-left: 1px solid var(--border-subtle);
+            padding: 24px;
+            overflow-y: auto;
+            max-height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        @media (max-width: 1100px) {
+            .app-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid var(--border-subtle);
+                position: relative;
+                max-height: none;
+            }
+
+            .main-panel {
+                padding: 24px;
+                max-height: none;
+            }
+        }
+
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
-            background: var(--accent-dark);
-            color: white;
+            background: var(--accent);
+            color: var(--bg-app);
             padding: 8px 16px;
             z-index: 1000;
             text-decoration: none;
-            border-radius: 0 0 4px 0;
+            border-radius: 0 0 var(--radius-sm) 0;
+            font-weight: 600;
+            font-size: 14px;
         }
 
         .skip-link:focus {
             top: 0;
         }
 
-        :root {
-            --bg-primary: #f5f7fa;
-            --bg-secondary: #ffffff;
-            --bg-tertiary: #e8eef4;
-            --bg-hover: #f1f7fd;
-            --text-primary: #1e2b37;
-            --text-secondary: #4a5c6b;
-            --text-muted: #6f8fa0;
-            --accent: #2a6f8f;
-            --accent-dark: #0b3954;
-            --accent-light: rgba(42, 111, 143, 0.1);
-            --border-color: #dde9f2;
-            --shadow: rgba(0, 0, 0, 0.15);
-            --card-bg: #f9fcff;
-            --card-border: #dde9f2;
-            --tip-bg: #f1f7fd;
-            --disclaimer-bg: #fff5ef;
-            --warning: #d9734c;
-            --success: #146b54;
-            --warning-text: #a24f2e;
-            --hero-icon: linear-gradient(135deg, #2a6f8f, #0b3954);
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #1a2332;
-            --bg-secondary: #243044;
-            --bg-tertiary: #2d3d52;
-            --bg-hover: #34455a;
-            --text-primary: #e8eef4;
-            --text-secondary: #a8b8c8;
-            --text-muted: #7a8a9a;
-            --accent: #4a9fcf;
-            --accent-dark: #3d8ab8;
-            --accent-light: rgba(74, 159, 207, 0.15);
-            --border-color: #3d4d62;
-            --shadow: rgba(0, 0, 0, 0.4);
-            --card-bg: #2d3d52;
-            --card-border: #3d4d62;
-            --tip-bg: #2d3d52;
-            --disclaimer-bg: #3d3445;
-            --warning: #e09070;
-            --success: #5cb87a;
-            --warning-text: #e0a080;
-            --hero-icon: linear-gradient(135deg, #4a9fcf, #3d8ab8);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, rgba(11, 57, 84, 0.88), rgba(30, 79, 102, 0.82)),
-                url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80') center/cover no-repeat fixed;
-            color: var(--text-primary);
-            line-height: 1.5;
-            padding: 1rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-attachment: fixed;
-            transition: background 0.3s ease;
-        }
-
-        [data-theme="dark"] body {
-            background: linear-gradient(135deg, rgba(20, 35, 55, 0.95), rgba(40, 60, 80, 0.9)),
-                url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80') center/cover no-repeat fixed;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 1.5rem;
-            box-shadow:
-                0 8px 32px var(--shadow),
-                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
-            animation: fadeIn 0.5s ease-out;
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] .container {
-            background: rgba(36, 48, 68, 0.95);
-        }
-
-        .main-content {
-            min-width: 0;
-        }
-
-        .todo-sidebar {
-            background: var(--bg-tertiary);
-            border-radius: 16px;
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            height: fit-content;
-            position: sticky;
-            top: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .todo-content {
-            display: block;
-        }
-
-        .todo-header {
+        .top-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px dashed var(--border-color);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
-        .todo-header h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--accent-dark);
+        .brand {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 14px;
         }
 
-        .todo-progress {
-            font-size: 0.75rem;
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-muted));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .brand-text h1 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .brand-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            font-size: 13px;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .stat-pill:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-default);
+        }
+
+        .stat-pill i {
             color: var(--accent);
+        }
+
+        .stat-pill strong {
+            color: var(--text-primary);
             font-weight: 600;
-            background: var(--accent-light);
-            padding: 0.2rem 0.5rem;
-            border-radius: 10px;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-hover);
+            color: var(--accent);
+            transform: rotate(15deg);
+        }
+
+        .search-section {
+            margin-bottom: 28px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-subtle);
+        }
+
+        .region-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .region-btn {
+            padding: 8px 16px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .region-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--border-default);
+        }
+
+        .region-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-app);
+        }
+
+        .countries-section {
+            margin-bottom: 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .countries-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .country-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .country-chip:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--border-default);
+            transform: translateY(-1px);
+        }
+
+        .country-chip.active {
+            background: var(--accent-subtle);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .country-chip .flag {
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .content-panel {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .country-hero {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .country-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .country-flag {
+            font-size: 40px;
+            line-height: 1;
+        }
+
+        .country-info h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .country-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .meta-tag i {
+            font-size: 12px;
+        }
+
+        .live-clock-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--accent-subtle);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .live-clock-badge i {
+            font-size: 14px;
+        }
+
+        .live-clock-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        @media (max-width: 768px) {
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .info-card.tips {
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.08), rgba(52, 211, 153, 0.02));
+            border-color: rgba(52, 211, 153, 0.2);
+        }
+
+        .info-card.keep-in-mind {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(251, 191, 36, 0.02));
+            border-color: rgba(251, 191, 36, 0.2);
+        }
+
+        .info-card h3 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card.tips h3 {
+            color: var(--success);
+        }
+
+        .info-card.keep-in-mind h3 {
+            color: var(--warning);
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card.tips li i {
+            color: var(--success);
+            margin-top: 2px;
+        }
+
+        .info-card.keep-in-mind li i {
+            color: var(--warning);
+            margin-top: 2px;
+        }
+
+        .useful-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--bg-subtle);
+            border-radius: var(--radius-lg);
+            margin-bottom: 28px;
+        }
+
+        .useful-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .useful-item i {
+            width: 20px;
+            color: var(--text-muted);
+        }
+
+        .useful-item span {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .apps-section {
+            margin-bottom: 32px;
+        }
+
+        .apps-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .apps-section h3 i {
+            color: var(--accent);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .app-card {
+            display: block;
+            padding: 16px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .app-card:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-default);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .app-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            object-fit: contain;
+            background: var(--bg-subtle);
+            padding: 6px;
+        }
+
+        .app-name {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .app-badge {
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .app-badge.web {
+            background: var(--accent-subtle);
+            color: var(--accent);
+        }
+
+        .app-badge.app {
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--success);
+        }
+
+        .app-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .app-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .app-tip i {
+            color: var(--accent);
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+
+        .no-data {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-style: italic;
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-subtle);
+            border-radius: var(--radius-lg);
+        }
+
+        /* Sidebar - Travel Checklist */
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .sidebar-header h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-header h2 i {
+            color: var(--accent);
+        }
+
+        .progress-badge {
+            padding: 6px 12px;
+            background: var(--accent-subtle);
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
         }
 
         .todo-category {
-            margin-bottom: 0.75rem;
+            margin-bottom: 20px;
         }
 
         .todo-category-title {
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-size: 11px;
+            font-weight: 600;
             text-transform: uppercase;
-            color: var(--accent-dark);
-            margin-bottom: 0.4rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 8px;
         }
 
         .todo-category-title i {
+            font-size: 12px;
             color: var(--accent);
-            font-size: 0.75rem;
         }
 
         .todo-items {
@@ -222,1503 +775,341 @@
         .todo-item {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.3rem 0;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--bg-subtle);
+            border-radius: var(--radius-md);
+            margin-bottom: 6px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s ease;
         }
 
         .todo-item:hover {
-            color: var(--accent-dark);
-        }
-
-        .todo-item input[type="checkbox"] {
-            width: 14px;
-            height: 14px;
-            accent-color: var(--accent);
-            cursor: pointer;
+            background: var(--bg-hover);
         }
 
         .todo-item.checked {
-            text-decoration: line-through;
-            color: var(--text-muted);
+            opacity: 0.5;
         }
 
-        .todo-item.checked .todo-item-text {
+        .todo-item.checked .todo-text {
             text-decoration: line-through;
         }
 
-        .todo-add {
+        .todo-checkbox {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 2px solid var(--border-default);
+            background: transparent;
+            cursor: pointer;
             display: flex;
-            gap: 0.4rem;
-            margin-top: 1rem;
-            padding-top: 0.75rem;
-            border-top: 2px dashed var(--border-color);
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+            flex-shrink: 0;
         }
 
-        .todo-add input {
-            flex: 1;
-            padding: 0.4rem 0.6rem;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-family: inherit;
-            outline: none;
-            background: var(--bg-secondary);
+        .todo-checkbox.checked {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .todo-checkbox.checked i {
+            color: var(--bg-app);
+            font-size: 10px;
+        }
+
+        .todo-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
+        }
+
+        .todo-item:hover .todo-text {
             color: var(--text-primary);
         }
 
-        .todo-add input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 2px var(--accent-light);
+        .add-todo-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .todo-add button {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.4rem 0.6rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: all 0.2s;
-        }
-
-        .todo-add button:hover {
-            background: var(--accent-dark);
+        .add-todo-section h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
         }
 
         .todo-category-select {
             width: 100%;
-            padding: 0.4rem 0.6rem;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 0.75rem;
+            padding: 12px 14px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            font-size: 14px;
             font-family: inherit;
-            background: var(--bg-secondary);
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
             cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
         }
 
-        .todo-toggle {
-            display: none;
+        .todo-category-select:focus {
+            border-color: var(--accent);
+        }
+
+        .add-todo-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .add-todo-input {
+            flex: 1;
+            padding: 12px 14px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .add-todo-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .add-todo-input:focus {
+            border-color: var(--accent);
+        }
+
+        .add-todo-btn {
+            padding: 12px 16px;
             background: var(--accent);
-            color: white;
             border: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
+            border-radius: var(--radius-md);
+            color: var(--bg-app);
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+        }
+
+        .add-todo-btn:hover {
+            background: var(--accent-muted);
+            transform: scale(1.02);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            color: var(--bg-app);
+            font-size: 18px;
         }
 
-        .todo-toggle:hover {
-            background: var(--accent-dark);
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
-        @media (max-width: 900px) {
-            .container {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .todo-sidebar {
-                order: 2;
-                margin-top: 1rem;
-            }
-
-            .todo-toggle {
-                display: flex;
-            }
-
-            .todo-content {
-                display: block;
-                overflow: hidden;
-                transition: max-height 0.3s ease, opacity 0.3s ease;
-                max-height: 500px;
-                opacity: 1;
-            }
-
-            .todo-content.collapsed {
-                max-height: 0;
-                opacity: 0;
-                padding: 0;
-            }
-
-            .todo-sidebar.collapsed .todo-toggle i {
-                transform: rotate(180deg);
-            }
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
         }
 
-        @media (max-width: 600px) {
-            .country-pills-wrapper {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                gap: 0.4rem;
-                padding: 0.35rem 0 0.75rem 0;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-
-            .country-pills-wrapper::-webkit-scrollbar {
-                display: none;
-            }
-
-            .country-pills-wrapper .country-pill {
-                flex-shrink: 0;
-            }
-
-            .show-more-btn {
-                display: flex;
-                align-items: center;
-                gap: 0.3rem;
-                background: var(--accent-light);
-                border: 1px solid var(--accent);
-                border-radius: 50px;
-                padding: 0.35rem 0.65rem;
-                font-weight: 600;
-                font-size: 0.7rem;
-                color: var(--accent-dark);
-                cursor: pointer;
-                white-space: nowrap;
-                transition: all 0.2s ease;
-                flex-shrink: 0;
-            }
-
-            .show-more-btn:hover {
-                background: var(--accent);
-                color: white;
-            }
-
-            .country-pills-container {
-                display: none;
-            }
-
-            .country-pills-container.expanded {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.4rem;
-                padding: 0.35rem 0 0.75rem 0;
-            }
+        /* Footer in main panel */
+        .main-footer {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
         }
 
-        @keyframes fadeIn {
+        .main-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .main-footer a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Loading state */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .loading i {
+            font-size: 32px;
+            margin-bottom: 16px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
             from {
-                opacity: 0;
-                transform: translateY(10px);
+                transform: rotate(0deg);
             }
 
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: rotate(360deg);
             }
         }
 
-        .hero {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 2px dashed rgba(42, 111, 143, 0.2);
+        .loading p {
+            font-size: 14px;
         }
 
-        .hero-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .hero-brand {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .hero-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--hero-icon);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            background: var(--accent-dark);
-            color: white;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px var(--shadow);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 100;
-            border: none;
-            font-size: 1.1rem;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .back-to-top:focus {
-            outline: 3px solid #f5e56b;
-            outline-offset: 2px;
-        }
-
-        .country-pill {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
-            padding: 0.35rem 0.65rem;
-            font-weight: 600;
-            font-size: 0.7rem;
-            color: var(--text-primary);
-            box-shadow: 0 2px 8px rgba(0, 20, 30, 0.08);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .country-pill:hover {
-            background: var(--accent-light);
-            border-color: var(--accent);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(20, 60, 100, 0.15);
-        }
-
-        .country-pill:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        .country-pill.active {
-            background: var(--accent-dark);
-            border-color: var(--accent);
-            color: white;
-        }
-
-        .hero-text h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--accent-dark);
-            line-height: 1.2;
-        }
-
-        .hero-text .tagline {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: var(--accent-light);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent-dark);
-            border: 1px solid var(--border-color);
-        }
-
-        .hero-badge i {
-            color: var(--accent);
-        }
-
-        .hero-badge span {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .hero-text .tagline {
-            font-size: 0.85rem;
-            color: #4a6b7c;
-            margin-top: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        [data-theme="dark"] .hero-text .tagline {
-            color: #8fa4b5;
-        }
-
-        .theme-toggle {
-            background: var(--accent-light);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 0.4rem 0.6rem;
-            cursor: pointer;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: all 0.2s;
-            color: var(--accent-dark);
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-hover);
-            border-color: var(--accent);
-        }
-
-        .theme-toggle .icon-sun { display: none; }
-        .theme-toggle .icon-moon { display: inline; }
-
-        [data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
-        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-
-        .hero-actions {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: linear-gradient(135deg, rgba(42, 111, 143, 0.12), rgba(11, 57, 84, 0.08));
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #0b3954;
-            border: 1px solid rgba(42, 111, 143, 0.2);
-        }
-
-        .hero-badge i {
-            color: #2a6f8f;
-        }
-
-        .hero-badge span {
-            color: #2a6f8f;
-            font-weight: 700;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 0.75rem;
-            background: var(--accent-light);
-            border-radius: 10px;
-            transition: all 0.2s;
-        }
-
-        .stat-item:hover {
-            background: var(--bg-hover);
-            transform: translateY(-2px);
-        }
-
-        .stat-item i {
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        .stat-value {
-            font-weight: 700;
-            color: var(--accent-dark);
-            font-size: 0.85rem;
-        }
-
-        .stat-label {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* Search & Filter */
-        .controls-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-            align-items: center;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 150px;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.4rem 0.6rem 0.4rem 2rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-family: inherit;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-        }
-
-        .search-box input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .search-box input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-light);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 0.6rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--accent);
-            font-size: 0.8rem;
-        }
-
-        .region-btn {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 0.25rem 0.6rem;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .region-btn:hover {
-            background: var(--accent-light);
-            border-color: var(--accent);
-        }
-
-        .region-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-        }
-
-        .region-btn:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        .search-box input:focus {
-            border-color: #2a6f8f;
-            box-shadow: 0 0 0 3px rgba(42, 111, 143, 0.1);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 0.6rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #2a6f8f;
-            font-size: 0.8rem;
-        }
-
-        .region-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.35rem;
-        }
-
-        .region-btn {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(42, 111, 143, 0.25);
-            border-radius: 20px;
-            padding: 0.25rem 0.6rem;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #1e4f66;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .region-btn:hover {
-            background: rgba(42, 111, 143, 0.15);
-            border-color: rgba(42, 111, 143, 0.5);
-        }
-
-        .region-btn.active {
-            background: #2a6f8f;
-            border-color: #2a6f8f;
-            color: white;
-        }
-
-        .region-btn:focus {
-            outline: 2px solid #2a6f8f;
-            outline-offset: 2px;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            background: #1e4f66;
-            color: white;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 100;
-            border: none;
-            font-size: 1.1rem;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: #0b3954;
-            transform: translateY(-3px);
-        }
-
-        .back-to-top:focus {
-            outline: 3px solid #f5e56b;
-            outline-offset: 2px;
-        }
-
-        /* pills row */
-        .region-row, .country-pills-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            padding: 0.4rem 0 0.75rem 0;
-            margin-bottom: 0.5rem;
-        }
-
-        .country-pill {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(42, 111, 143, 0.25);
-            border-radius: 50px;
-            padding: 0.35rem 0.65rem;
-            font-weight: 600;
-            font-size: 0.7rem;
-            color: #1e3b4a;
-            box-shadow: 0 2px 8px rgba(0, 20, 30, 0.08);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .country-pill:hover {
-            background: rgba(42, 111, 143, 0.12);
-            border-color: rgba(42, 111, 143, 0.5);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(20, 60, 100, 0.15);
-        }
-
-        .country-pill:focus {
-            outline: 2px solid #2a6f8f;
-            outline-offset: 2px;
-        }
-
-        .country-pill.active {
-            background: #1e4f66;
-            border-color: #0d3140;
-            color: white;
-            box-shadow: 0 3px 8px rgba(30, 79, 102, 0.25);
-        }
-
-        .info-panel {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 1.25rem;
-            box-shadow: 0 2px 12px var(--shadow);
-            border: 1px solid var(--border-color);
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .country-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            border-bottom: 2px dashed #cbdae7;
-            padding-bottom: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .country-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.01em;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .region-tag {
-            background: var(--accent-light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .live-clock {
-            background: var(--accent-dark);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .live-clock i {
-            font-size: 0.85rem;
-            color: #f5e56b;
-        }
-
-        .tip-box {
-            background: var(--tip-bg);
-            border-left: 4px solid var(--accent);
-        }
-
-        .disclaimer-box {
-            background: var(--disclaimer-bg);
-            border-left: 4px solid var(--warning);
-        }
-
-        .tip-box h3,
-        .disclaimer-box h3,
-        .useful-box h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            color: var(--accent-dark);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .disclaimer-box h3 {
-            color: var(--warning-text);
-        }
-
-        .tip-box li i {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-top: 2px;
-        }
-
-        .disclaimer-box li i {
-            color: var(--warning);
-            font-size: 0.9rem;
-            margin-top: 2px;
-        }
-
-        .useful-box {
-            background: var(--bg-tertiary);
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .useful-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .useful-item i {
-            font-size: 0.95rem;
-            color: var(--accent);
-            width: 1.2rem;
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin: 1.5rem 0 1rem 0;
-            color: var(--accent-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid transparent;
-            border-image: linear-gradient(90deg, var(--accent), var(--accent-dark)) 1;
-        }
-
-        .region-tag {
-            background: #e0edf5;
-            padding: 0.3rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #1f5570;
-        }
-
-        .live-clock {
-            background: #1f4c66;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .live-clock i {
-            font-size: 0.85rem;
-            color: #f5e56b;
-        }
-
-        .grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .tip-box,
-        .disclaimer-box {
-            border-radius: 12px;
-            padding: 1rem;
-        }
-
-        .tip-box {
-            background: var(--bg-tertiary);
-            border-left: 4px solid var(--accent);
-        }
-
-        .disclaimer-box {
-            background: var(--bg-tertiary);
-            border-left: 4px solid #d9734c;
-        }
-
-        .tip-box h3,
-        .disclaimer-box h3,
-        .useful-box h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            color: #1b4b63;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .disclaimer-box h3 {
-            color: #a24f2e;
-        }
-
-        .tip-box ul,
-        .disclaimer-box ul {
-            list-style: none;
-        }
-
-        .tip-box li,
-        .disclaimer-box li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            gap: 0.5rem;
-            align-items: flex-start;
-            font-size: 0.85rem;
-        }
-
-        .tip-box li i {
-            color: #2a6f8f;
-            font-size: 0.9rem;
-            margin-top: 2px;
-        }
-
-        .disclaimer-box li i {
-            color: #c65d38;
-            font-size: 0.9rem;
-            margin-top: 2px;
-        }
-
-        .useful-box {
-            background: #eaf3f3;
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .useful-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .useful-item i {
-            font-size: 0.95rem;
-            color: #1f6c7a;
-            width: 1.2rem;
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin: 1.5rem 0 1rem 0;
-            color: #0b3954;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid transparent;
-            border-image: linear-gradient(90deg, #2a6f8f, #0b3954) 1;
-        }
-
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .app-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1rem;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            position: relative;
-            text-decoration: none;
-            display: block;
-            color: inherit;
-        }
-
-        .app-card:hover {
-            background: var(--bg-secondary);
-            border-color: var(--accent);
-            box-shadow: 0 4px 12px var(--shadow);
-            transform: translateY(-2px);
-        }
-
-        .app-card:focus {
-            outline: 2px solid #2a6f8f;
-            outline-offset: 2px;
-        }
-
-        .app-card-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-logo {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            object-fit: contain;
-            background: white;
-            padding: 2px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .app-card-name {
-            font-weight: 700;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            flex: 1;
-        }
-
-        .badge-web {
-            background: var(--accent-light);
-            color: var(--accent-dark);
-        }
-
-        .badge-app {
-            background: #c7e3d9;
-            color: var(--success);
-        }
-
-        [data-theme="dark"] .badge-app {
-            background: #2d4a3d;
-            color: #7ccda3;
-        }
-
-        .app-card-desc {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-card-tip {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.4rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .app-card-tip i {
-            color: var(--accent);
-            margin-top: 2px;
-        }
-
-        .tooltip-icon {
-            margin-left: 8px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            cursor: help;
-            transition: color 0.2s;
-        }
-
-        .tooltip-icon:hover {
-            color: var(--accent-dark);
-        }
-
-        .footer {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 2px dashed var(--border-color);
-            padding-top: 1.25rem;
-            color: var(--text-secondary);
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.8rem;
-        }
-
-        .footer-divider {
-            color: var(--accent);
-        }
-
-        .footer-center a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-center a:hover {
-            color: var(--accent-dark);
-            text-decoration: underline;
-        }
-
-        .back-to-top-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.4rem 0.75rem;
-            border-radius: 20px;
-            background: var(--accent-light);
-            transition: all 0.2s;
-        }
-
-        .back-to-top-link:hover {
-            background: var(--bg-hover);
-            color: var(--accent-dark);
-        }
-
-        .footer .github {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--text-primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: 0.2s;
-        }
-
-        .footer .github:hover {
-            background: #0f1f2c;
-            transform: scale(1.02);
-        }
-
-        .no-data {
-            font-style: italic;
-            color: var(--text-muted);
-        }
-
-        .badge-web,
-        .badge-app {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            border-radius: 20px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 0.25rem 0.6rem;
-            text-transform: uppercase;
-        }
-
-        .badge-web {
-            background: #d3e2ed;
-            color: #204c63;
-        }
-
-        .badge-app {
-            background: #c7e3d9;
-            color: #146b54;
-        }
-
-        .app-card-desc {
-            color: #4a5c6b;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-card-tip {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.4rem;
-            font-size: 0.8rem;
-            color: #6f8fa0;
-            font-style: italic;
-        }
-
-        .app-card-tip i {
-            color: #2a6f8f;
-            margin-top: 2px;
-        }
-
-        .tooltip-icon {
-            margin-left: 8px;
-            color: #6f8fa0;
-            font-size: 0.9rem;
-            cursor: help;
-            transition: color 0.2s;
-        }
-
-        .tooltip-icon:hover {
-            color: #1e4f66;
-        }
-
-        .footer {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 2px dashed rgba(11, 57, 84, 0.15);
-            padding-top: 1.25rem;
-            color: #4a6b7c;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.8rem;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-divider {
-            color: #2a6f8f;
-        }
-
-        .footer-center {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .footer-center a {
-            color: #2a6f8f;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-center a:hover {
-            color: #0b3954;
-            text-decoration: underline;
-        }
-
-        .footer-right {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .back-to-top-link {
-            color: #2a6f8f;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.4rem 0.75rem;
-            border-radius: 20px;
-            background: rgba(42, 111, 143, 0.1);
-            transition: all 0.2s;
-        }
-
-        .back-to-top-link:hover {
-            background: rgba(42, 111, 143, 0.2);
-            color: #0b3954;
-        }
-
-        .footer .github {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #1e2b37;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: 0.2s;
-        }
-
-        .footer .github i {
-            font-size: 1.2rem;
-        }
-
-        .footer .github:hover {
-            background: #0f1f2c;
-            transform: scale(1.02);
-        }
-
-        .no-data {
-            font-style: italic;
-            color: #6f8fa0;
-        }
-
-        @media (max-width: 900px) {
-            .grid-2col {
-                grid-template-columns: 1fr;
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .main-panel {
+                padding: 20px 16px;
             }
 
-            .app-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 0.75rem 0.5rem;
-            }
-
-            .hero {
-                margin-bottom: 1rem;
-                padding-bottom: 1rem;
-            }
-
-            .hero-top {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .hero-brand {
-                width: 100%;
-            }
-
-            .hero-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 1.25rem;
-                border-radius: 12px;
-            }
-
-            .hero-text h1 {
-                font-size: 1.4rem;
-            }
-
-            .hero-text .tagline {
-                font-size: 0.75rem;
-            }
-
-            .hero-actions {
-                width: 100%;
-                justify-content: flex-start;
-            }
-
-            .hero-badge {
-                font-size: 0.7rem;
-                padding: 0.4rem 0.75rem;
-            }
-
-            .hero-stats {
-                gap: 0.5rem;
-            }
-
-            .stat-item {
-                padding: 0.3rem 0.5rem;
-                gap: 0.35rem;
-            }
-
-            .stat-item i {
-                font-size: 0.75rem;
-            }
-
-            .stat-value {
-                font-size: 0.75rem;
-            }
-
-            .stat-label {
-                font-size: 0.6rem;
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 1.3rem;
-            }
-
-            .hero .tagline {
-                font-size: 0.75rem;
-            }
-
-            .hero .tagline i {
-                display: none;
-            }
-
-            .controls-row {
-                gap: 0.4rem;
-                margin-bottom: 0.6rem;
-            }
-
-            .search-box {
-                min-width: 100%;
-            }
-
-            .search-box input {
-                font-size: 0.75rem;
-                padding: 0.35rem 0.5rem 0.35rem 1.8rem;
-            }
-
-            .region-filter {
-                width: 100%;
-                justify-content: flex-start;
-            }
-
-            .region-btn {
-                font-size: 0.6rem;
-                padding: 0.2rem 0.5rem;
-            }
-
-            .region-row {
-                gap: 0.35rem;
-                padding: 0.35rem 0 0.75rem 0;
-            }
-
-            .country-pill {
-                padding: 0.3rem 0.55rem;
-                font-size: 0.65rem;
-                gap: 0.25rem;
-            }
-
-            .info-panel {
-                padding: 0.85rem;
-                border-radius: 12px;
-            }
-
-            .country-header {
+            .top-bar {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 0.6rem;
-                padding-bottom: 0.6rem;
             }
 
-            .country-header h2 {
-                font-size: 1.2rem;
-            }
-
-            .country-header>div {
+            .top-actions {
                 width: 100%;
-                justify-content: flex-start;
+                justify-content: space-between;
             }
 
-            .region-tag,
-            .live-clock {
-                font-size: 0.7rem;
-                padding: 0.25rem 0.6rem;
-            }
-
-            .grid-2col {
-                gap: 0.75rem;
-            }
-
-            .tip-box,
-            .disclaimer-box {
-                padding: 0.75rem;
-            }
-
-            .tip-box h3,
-            .disclaimer-box h3 {
-                font-size: 0.8rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .tip-box li,
-            .disclaimer-box li {
-                font-size: 0.75rem;
-                margin-bottom: 0.4rem;
-                gap: 0.4rem;
-            }
-
-            .tip-box li i,
-            .disclaimer-box li i {
-                font-size: 0.75rem;
-            }
-
-            .useful-box {
-                padding: 0.6rem 0.75rem;
-                gap: 0.5rem;
-            }
-
-            .useful-item {
-                font-size: 0.7rem;
-            }
-
-            .useful-item i {
-                font-size: 0.8rem;
-                width: 1rem;
-            }
-
-            .section-title {
-                font-size: 0.9rem;
-                margin: 1rem 0 0.6rem 0;
-            }
-
-            .app-card {
-                padding: 0.7rem;
-            }
-
-            .app-card-name {
-                font-size: 0.8rem;
-            }
-
-            .app-card-desc {
-                font-size: 0.7rem;
-            }
-
-            .app-card-tip {
-                font-size: 0.7rem;
-            }
-
-            .badge-web,
-            .badge-app {
-                font-size: 0.55rem;
-                padding: 0.2rem 0.4rem;
-            }
-
-            .footer {
+            .country-hero {
                 flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-                padding-top: 1rem;
-                font-size: 0.7rem;
             }
 
-            .footer-left {
-                flex-direction: column;
-                gap: 0.25rem;
+            .country-info h2 {
+                font-size: 22px;
             }
 
-            .footer-divider {
-                display: none;
+            .country-flag {
+                font-size: 32px;
             }
 
-            .footer-center {
-                gap: 0.5rem;
-                font-size: 0.7rem;
+            .apps-grid {
+                grid-template-columns: 1fr;
             }
+        }
 
-            .footer-right {
-                width: 100%;
+        /* Mobile sidebar toggle */
+        .mobile-sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: var(--bg-app);
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 99;
+        }
+
+        @media (max-width: 1100px) {
+            .mobile-sidebar-toggle {
+                display: flex;
+                align-items: center;
                 justify-content: center;
-                gap: 0.5rem;
             }
 
-            .footer .github {
-                width: auto;
-                justify-content: center;
-                padding: 0.4rem 0.75rem;
-                font-size: 0.7rem;
+            .sidebar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 70vh;
+                border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+                z-index: 98;
             }
 
-            .footer .github i {
-                font-size: 1rem;
+            .sidebar.open {
+                transform: translateY(0);
             }
 
-            .back-to-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 40px;
-                height: 40px;
+            .sidebar-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 97;
             }
+
+            .sidebar-overlay.open {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-subtle);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-default);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
         }
     </style>
 </head>
@@ -1730,63 +1121,47 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <div class="container" id="main-content">
-        <div class="main-content">
-            <header class="hero">
-                <div class="hero-top">
-                    <div class="hero-brand">
-                        <div class="hero-icon">
-                            <i class="fas fa-plane-departure"></i>
-                        </div>
-                        <div class="hero-text">
-                            <h1>Triporia</h1>
-                            <p class="tagline">Essential apps & websites for the 2026 traveler</p>
-                        </div>
-                    </div>
-                    <div class="hero-actions">
-                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                            <span class="icon-moon">🌙</span>
-                            <span class="icon-sun">☀️</span>
-                        </button>
-                        <span class="hero-badge">
-                            <i class="fas fa-globe"></i>
-                            <span id="countryCountHeader">60+</span> Countries
-                        </span>
-                    </div>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-laptop-code"></i>
-                        <span class="stat-value">200+</span>
-                        <span class="stat-label">Websites</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span class="stat-value">300+</span>
-                        <span class="stat-label">Apps</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-clock"></i>
-                        <span class="stat-value">Live</span>
-                        <span class="stat-label">Clocks</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-wifi"></i>
-                        <span class="stat-value">Offline</span>
-                        <span class="stat-label">Ready</span>
-                    </div>
-                </div>
-            </header>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <button class="mobile-sidebar-toggle" id="mobileSidebarToggle">
+        <i class="fas fa-clipboard-check"></i>
+    </button>
 
-            <div class="controls-row">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="countrySearch" placeholder="Search countries..."
-                        aria-label="Search countries">
+    <div class="app-layout">
+        <main class="main-panel" id="main-content">
+            <div class="top-bar">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Triporia</h1>
+                        <p>Essential travel apps for 2026</p>
+                    </div>
                 </div>
-                <div class="region-filter" role="group" aria-label="Filter by region">
+                <div class="top-actions">
+                    <div class="stat-pill">
+                        <i class="fas fa-globe"></i>
+                        <strong>60+</strong> Countries
+                    </div>
+                    <div class="stat-pill">
+                        <i class="fas fa-mobile-alt"></i>
+                        <strong>500+</strong> Apps
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="search-section">
+                <div class="search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" id="countrySearch" placeholder="Search destinations..."
+                        aria-label="Search destinations">
+                </div>
+                <div class="region-filters" role="group" aria-label="Filter by region">
                     <button class="region-btn active" data-region="all">All</button>
-                    <button class="region-btn" data-region="International">🌐 International</button>
+                    <button class="region-btn" data-region="International">International</button>
                     <button class="region-btn" data-region="Europe">Europe</button>
                     <button class="region-btn" data-region="Asia">Asia</button>
                     <button class="region-btn" data-region="Americas">Americas</button>
@@ -1796,113 +1171,89 @@
                 </div>
             </div>
 
-            <div id="countryPillsWrapper" class="country-pills-wrapper">
-                <div id="countryPills" class="region-row" role="listbox" aria-label="Select a country"></div>
-                <button id="showMoreBtn" class="show-more-btn" style="display: none;">
-                    <span>Show more</span> <i class="fas fa-chevron-down"></i>
-                </button>
+            <div class="countries-section">
+                <div class="section-label">Destinations</div>
+                <div class="countries-grid" id="countriesGrid" role="listbox" aria-label="Select a country"></div>
             </div>
-            <div id="countryPillsContainer" class="country-pills-container"></div>
 
-            <div id="infoPanel" class="info-panel">
-                <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
-                    <i class="fas fa-spinner fa-pulse fa-2x"></i>
-                    <p>loading destinations...</p>
+            <div class="content-panel" id="contentPanel">
+                <div class="loading">
+                    <i class="fas fa-circle-notch"></i>
+                    <p>Loading destination...</p>
                 </div>
             </div>
-        </div>
 
-        <div class="todo-sidebar" id="todoSidebar">
-            <div class="todo-header">
-                <h3><i class="fas fa-check-square"></i> Travel Checklist</h3>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span class="todo-progress" id="todoProgress">0/0</span>
-                    <button class="todo-toggle" id="todoToggle" aria-label="Toggle checklist">
-                        <i class="fas fa-chevron-up"></i>
+            <footer class="main-footer">
+                <div class="footer-brand">
+                    <i class="far fa-copyright"></i>
+                    <span>2026 Triporia</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#international"
+                        onclick="document.querySelector('[data-key=\'international\']').click()">International</a>
+                    <a href="#europe" onclick="document.querySelector('[data-key=\'france\']').click()">Europe</a>
+                    <a href="#asia" onclick="document.querySelector('[data-key=\'japan\']').click()">Asia</a>
+                    <a href="#americas" onclick="document.querySelector('[data-key=\'usa\']').click()">Americas</a>
+                </div>
+                <a href="https://github.com/mostoptimal/Triporia" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </footer>
+        </main>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-clipboard-check"></i> Travel Checklist</h2>
+                <span class="progress-badge" id="todoProgress">0/0</span>
+            </div>
+
+            <div id="todoListContainer"></div>
+
+            <div class="add-todo-section">
+                <h4>Add new item</h4>
+                <select class="todo-category-select" id="todoCategorySelect">
+                    <option value="documents">Documents</option>
+                    <option value="money">Money</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="health">Health</option>
+                    <option value="misc">Misc</option>
+                </select>
+                <div class="add-todo-form">
+                    <input type="text" class="add-todo-input" id="todoNewItem" placeholder="Add item...">
+                    <button class="add-todo-btn" id="todoAddBtn">
+                        <i class="fas fa-plus"></i>
                     </button>
                 </div>
             </div>
-
-            <div class="todo-content" id="todoContent">
-                <div id="todoListContainer"></div>
-
-                <div class="todo-add">
-                    <div style="width: 100%;">
-                        <select class="todo-category-select" id="todoCategorySelect">
-                            <option value="documents">📄 Documents</option>
-                            <option value="money">💰 Money</option>
-                            <option value="electronics">📱 Electronics</option>
-                            <option value="clothing">👕 Clothing</option>
-                            <option value="health">💊 Health</option>
-                            <option value="misc">📦 Misc</option>
-                        </select>
-                        <div style="display: flex; gap: 0.4rem;">
-                            <input type="text" id="todoNewItem" placeholder="Add item...">
-                            <button id="todoAddBtn"><i class="fas fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer" id="footer">
-            <div class="footer-left">
-                <span><i class="far fa-copyright"></i> 2026 · Triporia</span>
-                <span class="footer-divider">·</span>
-                <span id="statsText"><i class="fas fa-globe"></i> <span id="countryCount">60+</span> countries · <span
-                        id="appCount">500+</span> apps</span>
-            </div>
-            <div class="footer-center">
-                <a href="#international"
-                    onclick="document.querySelector('[data-key=\'international\']').click(); return false;">🌐
-                    International</a>
-                <a href="#europe" onclick="document.querySelector('[data-key=\'france\']').click(); return false;">🇪🇺
-                    Europe</a>
-                <a href="#asia" onclick="document.querySelector('[data-key=\'japan\']').click(); return false;">🌏
-                    Asia</a>
-                <a href="#americas" onclick="document.querySelector('[data-key=\'usa\']').click(); return false;">🌎
-                    Americas</a>
-            </div>
-            <div class="footer-right">
-                <a href="#" class="back-to-top-link"
-                    onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
-                    <i class="fas fa-arrow-up"></i> Top
-                </a>
-                <a href="https://github.com/mostoptimal/Triporia" class="github" id="githubLink" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fab fa-github"></i> <span>star / fork</span>
-                </a>
-            </div>
-        </footer>
+        </aside>
     </div>
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Triporia",
-    "description": "Essential apps and websites for travelers. Pre-trip planning and on-the-ground apps for 45+ countries.",
-    "url": "https://globaltriage.app",
-    "applicationCategory": "TravelApplication",
-    "operatingSystem": "Web Browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-    },
-    "author": {
-        "@type": "Organization",
-        "name": "Triporia"
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Triporia",
+        "description": "Essential apps and websites for travelers. Pre-trip planning and on-the-ground apps for 45+ countries.",
+        "url": "https://globaltriage.app",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Triporia"
+        }
     }
-}
-</script>
+    </script>
 
     <script>
         console.log('Triporia: Script loaded');
-        
+
         (function () {
-            // ---------- THEME TOGGLE ----------
             function setTheme(theme) {
                 try {
                     localStorage.setItem('triporiaTheme', theme);
@@ -1923,7 +1274,6 @@
                 setTheme(current === 'dark' ? 'light' : 'dark');
             });
 
-            // ---------- TRAVEL TODO LIST ----------
             const defaultTodos = {
                 documents: [
                     { text: "Passport", checked: false },
@@ -2017,8 +1367,10 @@
                             <ul class="todo-items">
                                 ${items.map((item, idx) => `
                                     <li class="todo-item ${item.checked ? 'checked' : ''}" data-category="${category}" data-index="${idx}">
-                                        <input type="checkbox" ${item.checked ? 'checked' : ''}>
-                                        <span class="todo-item-text">${item.text}</span>
+                                        <div class="todo-checkbox ${item.checked ? 'checked' : ''}">
+                                            ${item.checked ? '<i class="fas fa-check"></i>' : ''}
+                                        </div>
+                                        <span class="todo-text">${item.text}</span>
                                     </li>
                                 `).join('')}
                             </ul>
@@ -2030,22 +1382,17 @@
                 document.getElementById('todoProgress').textContent = `${checked}/${total}`;
 
                 container.querySelectorAll('.todo-item').forEach(item => {
-                    item.addEventListener('click', (e) => {
-                        if (e.target.type !== 'checkbox') {
-                            const checkbox = item.querySelector('input');
-                            checkbox.checked = !checkbox.checked;
+                    item.addEventListener('click', () => {
+                        const checkbox = item.querySelector('.todo-checkbox');
+                        checkbox.classList.toggle('checked');
+                        if (checkbox.classList.contains('checked')) {
+                            checkbox.innerHTML = '<i class="fas fa-check"></i>';
+                        } else {
+                            checkbox.innerHTML = '';
                         }
                         const cat = item.dataset.category;
                         const idx = parseInt(item.dataset.index);
-                        todos[cat][idx].checked = item.querySelector('input').checked;
-                        saveTodos(todos);
-                        renderTodos();
-                    });
-
-                    item.querySelector('input').addEventListener('change', () => {
-                        const cat = item.dataset.category;
-                        const idx = parseInt(item.dataset.index);
-                        todos[cat][idx].checked = item.querySelector('input').checked;
+                        todos[cat][idx].checked = checkbox.classList.contains('checked');
                         saveTodos(todos);
                         renderTodos();
                     });
@@ -2072,19 +1419,6 @@
 
             renderTodos();
 
-            // Todo collapse toggle for mobile
-            const todoToggle = document.getElementById('todoToggle');
-            const todoSidebar = document.getElementById('todoSidebar');
-            const todoContent = document.getElementById('todoContent');
-
-            if (todoToggle) {
-                todoToggle.addEventListener('click', () => {
-                    todoContent.classList.toggle('collapsed');
-                    todoSidebar.classList.toggle('collapsed');
-                });
-            }
-
-            // ---------- ENHANCED COUNTRY DATA (flags, timezones, extended lists, tooltips) ----------
             const countriesData = {
                 international: {
                     name: "International Apps", flag: "🌐", region: "International", timezone: "UTC",
@@ -2449,27 +1783,6 @@
                         { name: "KTEL", desc: "Buses", tip: "Intercity buses." }
                     ]
                 },
-                portugal: {
-                    name: "Portugal", flag: "🇵🇹", region: "Europe", timezone: "Europe/Lisbon",
-                    tips: ["Use Viva Viagem card for Lisbon transit.", "Azulejos (tiles) are everywhere – take photos!", "Port wine tours in Porto are a must.", "Pão de Queijo is addictive.", "Porto Card for discounts.", "Surf beaches are world-class."],
-                    disclaimers: ["Many shops close on Sundays.", "Uber is often cheaper than taxis.", "Credit card not accepted everywhere.", "Sunset is late (9pm+ in summer)."],
-                    useful: { capital: "Lisbon", currency: "Euro (€)", plug: "F", emergency: "112" },
-                    preTrip: [
-                        { name: "cp.pt", desc: "Trains", tip: "Book Comboios de Portugal." },
-                        { name: "Rede Expressos", desc: "Buses", tip: "Cheapest intercity travel." },
-                        { name: "Booking.com", desc: "Hotels", tip: "All cities." },
-                        { name: "PortoCard.com", desc: "Porto pass", tip: "Museums & transport." },
-                        { name: "LisbonCard.com", desc: "Lisbon pass", tip: "Free transport & museums." },
-                        { name: "FlixBus", desc: "Buses", tip: "Cheap alternative." }
-                    ],
-                    onGround: [
-                        { name: "Google Maps", desc: "Transit & directions", tip: "Accurate for trams." },
-                        { name: "Uber / Bolt", desc: "Ride-hailing", tip: "Bolt often cheaper." },
-                        { name: "TheFork", desc: "Restaurant bookings", tip: "Great for Lisbon." },
-                        { name: "Moovit", desc: "Transit", tip: "Bus times." },
-                        { name: "Viva Viagem", desc: "Transport card", tip: "Metro, tram, bus Lisbon." }
-                    ]
-                },
                 morocco: {
                     name: "Morocco", flag: "🇲🇦", region: "Africa", timezone: "Africa/Casablanca",
                     tips: ["Bargain in medinas – start low.", "Ramadan: many places closed daytime.", "Mint tea is everywhere – say yes.", "Djemaa el-Fna in Marrakech is iconic."],
@@ -2607,20 +1920,6 @@
                         { name: "Google Maps", desc: "Navigation", tip: "Works in cities." }
                     ]
                 },
-                myanmar: {
-                    name: "Myanmar", flag: "🇲🇲", region: "Asia", timezone: "Asia/Yangon",
-                    tips: ["Bagan temples are magical.", "Golden Rock is a pilgrimage.", "Visa required – apply online.", "Local SIM is cheap.", "保守的な服装で寺院を訪問"],
-                    disclaimers: ["Internet restricted.", "Many places cash only.", "Political situation unstable – check advisories."],
-                    useful: { capital: "Naypyidaw", currency: "MMK (K)", plug: "A / C / D / G", emergency: "199" },
-                    preTrip: [
-                        { name: "Myanmar eVisa", desc: "Visa application", tip: "Apply online 3 days ahead." },
-                        { name: "12go.asia", desc: "Transport", tip: "Buses, flights." }
-                    ],
-                    onGround: [
-                        { name: "Grab", desc: "Rides", tip: "Yangon." },
-                        { name: "Google Maps", desc: "Limited", tip: "Download offline." }
-                    ]
-                },
                 srilanka: {
                     name: "Sri Lanka", flag: "🇱🇰", region: "Asia", timezone: "Asia/Colombo",
                     tips: ["Ella train ride is scenic.", "Sigiriya is stunning.", "Tea country is beautiful.", "Sri Lanka is affordable.", "Whale watching in Mirissa."],
@@ -2650,187 +1949,6 @@
                     onGround: [
                         { name: "Google Maps", desc: "Limited", tip: "Download offline." },
                         { name: "Pathao", desc: "Rides", tip: "Ride-hailing." }
-                    ]
-                },
-                bangladesh: {
-                    name: "Bangladesh", flag: "🇧🇩", region: "Asia", timezone: "Asia/Dhaka",
-                    tips: ["Cox's Bazar beach is longest.", "Sundarbans for tigers.", "Rice and fish cuisine.", "Dhaka is chaotic.", "Bengali culture is rich."],
-                    disclaimers: ["Visa required.", "English not widely spoken.", "Infrastructure poor."],
-                    useful: { capital: "Dhaka", currency: "BDT (Tk)", plug: "A / C / D / G / K", emergency: "999" },
-                    preTrip: [
-                        { name: "Bangladesh Visa", desc: "Apply online", tip: "eVisa available." }
-                    ],
-                    onGround: [
-                        { name: "Pathao", desc: "Rides & food", tip: "Super-app." },
-                        { name: "Google Maps", desc: "Works", tip: "Limited accuracy." }
-                    ]
-                },
-                laos: {
-                    name: "Laos", flag: "🇱🇦", region: "Asia", timezone: "Asia/Vientiane",
-                    tips: ["Luang Prabang is charming.", "Mekong river is scenic.", "Buddhist temples everywhere.", "Laos is very relaxed.", "Visa on arrival."],
-                    disclaimers: ["Infrastructure limited.", "Slow pace – embrace it.", "Healthcare limited."],
-                    useful: { capital: "Vientiane", currency: "LAK (₭)", plug: "A / B / C / E / F", emergency: "190" },
-                    preTrip: [
-                        { name: "12go.asia", desc: "Buses & boats", tip: "To Thailand, Vietnam." },
-                        { name: "Laos eVisa", desc: "Visa", tip: "Apply online." }
-                    ],
-                    onGround: [
-                        { name: "Loca", desc: "Rides", tip: "Local ride-hailing." },
-                        { name: "Google Maps", desc: "Limited", tip: "Download offline." }
-                    ]
-                },
-                saudi: {
-                    name: "Saudi Arabia", flag: "🇸🇦", region: "Middle East", timezone: "Asia/Riyadh",
-                    tips: ["Mecca for Hajj/Umrah.", "Neom is futuristic city.", "Saudi is very conservative.", "No alcohol allowed.", "Desert landscapes are vast."],
-                    disclaimers: ["Strict dress codes.", "Women's rights limited.", "Expensive – few tourists."],
-                    useful: { capital: "Riyadh", currency: "SAR (SR)", plug: "G", emergency: "999" },
-                    preTrip: [
-                        { name: "SaudiVisa", desc: "eVisa", tip: "Available for tourists." },
-                        { name: "SaudiAirports", desc: "Flights", tip: "Fly Riyadh, Jeddah." }
-                    ],
-                    onGround: [
-                        { name: "Uber", desc: "Rides", tip: "Available in cities." },
-                        { name: "Careem", desc: "Rides", tip: "Popular app." }
-                    ]
-                },
-                qatar: {
-                    name: "Qatar", flag: "🇶🇦", region: "Middle East", timezone: "Asia/Qatar",
-                    tips: ["Doha is modern.", "Museum of Islamic Art is stunning.", "Desert safaris are popular.", "Pearl Qatar is upscale.", "Qatar is very safe."],
-                    disclaimers: ["Very expensive.", "Alcohol only in hotels.", "Conservative dress."],
-                    useful: { capital: "Doha", currency: "QAR (QR)", plug: "G", emergency: "999" },
-                    preTrip: [
-                        { name: "QatarAirways", desc: "Flights", tip: "World-class airline." },
-                        { name: "VisitQatar", desc: "Tourism", tip: "Official guide." }
-                    ],
-                    onGround: [
-                        { name: "Uber", desc: "Rides", tip: "Doha." },
-                        { name: "Karwa", desc: "Taxi", tip: "Official taxi app." }
-                    ]
-                },
-                oman: {
-                    name: "Oman", flag: "🇴🇲", region: "Middle East", timezone: "Asia/Muscat",
-                    tips: ["Wadi Shab is beautiful.", "Desert camping is amazing.", "Muscat is clean.", "Oman is safe and welcoming.", "Mountains are stunning."],
-                    disclaimers: ["Driving is on the right.", "Some areas require 4x4.", "Conservative but relaxed."],
-                    useful: { capital: "Muscat", currency: "OMR (Rial)", plug: "G", emergency: "9999" },
-                    preTrip: [
-                        { name: "Oman eVisa", desc: "Visa", tip: "Apply online." },
-                        { name: "OmanAir", desc: "Flights", tip: "National carrier." }
-                    ],
-                    onGround: [
-                        { name: "Otaxi", desc: "Rides", tip: "Muscat taxi app." },
-                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
-                    ]
-                },
-                bahrain: {
-                    name: "Bahrain", flag: "🇧🇭", region: "Middle East", timezone: "Asia/Bahrain",
-                    tips: ["Bahrain is modern.", "F1 Bahrain Grand Prix.", "World Trade Center is iconic.", "Pearl Bahrain is artificial island.", "Bahrain is liberal for Gulf."],
-                    disclaimers: ["Very hot summer.", "Expensive compared to neighbors.", "Conservative dress."],
-                    useful: { capital: "Manama", currency: "BHD (BD)", plug: "G", emergency: "999" },
-                    preTrip: [
-                        { name: "Bahrain Visa", desc: "eVisa", tip: "Free for GCC residents." },
-                        { name: "BahrainTourism", desc: "Official guide", tip: "Events." }
-                    ],
-                    onGround: [
-                        { name: "Uber", desc: "Rides", tip: "Available." },
-                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
-                    ]
-                },
-                kuwait: {
-                    name: "Kuwait", flag: "🇰🇼", region: "Middle East", timezone: "Asia/Kuwait",
-                    tips: ["Kuwait City is modern.", "Kuwait Towers are iconic.", "Desert is vast.", "Shopping is excellent.", "Kuwait is safe."],
-                    disclaimers: ["Very hot & humid.", "Expensive.", "Conservative."],
-                    useful: { capital: "Kuwait City", currency: "KWD (KD)", plug: "G", emergency: "112" },
-                    preTrip: [
-                        { name: "Kuwait eVisa", desc: "Visa", tip: "Apply online." }
-                    ],
-                    onGround: [
-                        { name: "Uber", desc: "Rides", tip: "Available." },
-                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
-                    ]
-                },
-                jordan: {
-                    name: "Jordan", flag: "🇯🇴", region: "Middle East", timezone: "Asia/Amman",
-                    tips: ["Petra is a must-see.", "Dead Sea is therapeutic.", "Wadi Rum is magical.", "Jordan Pass covers entry.", "Amman is modern."],
-                    disclaimers: ["Conservative – dress modestly.", "Water scarce.", "Desert can be cold at night."],
-                    useful: { capital: "Amman", currency: "JOD (JD)", plug: "C / D / F / G / J", emergency: "911" },
-                    preTrip: [
-                        { name: "JordanPass.jo", desc: "Visa & attractions", tip: "Covers Petra entry." },
-                        { name: "PetraTickets", desc: "Book ahead", tip: "Essential." },
-                        { name: "GetYourGuide", desc: "Tours", tip: "Petra guides." }
-                    ],
-                    onGround: [
-                        { name: "Careem", desc: "Rides", tip: "Popular." },
-                        { name: "Google Maps", desc: "Works", tip: "Reliable." },
-                        { name: "Rides", desc: "Local apps", tip: "Ampersoft." }
-                    ]
-                },
-                lebanon: {
-                    name: "Lebanon", flag: "🇱🇧", region: "Middle East", timezone: "Asia/Beirut",
-                    tips: ["Beirut is the Paris of Middle East.", "Byblos is ancient.", " skiing in winter.", "Food is incredible.", "Nightlife is vibrant."],
-                    disclaimers: ["Political instability.", "Check travel advisories.", "Economic crisis."],
-                    useful: { capital: "Beirut", currency: "LBP (£)", plug: "A / B / C / D", emergency: "112" },
-                    preTrip: [
-                        { name: "Lebanon Tourism", desc: "Official guide", tip: "Check conditions." }
-                    ],
-                    onGround: [
-                        { name: "Uber", desc: "Rides", tip: "Available." },
-                        { name: "Google Maps", desc: "Works", tip: "Limited." }
-                    ]
-                },
-                mexico: {
-                    name: "Mexico", flag: "🇲🇽", region: "Americas", timezone: "America/Mexico_City",
-                    tips: ["Use DiDi or Uber – safer than taxis.", "Tequila in Jalisco – visit distilleries.", "Museos are free on Sundays.", "Street tacos are incredible."],
-                    disclaimers: ["Tap water not safe – drink bottled.", "Avoid tap water in food too.", "Violence in some areas – research destinations."],
-                    useful: { capital: "Mexico City", currency: "Peso (MXN)", plug: "A / B", emergency: "911" },
-                    preTrip: [
-                        { name: "Booking.com", desc: "Hotels", tip: "Good deals." }
-                    ],
-                    onGround: [
-                        { name: "DiDi", desc: "Rides", tip: "Cheaper than Uber." },
-                        { name: "Google Maps", desc: "Works well", tip: "Shows metro routes." },
-                        { name: "Uber", desc: "Alternative", tip: "Works in major cities." }
-                    ]
-                },
-                brazil: {
-                    name: "Brazil", flag: "🇧🇷", region: "Americas", timezone: "America/Sao_Paulo",
-                    tips: ["99 App is essential for rides.", "Porto de Galinhas for beaches.", "Learn basic Portuguese.", "Carnival is epic but book early."],
-                    disclaimers: ["Safety concerns – don't show valuables.", "Yellow fever vaccine recommended.", "Large distances – domestic flights common."],
-                    useful: { capital: "Brasília", currency: "Real (R$)", plug: "C / N", emergency: "190" },
-                    preTrip: [
-                        { name: "Decolar.com", desc: "Flights & hotels", tip: "Local Booking." }
-                    ],
-                    onGround: [
-                        { name: "99", desc: "Rides", tip: "Local Uber alternative." },
-                        { name: "Google Maps", desc: "Cities", tip: "Works in major areas." }
-                    ]
-                },
-                australia: {
-                    name: "Australia", flag: "🇦🇺", region: "Oceania", timezone: "Australia/Sydney",
-                    tips: ["Opal card for Sydney transit.", "Rent a car for road trips.", "UV is intense – sunscreen always.", "Great Barrier Reef is a must-see."],
-                    disclaimers: ["Expensive country – budget heavily.", "Everything is far apart.", "Drive on the left!"],
-                    useful: { capital: "Canberra", currency: "AUD ($)", plug: "I", emergency: "000" },
-                    preTrip: [
-                        { name: "Jetstar", desc: "Budget flights", tip: "Book early." },
-                        { name: "Booking.com", desc: "Hotels", tip: "Wide selection." }
-                    ],
-                    onGround: [
-                        { name: "Google Maps", desc: "Navigation", tip: "Works everywhere." },
-                        { name: "Uber", desc: "Rides", tip: "In all cities." },
-                        { name: "Opal", desc: "Sydney transit", tip: "Add to phone." }
-                    ]
-                },
-                newzealand: {
-                    name: "New Zealand", flag: "🇳🇿", region: "Oceania", timezone: "Pacific/Auckland",
-                    tips: ["Rent a campervan – freedom to explore.", "Great Walks need booking huts.", "Lord of the Rings locations are amazing.", "InterCity buses are cheap."],
-                    disclaimers: ["Expensive – eat at supermarkets.", "Drive on the left.", "Weather changes fast – layers!"],
-                    useful: { capital: "Wellington", currency: "NZD ($)", plug: "I", emergency: "111" },
-                    preTrip: [
-                        { name: "InterCity", desc: "Buses", tip: "Flexible passes." },
-                        { name: "GreatWalks", desc: "Hiking bookings", tip: "Book months ahead." }
-                    ],
-                    onGround: [
-                        { name: "Google Maps", desc: "Offline maps", tip: "Download for road trips." },
-                        { name: "Uber", desc: "Rides", tip: "In major cities." }
                     ]
                 },
                 switzerland: {
@@ -2871,8 +1989,7 @@
                     onGround: [
                         { name: "SL", desc: "Stockholm transit", tip: "All in one app." },
                         { name: "Google Maps", desc: "Reliable", tip: "Bus & metro." },
-                        { name: "Uber / Bolt", desc: "Rides", tip: "Major cities." },
-                        { name: "SL", desc: "All transport", tip: "Metro, bus, tram." }
+                        { name: "Uber / Bolt", desc: "Rides", tip: "Major cities." }
                     ]
                 },
                 norway: {
@@ -2934,46 +2051,49 @@
                         { name: "Google Maps", desc: "Works", tip: "Nairobi traffic." }
                     ]
                 },
-                argentina: {
-                    name: "Argentina", flag: "🇦🇷", region: "Americas", timezone: "America/Buenos_Aires",
-                    tips: ["Blue market for better exchange rate.", "Iguazu Falls is spectacular.", "Asado (BBQ) is a must.", "Tango in Buenos Aires."],
-                    disclaimers: ["Inflation is high – bring cash.", "Visa not needed for many countries.", "Economic instability – check rates."],
-                    useful: { capital: "Buenos Aires", currency: "Peso (ARS)", plug: "C / I", emergency: "911" },
+                mexico: {
+                    name: "Mexico", flag: "🇲🇽", region: "Americas", timezone: "America/Mexico_City",
+                    tips: ["Use DiDi or Uber – safer than taxis.", "Tequila in Jalisco – visit distilleries.", "Museos are free on Sundays.", "Street tacos are incredible."],
+                    disclaimers: ["Tap water not safe – drink bottled.", "Avoid tap water in food too.", "Violence in some areas – research destinations."],
+                    useful: { capital: "Mexico City", currency: "Peso (MXN)", plug: "A / B", emergency: "911" },
                     preTrip: [
-                        { name: "Despegar", desc: "Flights & hotels", tip: "Local booking." }
+                        { name: "Booking.com", desc: "Hotels", tip: "Good deals." }
                     ],
                     onGround: [
-                        { name: "Google Maps", desc: "Cities", tip: "Bus routes too." },
-                        { name: "Uber", desc: "Buenos Aires", tip: "Works in capital." }
+                        { name: "DiDi", desc: "Rides", tip: "Cheaper than Uber." },
+                        { name: "Google Maps", desc: "Works well", tip: "Shows metro routes." },
+                        { name: "Uber", desc: "Alternative", tip: "Works in major cities." }
                     ]
                 },
-                peru: {
-                    name: "Peru", flag: "🇵🇪", region: "Americas", timezone: "America/Lima",
-                    tips: ["Machu Picchu tickets sell out fast.", "Lima food scene is world-class.", "Altacoholics beware – altitude sickness.", "Lake Titicaca is unique."],
-                    disclaimers: ["Altitude affects many travelers.", "Tourist scams in Cusco.", "Book Inca Trail months ahead."],
-                    useful: { capital: "Lima", currency: "Sol (PEN)", plug: "A / C", emergency: "113" },
+                brazil: {
+                    name: "Brazil", flag: "🇧🇷", region: "Americas", timezone: "America/Sao_Paulo",
+                    tips: ["99 App is essential for rides.", "Porto de Galinhas for beaches.", "Learn basic Portuguese.", "Carnival is epic but book early."],
+                    disclaimers: ["Safety concerns – don't show valuables.", "Yellow fever vaccine recommended.", "Large distances – domestic flights common."],
+                    useful: { capital: "Brasília", currency: "Real (R$)", plug: "C / N", emergency: "190" },
                     preTrip: [
-                        { name: "PeruRail", desc: "Train to Machu Picchu", tip: "Book early." }
+                        { name: "Decolar.com", desc: "Flights & hotels", tip: "Local Booking." }
                     ],
                     onGround: [
-                        { name: "Google Maps", desc: "Works in cities", tip: "Offline useful." },
-                        { name: "Uber", desc: "Lima & Cusco", tip: "Safer than taxis." }
+                        { name: "99", desc: "Rides", tip: "Local Uber alternative." },
+                        { name: "Google Maps", desc: "Cities", tip: "Works in major areas." }
                     ]
                 },
-                colombia: {
-                    name: "Colombia", flag: "🇨🇴", region: "Americas", timezone: "America/Bogota",
-                    tips: ["Coffee region is a must-visit.", "Medellín is incredibly safe now.", "Salsa in Cali is legendary.", "Colombian hospitality is warm."],
-                    disclaimers: ["Security has improved but stay aware.", "Altitude in Bogotá – take it slow.", "Cocaine warnings – don't get involved."],
-                    useful: { capital: "Bogota", currency: "Peso (COP)", plug: "A / B", emergency: "123" },
+                australia: {
+                    name: "Australia", flag: "🇦🇺", region: "Oceania", timezone: "Australia/Sydney",
+                    tips: ["Opal card for Sydney transit.", "Rent a car for road trips.", "UV is intense – sunscreen always.", "Great Barrier Reef is a must-see."],
+                    disclaimers: ["Expensive country – budget heavily.", "Everything is far apart.", "Drive on the left!"],
+                    useful: { capital: "Canberra", currency: "AUD ($)", plug: "I", emergency: "000" },
                     preTrip: [
-                        { name: "ViajaporColombia", desc: "Tours", tip: "Coffee tours." }
+                        { name: "Jetstar", desc: "Budget flights", tip: "Book early." },
+                        { name: "Booking.com", desc: "Hotels", tip: "Wide selection." }
                     ],
                     onGround: [
-                        { name: "Uber", desc: "Major cities", tip: "Safer than taxis." },
-                        { name: "Google Maps", desc: "Works", tip: "Traffic heavy." }
+                        { name: "Google Maps", desc: "Navigation", tip: "Works everywhere." },
+                        { name: "Uber", desc: "Rides", tip: "In all cities." },
+                        { name: "Opal", desc: "Sydney transit", tip: "Add to phone." }
                     ]
                 },
-                nz: {
+                newzealand: {
                     name: "New Zealand", flag: "🇳🇿", region: "Oceania", timezone: "Pacific/Auckland",
                     tips: ["Rent a campervan – freedom to explore.", "Great Walks need booking huts.", "Lord of the Rings locations are amazing.", "InterCity buses are cheap."],
                     disclaimers: ["Expensive – eat at supermarkets.", "Drive on the left.", "Weather changes fast – layers!"],
@@ -2995,16 +2115,11 @@
                     preTrip: [
                         { name: "IcelandAir", desc: "Flights", tip: "Stopover deals." },
                         { name: "IcelandCard.com", desc: "Attractions pass", tip: "Save on museums." },
-                        { name: "Re.is", desc: "Ferry to Denmark", tip: "Land Rover ferry." },
                         { name: "VisitIceland.is", desc: "Official tourism", tip: "Trip planning." },
-                        { name: "Bungalo.is", desc: "Hostels", tip: "Budget accommodation." },
-                        { name: "Safetravel.is", desc: "Travel insurance", tip: "Required for rescue." }
+                        { name: "Bungalo.is", desc: "Hostels", tip: "Budget accommodation." }
                     ],
                     onGround: [
-                        { name: "Google Maps", desc: "Works", tip: "Offline useful." },
-                        { name: "Taxi", desc: "Rek", tip: "App for taxis." },
-                        { name: "Straeto", desc: "Bus routes", tip: "Public transport." },
-                        { name: "N1", desc: "Gas stations", tip: "Fuel & convenience." }
+                        { name: "Google Maps", desc: "Works", tip: "Offline useful." }
                     ]
                 },
                 czechia: {
@@ -3015,7 +2130,6 @@
                     preTrip: [
                         { name: "CD.cz", desc: "Trains", tip: "Good network." },
                         { name: "Prague.eu", desc: "City pass", tip: "Museums & transport." },
-                        { name: "CeskeKoleje.cz", desc: "Student rail passes", tip: "Discounted tickets." },
                         { name: "FlixBus", desc: "Buses", tip: "Cheap intercity." },
                         { name: "Booking.com", desc: "Hotels", tip: "All cities." }
                     ],
@@ -3033,7 +2147,6 @@
                     useful: { capital: "Warsaw", currency: "Złoty (PLN)", plug: "C", emergency: "112" },
                     preTrip: [
                         { name: "PKP.pl", desc: "Trains", tip: "Book PKP Intercity." },
-                        { name: "PolskiBus", desc: "Buses", tip: "Now FlixBus." },
                         { name: "WarsawCard.pl", desc: "City pass", tip: "Museums & transport." },
                         { name: "Booking.com", desc: "Hotels", tip: "All cities." },
                         { name: "GetYourGuide", desc: "Tours", tip: "Auschwitz tours." }
@@ -3122,6 +2235,115 @@
                         { name: "LeapCard", desc: "Transport", tip: "Dublin buses." },
                         { name: "TFI", desc: "All transport", tip: "Bus, train, tram." }
                     ]
+                },
+                saudi: {
+                    name: "Saudi Arabia", flag: "🇸🇦", region: "Middle East", timezone: "Asia/Riyadh",
+                    tips: ["Mecca for Hajj/Umrah.", "Neom is futuristic city.", "Saudi is very conservative.", "No alcohol allowed.", "Desert landscapes are vast."],
+                    disclaimers: ["Strict dress codes.", "Women's rights limited.", "Expensive – few tourists."],
+                    useful: { capital: "Riyadh", currency: "SAR (SR)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "SaudiVisa", desc: "eVisa", tip: "Available for tourists." },
+                        { name: "SaudiAirports", desc: "Flights", tip: "Fly Riyadh, Jeddah." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Available in cities." },
+                        { name: "Careem", desc: "Rides", tip: "Popular app." }
+                    ]
+                },
+                qatar: {
+                    name: "Qatar", flag: "🇶🇦", region: "Middle East", timezone: "Asia/Qatar",
+                    tips: ["Doha is modern.", "Museum of Islamic Art is stunning.", "Desert safaris are popular.", "Pearl Qatar is upscale.", "Qatar is very safe."],
+                    disclaimers: ["Very expensive.", "Alcohol only in hotels.", "Conservative dress."],
+                    useful: { capital: "Doha", currency: "QAR (QR)", plug: "G", emergency: "999" },
+                    preTrip: [
+                        { name: "QatarAirways", desc: "Flights", tip: "World-class airline." },
+                        { name: "VisitQatar", desc: "Tourism", tip: "Official guide." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Doha." },
+                        { name: "Karwa", desc: "Taxi", tip: "Official taxi app." }
+                    ]
+                },
+                oman: {
+                    name: "Oman", flag: "🇴🇲", region: "Middle East", timezone: "Asia/Muscat",
+                    tips: ["Wadi Shab is beautiful.", "Desert camping is amazing.", "Muscat is clean.", "Oman is safe and welcoming.", "Mountains are stunning."],
+                    disclaimers: ["Driving is on the right.", "Some areas require 4x4.", "Conservative but relaxed."],
+                    useful: { capital: "Muscat", currency: "OMR (Rial)", plug: "G", emergency: "9999" },
+                    preTrip: [
+                        { name: "Oman eVisa", desc: "Visa", tip: "Apply online." },
+                        { name: "OmanAir", desc: "Flights", tip: "National carrier." }
+                    ],
+                    onGround: [
+                        { name: "Otaxi", desc: "Rides", tip: "Muscat taxi app." },
+                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
+                    ]
+                },
+                jordan: {
+                    name: "Jordan", flag: "🇯🇴", region: "Middle East", timezone: "Asia/Amman",
+                    tips: ["Petra is a must-see.", "Dead Sea is therapeutic.", "Wadi Rum is magical.", "Jordan Pass covers entry.", "Amman is modern."],
+                    disclaimers: ["Conservative – dress modestly.", "Water scarce.", "Desert can be cold at night."],
+                    useful: { capital: "Amman", currency: "JOD (JD)", plug: "C / D / F / G / J", emergency: "911" },
+                    preTrip: [
+                        { name: "JordanPass.jo", desc: "Visa & attractions", tip: "Covers Petra entry." },
+                        { name: "PetraTickets", desc: "Book ahead", tip: "Essential." },
+                        { name: "GetYourGuide", desc: "Tours", tip: "Petra guides." }
+                    ],
+                    onGround: [
+                        { name: "Careem", desc: "Rides", tip: "Popular." },
+                        { name: "Google Maps", desc: "Works", tip: "Reliable." }
+                    ]
+                },
+                lebanon: {
+                    name: "Lebanon", flag: "🇱🇧", region: "Middle East", timezone: "Asia/Beirut",
+                    tips: ["Beirut is the Paris of Middle East.", "Byblos is ancient.", " skiing in winter.", "Food is incredible.", "Nightlife is vibrant."],
+                    disclaimers: ["Political instability.", "Check travel advisories.", "Economic crisis."],
+                    useful: { capital: "Beirut", currency: "LBP (£)", plug: "A / B / C / D", emergency: "112" },
+                    preTrip: [
+                        { name: "Lebanon Tourism", desc: "Official guide", tip: "Check conditions." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Rides", tip: "Available." },
+                        { name: "Google Maps", desc: "Works", tip: "Limited." }
+                    ]
+                },
+                argentina: {
+                    name: "Argentina", flag: "🇦🇷", region: "Americas", timezone: "America/Buenos_Aires",
+                    tips: ["Blue market for better exchange rate.", "Iguazu Falls is spectacular.", "Asado (BBQ) is a must.", "Tango in Buenos Aires."],
+                    disclaimers: ["Inflation is high – bring cash.", "Visa not needed for many countries.", "Economic instability – check rates."],
+                    useful: { capital: "Buenos Aires", currency: "Peso (ARS)", plug: "C / I", emergency: "911" },
+                    preTrip: [
+                        { name: "Despegar", desc: "Flights & hotels", tip: "Local booking." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Cities", tip: "Bus routes too." },
+                        { name: "Uber", desc: "Buenos Aires", tip: "Works in capital." }
+                    ]
+                },
+                peru: {
+                    name: "Peru", flag: "🇵🇪", region: "Americas", timezone: "America/Lima",
+                    tips: ["Machu Picchu tickets sell out fast.", "Lima food scene is world-class.", "Altacoholics beware – altitude sickness.", "Lake Titicaca is unique."],
+                    disclaimers: ["Altitude affects many travelers.", "Tourist scams in Cusco.", "Book Inca Trail months ahead."],
+                    useful: { capital: "Lima", currency: "Sol (PEN)", plug: "A / C", emergency: "113" },
+                    preTrip: [
+                        { name: "PeruRail", desc: "Train to Machu Picchu", tip: "Book early." }
+                    ],
+                    onGround: [
+                        { name: "Google Maps", desc: "Works in cities", tip: "Offline useful." },
+                        { name: "Uber", desc: "Lima & Cusco", tip: "Safer than taxis." }
+                    ]
+                },
+                colombia: {
+                    name: "Colombia", flag: "🇨🇴", region: "Americas", timezone: "America/Bogota",
+                    tips: ["Coffee region is a must-visit.", "Medellín is incredibly safe now.", "Salsa in Cali is legendary.", "Colombian hospitality is warm."],
+                    disclaimers: ["Security has improved but stay aware.", "Altitude in Bogotá – take it slow.", "Cocaine warnings – don't get involved."],
+                    useful: { capital: "Bogota", currency: "Peso (COP)", plug: "A / B", emergency: "123" },
+                    preTrip: [
+                        { name: "ViajaporColombia", desc: "Tours", tip: "Coffee tours." }
+                    ],
+                    onGround: [
+                        { name: "Uber", desc: "Major cities", tip: "Safer than taxis." },
+                        { name: "Google Maps", desc: "Works", tip: "Traffic heavy." }
+                    ]
                 }
             };
 
@@ -3132,17 +2354,15 @@
                 "turkey", "ukraine", "usa", "uae", "portugal", "netherlands",
                 "greece", "morocco", "egypt", "southkorea", "singapore",
                 "vietnam", "indonesia", "taiwan", "philippines", "cambodia",
-                "myanmar", "srilanka", "nepal", "bangladesh", "laos",
-                "saudi", "qatar", "oman", "bahrain", "kuwait",
-                "jordan", "lebanon", "mexico", "brazil", "australia",
-                "switzerland", "sweden", "norway", "canada", "southafrica",
-                "kenya", "argentina", "peru", "colombia", "iceland",
-                "czechia", "poland", "hungary", "austria", "belgium", "ireland"
+                "srilanka", "nepal", "switzerland", "sweden", "norway",
+                "canada", "southafrica", "kenya", "mexico", "brazil",
+                "australia", "newzealand", "iceland", "czechia", "poland",
+                "hungary", "austria", "belgium", "ireland",
+                "saudi", "qatar", "oman", "jordan", "lebanon",
+                "argentina", "peru", "colombia"
             ];
 
-            // App URL mapping - generate proper URLs for apps
             const appUrls = {
-                // France
                 'SNCF-Connect.com': 'https://www.sncf-connect.com',
                 'TheFork.com': 'https://www.thefork.com',
                 'Paris Museum Pass': 'https://www.parismuseumpass.com',
@@ -3150,59 +2370,49 @@
                 'Louvre.fr': 'https://www.louvre.fr',
                 'France-Visas.com': 'https://france-visas.gouv.fr',
                 'AeroportsParis.com': 'https://parisaeroports.com',
-                // Spain
                 'Renfe.com': 'https://www.renfe.com',
                 'Spain.info': 'https://www.spain.info',
                 'Alsa.es': 'https://www.alsa.es',
                 'Aena.es': 'https://www.aena.es',
                 'TMB': 'https://www.tmb.cat',
                 'EMT Madrid': 'https://www.emtmadrid.es',
-                // Italy
                 'Trenitalia.com': 'https://www.trenitalia.com',
                 'ItaloTreno.it': 'https://www.italotreno.it',
                 'Vatican.va': 'https://biglietteriamusei.vatican.va/musei/',
                 'Museiitaliani.it': 'https://www.museiitaliani.it',
                 'ATAC Roma': 'https://www.atac.roma.it',
                 'ATM Milano': 'https://www.atm.it',
-                // UK
+                'TiMuseum.it': 'https://www.ti-museum.it/',
                 'NationalRail.co.uk': 'https://www.nationalrail.co.uk',
-                'VisitBritain.com': 'https://www.visitbritain.com',
-                'LondonPass.com': 'https://www.londonpass.com',
+                'VisitBritain.com': 'https://www.visitbritain.com/',
+                'LondonPass.com': 'https://www.londonpass.com/',
                 'Trainline.com': 'https://www.thetrainline.com',
-                // Germany
                 'Bahn.de': 'https://www.bahn.de',
                 'DeutscheBahn.com': 'https://www.bahn.com',
                 'FlixBus': 'https://www.flixbus.com',
-                'Berlin.de/en': 'https://www.berlin.de',
+                'Berlin.de/en': 'https://www.berlin.de/en/',
                 'Lufthansa.com': 'https://www.lufthansa.com',
                 'DB Navigator': 'https://www.bahn.com/en/service/mobile/db-navigator',
                 'BVG': 'https://www.bvg.de',
                 'MVV': 'https://www.mvv-muenchen.de',
                 'VRR': 'https://www.vrr.de',
-                // Japan
                 'Japanrailpass.net': 'https://www.japanrailpass.net',
-                'JapanTravel.com': 'https://en.japantravel.com',
-                'Hyperdia.com': 'https://www.hyperdia.com',
+                'JapanTravel.com': 'https://japan-guide.com/',
                 'Navitime': 'https://www.navitime.co.jp',
-                // China
                 'Trip.com': 'https://www.trip.com',
-                // Thailand
                 'ThaiVisa.com': 'https://www.thai-visa.com',
                 'TourismThailand.org': 'https://www.tourismthailand.org',
                 '12go.asia': 'https://www.12go.asia',
-                // USA
                 'Recreation.gov': 'https://www.recreation.gov',
                 'Amtrak.com': 'https://www.amtrak.com',
                 'NPS.gov': 'https://www.nps.gov',
-                // UAE
                 'Visitdubai.com': 'https://www.visitdubai.com',
                 'RTA.ae': 'https://www.rta.ae',
-                // Europe general
+                'RTA Dubai': 'https://www.rta.ae/rta/',
                 'Citymapper': 'https://citymapper.com',
                 'Moovit': 'https://moovit.com',
                 'GetYourGuide': 'https://www.getyourguide.com',
                 'Klook': 'https://www.klook.com',
-                // Transport
                 'Uber': 'https://www.uber.com',
                 'Lyft': 'https://www.lyft.com',
                 'Grab': 'https://www.grab.com',
@@ -3211,21 +2421,17 @@
                 'FreeNow': 'https://www.free-now.com',
                 'InDrive': 'https://indrive.com',
                 'Careem': 'https://www.careem.com',
-                // Messaging & Maps
                 'Google Maps': 'https://www.google.com/maps',
                 'Google Translate': 'https://translate.google.com',
                 'WhatsApp': 'https://www.whatsapp.com',
                 'WeChat': 'https://www.wechat.com',
                 'Line': 'https://line.me',
                 'Zalo': 'https://zalo.me',
-                // Payment
                 'Alipay': 'https://global.alipay.com',
-                // Food
                 'Glovo': 'https://glovoapp.com',
                 'Deliveroo': 'https://www.deliveroo.com',
                 'Lieferando': 'https://www.lieferando.de',
                 'Foodpanda': 'https://www.foodpanda.com',
-                // Travel
                 'Skyscanner': 'https://www.skyscanner.com',
                 'Booking.com': 'https://www.booking.com',
                 'Airbnb': 'https://www.airbnb.com',
@@ -3234,130 +2440,108 @@
                 'Lonely Planet': 'https://www.lonelyplanet.com',
                 'AllTrails': 'https://www.alltrails.com',
                 'Rome2Rio': 'https://www.rome2rio.com',
-                // Finance
                 'Wise': 'https://www.wise.com',
                 'Revolut': 'https://www.revolut.com',
                 'XE Currency': 'https://www.xe.com',
-                // Country specific
-                'National Rail': 'https://www.nationalrail.co.uk',
                 'Trainline': 'https://www.thetrainline.com',
                 'SNCF': 'https://www.sncf-connect.com',
-                // Austria
                 'OEBB.at': 'https://www.oebb.at',
                 'Austrian.com': 'https://www.austrian.com',
-                // Belgium
                 'SNCB.be': 'https://www.sncb.be',
-                // Switzerland
                 'SBB.ch': 'https://www.sbb.ch',
-                // Sweden
+                'IcelandCard.com': 'https://www.icelandcard.com/',
+                'VisitIceland.is': 'https://www.visiticeland.com/',
+                'Bungalo.is': 'https://bungalo.com/',
                 'SJ.se': 'https://www.sj.se',
-                // Norway
                 'Vy.no': 'https://www.vy.no',
-                // Netherlands
                 'NS.nl': 'https://www.ns.nl',
                 'NS International': 'https://www.nsinternational.nl',
                 'GVB': 'https://www.gvb.nl',
                 '9292': 'https://www.9292.nl',
-                // Poland
                 'PKP.pl': 'https://www.pkp.pl',
-                'PolskiBus': 'https://www.polskibus.com',
                 'JakDojade': 'https://www.jakdojade.pl',
-                // Czech
                 'CD.cz': 'https://www.cd.cz',
-                // Hungary
                 'MAV': 'https://www.mav.hu',
                 'Volanbusz': 'https://www.volanbusz.hu',
                 'BKK': 'https://www.bkk.hu',
-                // Portugal
                 'cp.pt': 'https://www.cp.pt',
                 'Rede Expressos': 'https://www.rede-expressos.pt',
-                // Greece
                 'Ferries.gr': 'https://www.ferries.gr',
                 'GreekFerries.gr': 'https://www.greekferries.gr',
+                'Ferryhopper': 'https://www.ferryhopper.com',
                 'OASA': 'https://www.oasa.gr',
-                // Ireland
                 'IrishRail': 'https://www.irishrail.ie',
+                'LeapCard': 'https://www.leapcard.ie',
+                'DublinPass': 'https://www.dublinpass.com/',
+                'PaddyWagonTours': 'https://www.paddywagontours.com/',
                 'BusEireann': 'https://www.buseireann.ie',
                 'LeapCard': 'https://www.leapcard.ie',
-                // Australia
                 'Jetstar': 'https://www.jetstar.com',
                 'Opal': 'https://www.opal.com.au',
-                // New Zealand
                 'InterCity': 'https://www.intercity.co.nz',
-                // Canada
                 'VIA Rail': 'https://www.viarail.ca',
-                // South Africa
                 'Safarinow': 'https://www.safarinow.com',
-                // Asia
+                'ViajaporColombia': 'https://viajaporcolombia.com/',
                 'Korea': 'https://www.visitkorea.or.kr',
                 'Korail': 'https://www.letskorail.com',
                 'Naver Maps': 'https://maps.naver.com',
                 'KakaoT': 'https://www.kakaot.com',
                 'VisitSingapore': 'https://www.visitsingapore.com',
                 'EZ-Link': 'https://www.ezlink.com.sg',
-                // Taiwan
                 'TaiwanRailway': 'https://www.railway.gov.tw',
                 'THSR': 'https://www.thsrc.com.tw',
                 'EasyCard': 'https://www.easycard.com.tw',
-                // Philippines
                 'Angkas': 'https://www.angkas.com',
-                // Cambodia
                 'PassApp': 'https://www.passapp.com.kh',
-                // Africa
                 'ONCF': 'https://www.oncf.ma',
                 'CTM': 'https://www.ctm.ma',
-                // Middle East
                 'Emirates': 'https://www.emirates.com',
                 'Qatar Airways': 'https://www.qatarairways.com',
+                'VisitQatar': 'https://www.visitqatar.com',
                 'Oman Air': 'https://www.omanair.com',
-                // Ukraine
+                'Otaxi': 'https://otaxi.com',
                 'Ukrzaliznytsia': 'https://www.uz.gov.ua',
-                'SkyUp Airlines': 'https://skyup.aero',
-                'WizzAir': 'https://wizzair.com',
+                'SkyUp Airlines': 'https://skyup.aero/',
+                'WizzAir': 'https://www.wizzair.com',
                 'Uklon': 'https://uklon.com.ua',
-                'Uklon Go': 'https://uklongo.com',
                 'MonoBank': 'https://monobank.ua',
                 'Nova Poshta': 'https://novaposhta.ua',
                 'Raketa': 'https://raketa.ua',
-                'Kyiv Metro': 'https://metropoliten.kiev.ua',
-                'Glovo': 'https://glovoapp.com',
                 'Rozetka': 'https://rozetka.com.ua',
-                // Misc
                 'Duolingo': 'https://www.duolingo.com',
+                'VisitQatar': 'https://www.visitqatar.com',
+                'Otaxi': 'https://otaxi.com',
+                'VisitBrussels': 'https://www.visit.brussels/en/visitors',
+                'BrusselsCard': 'https://brusselscard.org/en/',
+                'STIB': 'https://www.stib-mivb.be/',
                 'World Time Buddy': 'https://www.worldtimebuddy.com',
                 'Yelp': 'https://www.yelp.com'
             };
 
             function getAppUrl(appName) {
-                // Try to find a match
                 for (const [key, url] of Object.entries(appUrls)) {
                     if (appName.toLowerCase().includes(key.toLowerCase()) ||
                         key.toLowerCase().includes(appName.toLowerCase().replace('.com', '').replace('.org', ''))) {
                         return url;
                     }
                 }
-                // Default: try Google search for the app
                 return `https://www.google.com/search?q=${encodeURIComponent(appName + ' app')}`;
             }
 
             function getAppLogo(appName) {
-                // Try to extract domain from appUrls
                 for (const [key, url] of Object.entries(appUrls)) {
                     if (appName.toLowerCase().includes(key.toLowerCase()) ||
                         key.toLowerCase().includes(appName.toLowerCase().replace('.com', '').replace('.org', ''))) {
                         try {
                             const domain = new URL(url).hostname.replace('www.', '');
-                            // Use Google's favicon API (more reliable)
                             return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
                         } catch (e) { }
                     }
                 }
-                // Try common domains based on app name
                 const commonDomains = {
                     'google': 'google.com',
                     'google maps': 'maps.google.com',
                     'google translate': 'translate.google.com',
-                    'google flights': 'flights.google.com',
                     'whatsapp': 'whatsapp.com',
                     'uber': 'uber.com',
                     'lyft': 'lyft.com',
@@ -3370,21 +2554,12 @@
                     'getyourguide': 'getyourguide.com',
                     'wise': 'wise.com',
                     'revolut': 'revolut.com',
-                    'xe currency': 'xe.com',
-                    'lonely planet': 'lonelyplanet.com',
-                    'duolingo': 'duolingo.com',
-                    'alltrails': 'alltrails.com',
-                    'rome2rio': 'rome2rio.com',
-                    'world time buddy': 'worldtimebuddy.com',
                     'citymapper': 'citymapper.com',
                     'moovit': 'moovit.com',
                     'grab': 'grab.com',
                     'gojek': 'gojek.com',
                     'careem': 'careem.com',
-                    'di didi': 'didi.com',
                     'bolt': 'bolt.eu',
-                    'cabify': 'cabify.com',
-                    'free now': 'freenow.com',
                     'bahn': 'bahn.de',
                     'sncf': 'sncf.com',
                     'trenitalia': 'trenitalia.com',
@@ -3392,20 +2567,14 @@
                     'renfe': 'renfe.com',
                     'ns': 'ns.nl',
                     'sbb': 'sbb.ch',
-                    'korail': 'korail.com',
                     'alipay': 'alipay.com',
                     'wechat': 'wechat.com',
                     'line': 'line.me',
                     'zalo': 'zalo.me',
-                    'vivo': 'vivo.com',
                     'glovo': 'glovoapp.com',
                     'deliveroo': 'deliveroo.com',
                     'lieferando': 'lieferando.de',
                     'foodpanda': 'foodpanda.com',
-                    // Ukraine
-                    'ukrzaliznytsia': 'uz.gov.ua',
-                    'skyup': 'skyup.aero',
-                    'wizzair': 'wizzair.com',
                     'uklon': 'uklon.com.ua',
                     'monobank': 'monobank.ua',
                     'nova poshta': 'novaposhta.ua',
@@ -3414,21 +2583,16 @@
                 const lowerName = appName.toLowerCase();
                 for (const [name, domain] of Object.entries(commonDomains)) {
                     if (lowerName.includes(name)) {
-                        // Use Google's favicon API
                         return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
                     }
                 }
                 return null;
             }
 
-            // clock update interval reference
             let clockInterval = null;
-
-            // Filter state
             let currentRegion = 'all';
             let searchQuery = '';
 
-            // Back to top button
             const backToTopBtn = document.getElementById('backToTop');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
@@ -3441,14 +2605,12 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Search functionality
             const searchInput = document.getElementById('countrySearch');
             searchInput.addEventListener('input', (e) => {
                 searchQuery = e.target.value.toLowerCase();
                 renderCountryPills();
             });
 
-            // Region filter
             document.querySelectorAll('.region-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
@@ -3458,38 +2620,30 @@
                 });
             });
 
-            // render info panel with live clock
             function renderCountry(key) {
                 const d = countriesData[key];
                 if (!d) return;
 
-                // Handle International apps specially
                 if (key === 'international') {
                     renderInternationalApps(d);
                     return;
                 }
 
-                // Save to localStorage
                 try {
                     localStorage.setItem('lastCountry', key);
                 } catch (e) { }
 
-                // Update URL hash
                 try {
                     history.replaceState(null, null, `#${key}`);
                 } catch (e) { }
 
-                // clear previous interval
                 if (clockInterval) clearInterval(clockInterval);
 
-                // Scroll to info panel
-                document.getElementById('infoPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('contentPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-                // generate tips & disclaimers
                 const tipItems = d.tips.map(t => `<li><i class="fas fa-lightbulb"></i> ${t}</li>`).join('');
                 const disclaimerItems = d.disclaimers.map(t => `<li><i class="fas fa-exclamation-triangle"></i> ${t}</li>`).join('');
 
-                // preTrip cards with clickable links
                 const preCards = d.preTrip.map(item => {
                     const tipText = item.tip || 'Useful for planning';
                     const url = getAppUrl(item.name);
@@ -3498,11 +2652,11 @@
                     <a href="${url}" target="_blank" rel="noopener noreferrer" class="app-card">
                         <div class="app-card-header">
                             ${logo ? `<img src="${logo}" alt="${item.name}" class="app-logo" crossorigin="anonymous" onerror="this.style.display='none'">` : ''}
-                            <span class="app-card-name">${item.name}</span>
-                            <span class="badge-web"><i class="fas fa-external-link-alt"></i></span>
+                            <span class="app-name">${item.name}</span>
+                            <span class="app-badge web">Web</span>
                         </div>
-                        <div class="app-card-desc">${item.desc}</div>
-                        <div class="app-card-tip"><i class="fas fa-lightbulb"></i> ${tipText}</div>
+                        <div class="app-desc">${item.desc}</div>
+                        <div class="app-tip"><i class="fas fa-sparkles"></i> ${tipText}</div>
                     </a>
                 `;
                 }).join('');
@@ -3515,30 +2669,28 @@
                     <a href="${url}" target="_blank" rel="noopener noreferrer" class="app-card">
                         <div class="app-card-header">
                             ${logo ? `<img src="${logo}" alt="${item.name}" class="app-logo" crossorigin="anonymous" onerror="this.style.display='none'">` : ''}
-                            <span class="app-card-name">${item.name}</span>
-                            <span class="badge-app"><i class="fas fa-external-link-alt"></i></span>
+                            <span class="app-name">${item.name}</span>
+                            <span class="app-badge app">App</span>
                         </div>
-                        <div class="app-card-desc">${item.desc}</div>
-                        <div class="app-card-tip"><i class="fas fa-lightbulb"></i> ${tipText}</div>
+                        <div class="app-desc">${item.desc}</div>
+                        <div class="app-tip"><i class="fas fa-sparkles"></i> ${tipText}</div>
                     </a>
                 `;
                 }).join('');
 
                 const useful = d.useful;
                 const usefulHtml = `
-                <div class="useful-box">
-                    <span class="useful-item"><i class="fas fa-city"></i> ${useful.capital}</span>
-                    <span class="useful-item"><i class="fas fa-coins"></i> ${useful.currency}</span>
-                    <span class="useful-item"><i class="fas fa-plug"></i> ${useful.plug}</span>
-                    <span class="useful-item"><i class="fas fa-phone-alt"></i> ${useful.emergency}</span>
+                <div class="useful-info">
+                    <div class="useful-item"><i class="fas fa-building-columns"></i> <span>${useful.capital}</span></div>
+                    <div class="useful-item"><i class="fas fa-coins"></i> <span>${useful.currency}</span></div>
+                    <div class="useful-item"><i class="fas fa-plug"></i> <span>${useful.plug}</span></div>
+                    <div class="useful-item"><i class="fas fa-phone"></i> <span>${useful.emergency}</span></div>
                 </div>
             `;
 
-                // clock container (will be updated every second)
                 const clockDiv = document.createElement('div');
-                clockDiv.id = 'liveClock';
-                clockDiv.className = 'live-clock';
-                clockDiv.innerHTML = `<i class="far fa-clock"></i> <span id="clockTime">--:--:--</span>`;
+                clockDiv.className = 'live-clock-badge';
+                clockDiv.innerHTML = `<span class="pulse"></span><i class="far fa-clock"></i> <span id="clockTime">--:--:--</span>`;
 
                 function updateClock() {
                     const now = new Date();
@@ -3549,94 +2701,94 @@
                         document.getElementById('clockTime').innerText = '??:??:??';
                     }
                 }
-                // start interval after element exists
+
                 setTimeout(() => {
                     updateClock();
                     clockInterval = setInterval(updateClock, 1000);
                 }, 0);
 
-                const headerHtml = `
-                <div class="country-header">
-                    <h2><span>${d.flag}</span> ${d.name}</h2>
-                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-                        <span class="region-tag"><i class="fas fa-map-pin"></i> ${d.region}</span>
-                        ${clockDiv.outerHTML}
-                    </div>
-                </div>
-            `;
-
                 const finalHtml = `
-                ${headerHtml}
-                <div class="grid-2col">
-                    <div class="tip-box">
-                        <h3><i class="fas fa-compass"></i> tips</h3>
+                <div class="country-hero">
+                    <div class="country-title">
+                        <span class="country-flag">${d.flag}</span>
+                        <div class="country-info">
+                            <h2>${d.name}</h2>
+                            <div class="country-meta">
+                                <span class="meta-tag"><i class="fas fa-map-pin"></i> ${d.region}</span>
+                            </div>
+                        </div>
+                    </div>
+                    ${clockDiv.outerHTML}
+                </div>
+                <div class="info-cards">
+                    <div class="info-card tips">
+                        <h3><i class="fas fa-compass"></i> Tips</h3>
                         <ul>${tipItems}</ul>
                     </div>
-                    <div class="disclaimer-box">
-                        <h3><i class="fas fa-shield-alt"></i> keep in mind</h3>
+                    <div class="info-card keep-in-mind">
+                        <h3><i class="fas fa-shield-halved"></i> Keep in mind</h3>
                         <ul>${disclaimerItems}</ul>
                     </div>
                 </div>
                 ${usefulHtml}
-                <h3 class="section-title"><i class="fas fa-laptop"></i> Pre‑trip planning</h3>
-                <div class="app-grid">
-                    ${preCards || '<div class="no-data">use global aggregators</div>'}
+                <div class="apps-section">
+                    <h3><i class="fas fa-laptop"></i> Pre-trip planning</h3>
+                    <div class="apps-grid">
+                        ${preCards || '<div class="no-data">Use global aggregators</div>'}
+                    </div>
                 </div>
-                <h3 class="section-title"><i class="fas fa-mobile-alt"></i> On the ground</h3>
-                <div class="app-grid">
-                    ${onCards || '<div class="no-data">local sim recommended</div>'}
+                <div class="apps-section">
+                    <h3><i class="fas fa-mobile-screen-button"></i> On the ground</h3>
+                    <div class="apps-grid">
+                        ${onCards || '<div class="no-data">Local SIM recommended</div>'}
+                    </div>
                 </div>
             `;
-                document.getElementById('infoPanel').innerHTML = finalHtml;
-                // re-bind clock element after innerHTML overwrite
+                document.getElementById('contentPanel').innerHTML = finalHtml;
                 const clockSpan = document.getElementById('clockTime');
                 if (clockSpan) updateClock();
             }
 
-            // Render International Apps page
             function renderInternationalApps(d) {
-                // Save to localStorage
                 try {
                     localStorage.setItem('lastCountry', 'international');
                 } catch (e) { }
 
-                // Update URL hash
                 try {
                     history.replaceState(null, null, `#international`);
                 } catch (e) { }
 
-                // Scroll to info panel
-                document.getElementById('infoPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                const headerHtml = `
-                <div class="country-header">
-                    <h2><span>${d.flag}</span> ${d.name}</h2>
-                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-                        <span class="region-tag"><i class="fas fa-globe"></i> ${d.region}</span>
-                    </div>
-                </div>
-            `;
+                document.getElementById('contentPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
                 const internationalAppsHtml = getInternationalAppsHtml();
 
                 const finalHtml = `
-                ${headerHtml}
-                <div class="grid-2col">
-                    <div class="tip-box">
-                        <h3><i class="fas fa-compass"></i> tips</h3>
+                <div class="country-hero">
+                    <div class="country-title">
+                        <span class="country-flag">${d.flag}</span>
+                        <div class="country-info">
+                            <h2>${d.name}</h2>
+                            <div class="country-meta">
+                                <span class="meta-tag"><i class="fas fa-globe"></i> ${d.region}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card tips">
+                        <h3><i class="fas fa-compass"></i> Tips</h3>
                         <ul>${d.tips.map(t => `<li><i class="fas fa-lightbulb"></i> ${t}</li>`).join('')}</ul>
                     </div>
-                    <div class="disclaimer-box">
-                        <h3><i class="fas fa-shield-alt"></i> keep in mind</h3>
+                    <div class="info-card keep-in-mind">
+                        <h3><i class="fas fa-shield-halved"></i> Keep in mind</h3>
                         <ul>${d.disclaimers.map(t => `<li><i class="fas fa-exclamation-triangle"></i> ${t}</li>`).join('')}</ul>
                     </div>
                 </div>
                 ${internationalAppsHtml}
             `;
-                document.getElementById('infoPanel').innerHTML = finalHtml;
+                document.getElementById('contentPanel').innerHTML = finalHtml;
             }
 
-            // Get International Apps HTML
             function getInternationalAppsHtml() {
                 const internationalApps = [
                     { name: 'Google Maps', url: 'https://www.google.com/maps', desc: 'Offline maps, directions, traffic', tip: 'Download offline maps before going offline', type: 'web' },
@@ -3663,102 +2815,60 @@
 
                 const cardsHtml = internationalApps.map(app => {
                     const logo = getAppLogo(app.name);
-                    const badgeClass = app.type === 'app' ? 'badge-app' : 'badge-web';
+                    const badgeClass = app.type === 'app' ? 'app' : 'web';
                     return `
                     <a href="${app.url}" target="_blank" rel="noopener noreferrer" class="app-card">
                         <div class="app-card-header">
                             ${logo ? `<img src="${logo}" alt="${app.name}" class="app-logo" crossorigin="anonymous" onerror="this.style.display='none'">` : ''}
-                            <span class="app-card-name">${app.name}</span>
-                            <span class="${badgeClass}"><i class="fas fa-external-link-alt"></i></span>
+                            <span class="app-name">${app.name}</span>
+                            <span class="app-badge ${badgeClass}">${app.type === 'app' ? 'App' : 'Web'}</span>
                         </div>
-                        <div class="app-card-desc">${app.desc}</div>
-                        <div class="app-card-tip"><i class="fas fa-lightbulb"></i> ${app.tip}</div>
+                        <div class="app-desc">${app.desc}</div>
+                        <div class="app-tip"><i class="fas fa-sparkles"></i> ${app.tip}</div>
                     </a>
                 `;
                 }).join('');
 
                 return `
-                <h3 class="section-title"><i class="fas fa-globe"></i> International apps (works worldwide)</h3>
-                <div class="app-grid">
-                    ${cardsHtml}
+                <div class="apps-section">
+                    <h3><i class="fas fa-globe"></i> International apps (works worldwide)</h3>
+                    <div class="apps-grid">
+                        ${cardsHtml}
+                    </div>
                 </div>
             `;
             }
 
-            // build country pills with flags and filter
-            let pillsExpanded = false;
-            const INITIAL_VISIBLE = 3;
-
             function renderCountryPills(filteredKeys = null) {
-                const container = document.getElementById('countryPills');
-                const container2 = document.getElementById('countryPillsContainer');
-                const showMoreBtn = document.getElementById('showMoreBtn');
+                const container = document.getElementById('countriesGrid');
                 container.innerHTML = '';
-                container2.innerHTML = '';
                 const keysToRender = filteredKeys || countryKeys;
 
-                const isMobile = window.innerWidth <= 600;
-                let visibleCount = 0;
-
-                keysToRender.forEach((k, index) => {
+                keysToRender.forEach(k => {
                     const c = countriesData[k];
                     if (!c) return;
 
-                    // Check region filter
                     if (currentRegion !== 'all' && c.region !== currentRegion) return;
 
-                    const pill = document.createElement('span');
-                    pill.className = 'country-pill';
-                    pill.setAttribute('data-key', k);
-                    pill.setAttribute('role', 'option');
-                    pill.setAttribute('tabindex', '0');
-                    pill.innerHTML = `${c.flag} ${c.name}`;
-                    pill.addEventListener('click', () => {
-                        document.querySelectorAll('.country-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
+                    const chip = document.createElement('button');
+                    chip.className = 'country-chip';
+                    chip.setAttribute('data-key', k);
+                    chip.setAttribute('role', 'option');
+                    chip.innerHTML = `<span class="flag">${c.flag}</span> ${c.name}`;
+                    chip.addEventListener('click', () => {
+                        document.querySelectorAll('.country-chip').forEach(p => p.classList.remove('active'));
+                        chip.classList.add('active');
                         renderCountry(k);
                     });
-                    // Keyboard accessibility
-                    pill.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            pill.click();
-                        }
-                    });
 
-                    if (isMobile && !pillsExpanded && visibleCount >= INITIAL_VISIBLE) {
-                        container2.appendChild(pill);
-                    } else {
-                        container.appendChild(pill);
-                    }
-                    visibleCount++;
+                    container.appendChild(chip);
                 });
 
-                // Show/hide show more button on mobile
-                if (isMobile && visibleCount > INITIAL_VISIBLE) {
-                    showMoreBtn.style.display = 'flex';
-                    showMoreBtn.innerHTML = `<span>Show more</span> <i class="fas fa-chevron-down"></i> (${visibleCount - INITIAL_VISIBLE})`;
-                    showMoreBtn.onclick = () => {
-                        pillsExpanded = !pillsExpanded;
-                        if (pillsExpanded) {
-                            container2.classList.add('expanded');
-                            showMoreBtn.innerHTML = `<span>Show less</span> <i class="fas fa-chevron-up"></i>`;
-                        } else {
-                            container2.classList.remove('expanded');
-                            showMoreBtn.innerHTML = `<span>Show more</span> <i class="fas fa-chevron-down"></i> (${visibleCount - INITIAL_VISIBLE})`;
-                        }
-                    };
-                } else {
-                    showMoreBtn.style.display = 'none';
-                }
-
-                // If no matches
-                if (container.children.length === 0 && container2.children.length === 0) {
-                    container.innerHTML = '<span class="no-data">No countries found</span>';
+                if (container.children.length === 0) {
+                    container.innerHTML = '<div class="no-data">No countries found</div>';
                 }
             }
 
-            // Filter countries by search
             function filterCountries() {
                 if (!searchQuery) {
                     renderCountryPills();
@@ -3771,24 +2881,19 @@
                 renderCountryPills(filtered);
             }
 
-            // Update search to use filter
             searchInput.addEventListener('input', (e) => {
                 searchQuery = e.target.value.toLowerCase();
                 filterCountries();
             });
 
-            // Initialize
             function init() {
-                // Check for hash in URL or localStorage
                 let initialCountry = null;
 
-                // First check URL hash
                 const hash = window.location.hash.slice(1);
                 if (hash && countriesData[hash]) {
                     initialCountry = hash;
                 }
 
-                // Then check localStorage
                 if (!initialCountry) {
                     try {
                         const saved = localStorage.getItem('lastCountry');
@@ -3798,34 +2903,46 @@
                     } catch (e) { }
                 }
 
-                // Default to first country
                 if (!initialCountry) {
                     initialCountry = countryKeys[0];
                 }
 
-                // Render pills
                 renderCountryPills();
 
-                // Set active pill and render country
                 setTimeout(() => {
-                    const pill = document.querySelector(`[data-key="${initialCountry}"]`);
-                    if (pill) {
-                        pill.classList.add('active');
+                    const chip = document.querySelector(`[data-key="${initialCountry}"]`);
+                    if (chip) {
+                        chip.classList.add('active');
                     }
                     renderCountry(initialCountry);
                 }, 0);
             }
 
-            // Handle browser back/forward
             window.addEventListener('popstate', () => {
                 const hash = window.location.hash.slice(1);
                 if (hash && countriesData[hash]) {
-                    document.querySelectorAll('.country-pill').forEach(p => p.classList.remove('active'));
-                    const pill = document.querySelector(`[data-key="${hash}"]`);
-                    if (pill) pill.classList.add('active');
+                    document.querySelectorAll('.country-chip').forEach(p => p.classList.remove('active'));
+                    const chip = document.querySelector(`[data-key="${hash}"]`);
+                    if (chip) chip.classList.add('active');
                     renderCountry(hash);
                 }
             });
+
+            const mobileSidebar = document.getElementById('sidebar');
+            const mobileToggle = document.getElementById('mobileSidebarToggle');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            if (mobileToggle && mobileSidebar) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileSidebar.classList.toggle('open');
+                    sidebarOverlay.classList.toggle('open');
+                });
+
+                sidebarOverlay.addEventListener('click', () => {
+                    mobileSidebar.classList.remove('open');
+                    sidebarOverlay.classList.remove('open');
+                });
+            }
 
             init();
         })();
